@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i");
+
+
+
+ul { list-style-type: none; }
+ul li { list-style-type: none; }
+
+.main-body { 
+    width: 100%; 
+    overflow: hidden; 
+}
+
+.navbar-top { 
+    width: 100%; 
+    padding: 8px 0 10px; 
+    margin: 0 0 0 50px; 
+}
+.navbar-top li { 
+    margin: 0; 
+    float: left; 
+}
+.navbar-top li.nav-item { 
+    margin: 30px 10px 20px;
+}
+.navbar-top li .nav-link { 
+    display: block; 
+    color: #000; 
+    text-decoration: none; 
+    font-size: 17px; 
+    font-family: "ConcertOne-Regular"; 
+    margin: 0 3px; 
+    text-transform: uppercase; 
+    padding: 5px 8px 5px 8px;
+}
+.navbar-top li .nav-link:hover { 
+    color: #fff; 
+    background: #1a914d; 
+    -webkit-border-radius: 8px; 
+    -moz-border-radius: 8px; 
+    -ms-border-radius: 8px; 
+    border-radius: 8px; 
+}
+.navbar-top li .nav-link.active { 
+    color: #fff; 
+    background: #1a914d; 
+    -webkit-border-radius: 8px; 
+    -moz-border-radius: 8px; 
+    -ms-border-radius: 8px; 
+    border-radius: 8px; 
+}
+.navbar-top li.nav-account { text-align: center; margin-top: 5px; }
+
+.navbar-top li.nav-account .bt-your-acount a { color: #fff; text-decoration: none; text-transform: uppercase; }
+.navbar-top li.nav-account .register-link { font-size: 13px; font-style: italic; color: #ff8417; text-decoration: underline; }
+
+
+
+
+
+
+.box-top-footer .box-logo { margin-bottom: 15px; }
+.box-top-footer .box-logo img { max-width: 100%; height: auto; }
+.box-top-footer .box-mxh { margin: 0; padding: 0; width: 93%; display: flex; }
+.box-top-footer .box-mxh li { width: 25%; text-align: center; margin: 0 3px; }
+.box-top-footer .nav-footer { margin: 0; padding: 0; display: flex; width: 100%; }
+.box-top-footer .nav-footer li { width: 33%; padding: 0 30px 0 0; }
+.box-top-footer .nav-footer li .tt { margin: 0; padding: 0 0 2px 0; color: #1a914d; font-family: "ConcertOne-Regular"; font-size: 18px; text-transform: uppercase; }
+.box-top-footer .nav-footer li .link-item { display: block; margin: 8px 0; font-size: 13px; text-decoration: none; color: #000000; }
+
+
+.box-footer .card-payment { display: flex; flex-direction: row-reverse; }
+.box-footer .card-payment img { margin-left: 15px; }
