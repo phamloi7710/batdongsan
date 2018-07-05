@@ -10,7 +10,7 @@
                 <img src="{{asset('assets/admin/images/img.jpg')}}" alt="..." class="img-circle profile_img">
             </div>
             <div class="profile_info">
-                <span>Welcome,</span>
+                <span>Xin Chào,</span>
                 <h2>{{Auth::user()->name}}</h2>
             </div>
         </div>
@@ -26,8 +26,8 @@
                     <li>
                         <a><i class="fas fa-cogs"></i> Dự Án<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href=""> Dự Án</a></li>
-                            <li><a href=""> Nhóm Dự Án</a></li>
+                            <li><a href="{{route('getListDuAn')}}"> Dự Án</a></li>
+                            <li><a href="{{route('getListDanhMucDuAn')}}"> Nhóm Dự Án</a></li>
                              <li><a href=""> Sàn Giao Dịch</a></li>
                             <li><a href=""> Nhóm Sàn Giao Dịch</a></li>
                         </ul>
