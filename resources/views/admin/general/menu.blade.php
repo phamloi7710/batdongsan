@@ -1,7 +1,7 @@
 <div class="col-md-3 left_col">
     <div class="left_col scroll-view">
         <div class="navbar nav_title" style="border: 0;">
-            <a href="" target="_blank" class="site_title"><i class="fa fa-paw"></i> <span>{{trans('general.siteName')}}</span></a>
+            <a href="" target="_blank" class="site_title"><i class="fa fa-paw"></i> <span>TECCO GROUP</span></a>
         </div>
         <div class="clearfix"></div>
         <!-- menu profile quick info -->
@@ -22,29 +22,26 @@
                 <h3>General</h3>
                 <ul class="nav side-menu">
                     <li><a href="{{route('getIndexAdmin')}}"><i class="fas fa-home"></i> Trang Chủ</a></li>
-                    
                     <li>
                         <a><i class="fas fa-cogs"></i> Dự Án<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="{{route('getListDuAn')}}"> Dự Án</a></li>
                             <li><a href="{{route('getListDanhMucDuAn')}}"> Nhóm Dự Án</a></li>
-                             <li><a href=""> Sàn Giao Dịch</a></li>
-                            <li><a href=""> Nhóm Sàn Giao Dịch</a></li>
                         </ul>
                     </li>
                     <li>
-                        <a><i class="fas fa-cogs"></i> Tin Tức <span class="fa fa-chevron-down"></span></a>
+                        <a><i class="fas fa-cogs"></i> Sàn Giao Dịch<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href=""> Thêm Mới Tin Tức </a></li>
-                            <li><a href=""> Danh Sách Tin Tức </a></li>
-                             <li><a href=""> Nhóm Tin Tức </a></li>
+                            <li><a href="{{route('getListDanhMucSanGiaoDich')}}"> Nhóm Sàn Giao Dịch</a></li>
+                            <li><a href="{{route('getListSanGiaoDich')}}"> Sàn Giao Dịch</a></li>
                         </ul>
                     </li>
                     <li>
                         <a><i class="fas fa-cogs"></i> Cấu Hình <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href=""> Cấu Hình Website </a></li>
-                            <li><a href=""> Cấu Hình Địa Chỉ Email </a></li>
+                            <li><a href=""> Cấu Hình Chung</a></li>
+                            <li><a href=""> Cấu Hình Email</a></li>
+                             <li><a href=""> Cấu Hình Mạng Xã Hội </a></li>
                         </ul>
                     </li>
                 </ul>

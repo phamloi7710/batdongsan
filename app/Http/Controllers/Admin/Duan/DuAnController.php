@@ -14,11 +14,11 @@ class DuAnController extends Controller
     public function getListDanhMucDuAn()
     {
         $categories = Category::all();
-    	return view('admin.pages.duan.danhmuc.list',['categories'=>$categories]);
+    	return view('admin.pages.duan.duan.danhmuc.list',['categories'=>$categories]);
     }
     public function getAddDanhMucDuAn()
     {
-        return view('admin.pages.duan.danhmuc.add');
+        return view('admin.pages.duan.duan.danhmuc.add');
     }
     public function postAddDanhMucDuAn(Request $request)
     {
@@ -34,7 +34,7 @@ class DuAnController extends Controller
     public function getEditDanhMucDuAn($slug)
     {
         $category = Category::where('slug', $slug)->first();
-        return view('admin.pages.duan.danhmuc.edit',['category'=>$category]);
+        return view('admin.pages.duan.duan.danhmuc.edit',['category'=>$category]);
     }
     public function postEditDanhMucDuAn(Request $request, $slug)
     {
@@ -49,19 +49,25 @@ class DuAnController extends Controller
     }
     public function getDeleteDanhMucDuAn($id)
     {
-        $category = Category::find($id);
-        $category->delete();
-         return redirect()->route('getListDanhMucDuAn')->with('success','Xoá Danh Mục Thành Công!');
+         $duan = DuAn::where('cate_id',$id)->count();
+        if ($duan==0) {
+            $category = Category::find($id);
+            $category->delete();
+            return redirect()->route('getListDanhMucDuAn')->with('success','Xoá Danh Mục Thành Công!');
+        }
+        else{
+            return redirect()->route('getListDanhMucDuAn')->with('error','Không Thể Xoá. Danh Muc Này Đang Chứa Dự Án!');
+        }
     }
     public function getListDuAn()
     {
         $duan = DuAn::all();
-        return view('admin.pages.duan.list',['duan'=>$duan]);
+        return view('admin.pages.duan.duan.list',['duan'=>$duan]);
     }
     public function getAddDuAn()
     {
         $categories = Category::all();
-        return view('admin.pages.duan.add',['categories'=>$categories]);
+        return view('admin.pages.duan.duan.add',['categories'=>$categories]);
     }
     public function postAddDuAn(Request $request)
     {
@@ -97,6 +103,24 @@ class DuAnController extends Controller
         $duan->description = $request->description;
         $duan->sort = $request->txtSort;
         $duan->status = $request->status;
+        if($request->hot==null){
+            $duan->hot = 'false';
+        }
+        else{
+            $duan->hot = $request->hot;
+        }
+        if($request->new==null){
+            $duan->new = 'false';
+        }
+        else{
+            $duan->new = $request->new;
+        }
+        if($request->noibat==null){
+            $duan->noibat = 'false';
+        }
+        else{
+            $duan->noibat = $request->noibat;
+        }
         $dataSEO = [
             'title' => $request->txtSeoTitle,
             'description' => $request->txtSeoDescription,
@@ -111,7 +135,7 @@ class DuAnController extends Controller
         $categories = Category::all();
         $duan = DuAn::where('slug', $slug)->first();
         $dataSEO = unserialize($duan->SEO);
-        return view('admin.pages.duan.edit',['categories'=>$categories, 'duan'=>$duan,'dataSEO'=>$dataSEO]);
+        return view('admin.pages.duan.duan.edit',['categories'=>$categories, 'duan'=>$duan,'dataSEO'=>$dataSEO]);
     }
     public function postEditDuAn(Request $request, $slug)
     {
@@ -146,6 +170,24 @@ class DuAnController extends Controller
         $duan->summary = $request->summary;
         $duan->description = $request->description;
         $duan->sort = $request->txtSort;
+        if($request->hot==null){
+            $duan->hot = 'false';
+        }
+        else{
+            $duan->hot = $request->hot;
+        }
+        if($request->new==null){
+            $duan->new = 'false';
+        }
+        else{
+            $duan->new = $request->new;
+        }
+        if($request->noibat==null){
+            $duan->noibat = 'false';
+        }
+        else{
+            $duan->noibat = $request->noibat;
+        }
         $duan->status = $request->status;
         $dataSEO = [
             'title' => $request->txtSeoTitle,

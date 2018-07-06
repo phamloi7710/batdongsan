@@ -24,9 +24,9 @@ Danh Sách Danh Mục Dự Án
 		                </thead>
 		                <tbody>
 		                	@foreach($categories as $cates)
-		                    <tr class="center">
+		                    <tr>
 		                        <td>{{$cates->title}}</td>
-		                        <td style="width: 12%; font-size: 25px">
+		                        <td class="center" style="width: 12%; font-size: 25px">
                                 <?php  
                                     if($cates->status=='active')
                                     {
@@ -38,8 +38,8 @@ Danh Sách Danh Mục Dự Án
                                     }
                                 ?>
                             </td>
-                            <td style="width: 10%">{!!$cates->sort!!}</td>
-	                        <td style="width: 10%">
+                            <td class="center" style="width: 10%">{!!$cates->sort!!}</td>
+	                        <td class="center" style="width: 10%">
 								<a href="{{route('getEditDanhMucDuAn',['slug'=>$cates->slug])}}" class="btn btn-primary btn-xs" title=""><i class="fa fa-edit"></i></a>
 								<a onclick="return alertMsg('{{route('getDeleteDanhMucDuAn',['id'=>$cates->id])}}','Bạn Có Muốn Xoá Danh Mục Này Không?');" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></a>
 	                        </td>

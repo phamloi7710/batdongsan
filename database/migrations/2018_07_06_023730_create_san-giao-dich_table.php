@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDuAnTable extends Migration
+class CreateSanGiaoDichTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateDuAnTable extends Migration
      */
     public function up()
     {
-        Schema::create('du_an', function (Blueprint $table) {
+        Schema::create('san-giao-dich', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title')->nullable();
             $table->text('slug')->nullable();
@@ -23,10 +23,10 @@ class CreateDuAnTable extends Migration
             $table->longText('description')->nullable();
             $table->enum('status', array('active', 'inActive'))->default('active');
             $table->integer('sort')->nullable();
+            $table->longText('SEO')->nullable();
             $table->enum('hot', array('true', 'false'))->default('false');
             $table->enum('new', array('true', 'false'))->default('false');
             $table->enum('noibat', array('true', 'false'))->default('false');
-            $table->longText('SEO')->nullable();
             $table->timestamps();
         });
     }
@@ -38,6 +38,6 @@ class CreateDuAnTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('du_an');
+        Schema::dropIfExists('san-giao-dich');
     }
 }

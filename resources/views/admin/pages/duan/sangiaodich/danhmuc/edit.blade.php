@@ -1,17 +1,17 @@
 @section('title')
-Sửa Danh Mục Dự Án
+Chỉnh Sửa Danh Mục Sàn Giao Dịch
 @stop
 @extends('admin.general.master')
 @section('content')
 <div class="right_col" role="main">
 	<div class="x_panel">
         <div class="x_title">
-            <h2>Thêm Mới Danh Mục Dự Án </h2>
+            <h2>Chỉnh Sửa Danh Mục Sàn Giao Dịch</h2>
             <div class="clearfix"></div>
         </div>
         <div class="x_content">
             <br />
-            <form method="POST" action="{{route('postEditDanhMucDuAn',['slug'=>$category->slug,'id'=>$category->id])}}" class="form-horizontal form-label-left" enctype="multipart/form-data">
+            <form method="POST" action="{{route('postEditDanhMucSanGiaoDich',['slug'=>$category->slug,'id'=>$category->id])}}" class="form-horizontal form-label-left" enctype="multipart/form-data">
               <input type="hidden" name="_token" value="{{csrf_token()}}"/>
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12"> Tiêu Đề
