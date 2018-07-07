@@ -11,7 +11,7 @@ Thêm Mới Danh Mục Dự Án
         </div>
         <div class="x_content">
             <br />
-            <form method="POST" action="{{route('getAddDanhMucDuAn')}}" class="form-horizontal form-label-left">
+            <form method="POST" action="{{route('postAddDanhMucDuAn')}}" class="form-horizontal form-label-left">
               <input type="hidden" name="_token" value="{{csrf_token()}}"/>
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12"> Tiêu Đề

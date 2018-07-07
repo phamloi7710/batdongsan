@@ -37,10 +37,17 @@
                         </ul>
                     </li>
                     <li>
+                        <a><i class="fas fa-cogs"></i> Tin Tức<span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="{{route('getlistNewsCategories')}}"> Nhóm Tin Tức</a></li>
+                            <li><a href="{{route('getlistNews')}}"> Tin Tức</a></li>
+                        </ul>
+                    </li>
+                    <li>
                         <a><i class="fas fa-cogs"></i> Cấu Hình <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href=""> Cấu Hình Chung</a></li>
-                            <li><a href=""> Cấu Hình Email</a></li>
+                            <li><a href="{{route('getGeneralConfig')}}"> Cấu Hình Chung</a></li>
+                            <li><a href="{{route('getEmailConfig')}}"> Cấu Hình Email</a></li>
                              <li><a href=""> Cấu Hình Mạng Xã Hội </a></li>
                         </ul>
                     </li>

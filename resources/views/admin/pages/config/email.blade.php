@@ -1,0 +1,114 @@
+@section('title')
+Cấu Hình Email
+@stop
+@extends('admin.general.master')
+@section('content')
+<div class="right_col" role="main">
+	<div class="row">
+	    <div class="col-md-12 col-sm-12 col-xs-12">
+		    <div class="x_panel">
+		        <div class="x_title">
+		            <h2>Cấu Hình Email</h2>
+		            <div class="clearfix"></div>
+		        </div>
+		        <div class="x_content">
+		            <form method="POST" action="" class="form-horizontal form-label-left">
+	                	<input type="hidden" name="_token" value="{{csrf_token()}}"/>
+					    <div class="form-group">
+					        <label class="control-label col-md-3 col-sm-3 col-xs-12">Tên Người Gửi
+					        </label>
+					        <div class="col-md-6 col-sm-6 col-xs-12">
+					            <input name="txtSender" value="{{$email['sender']}}" type="text" class="form-control col-md-7 col-xs-12">
+					        </div>
+					    </div>
+					    <div class="form-group">
+					        <label class="control-label col-md-3 col-sm-3 col-xs-12">Địa Chỉ Email
+					        </label>
+					        <div class="col-md-6 col-sm-6 col-xs-12">
+					            <input name="txtEmail" value="{{$email['email']}}" type="text" class="form-control col-md-7 col-xs-12">
+					        </div>
+					    </div>
+					    <div class="form-group">
+					        <label class="control-label col-md-3 col-sm-3 col-xs-12">Mật Khẩu Email
+					        </label>
+					        <div class="col-md-6 col-sm-6 col-xs-12">
+					            <input name="txtPassword" value="{{$email['password']}}" type="password" class="form-control col-md-7 col-xs-12">
+					        </div>
+					    </div>
+					    <div class="form-group">
+					        <label class="control-label col-md-3 col-sm-3 col-xs-12">Driver
+					        </label>
+					        <div class="col-md-6 col-sm-6 col-xs-12">
+					            <input name="txtDriver" value="{{$email['driver']}}" type="text" class="form-control">
+					        </div>
+					    </div>
+					     <div class="form-group">
+					        <label class="control-label col-md-3 col-sm-3 col-xs-12">SMTP Host
+					        </label>
+					        <div class="col-md-6 col-sm-6 col-xs-12">
+					            <input name="txtHost" value="{{$email['host']}}" type="text" class="form-control">
+					        </div>
+					    </div>
+					    <div class="form-group">
+					        <label class="control-label col-md-3 col-sm-3 col-xs-12">SMTP Port
+					        </label>
+					        <div class="col-md-6 col-sm-6 col-xs-12">
+					            <input name="txtPort" value="{{$email['port']}}" type="text" class="form-control">
+					        </div>
+					    </div>
+					    <div class="form-group">
+					        <label class="control-label col-md-3 col-sm-3 col-xs-12">Encrypt
+					        </label>
+					        <div class="col-md-6 col-sm-6 col-xs-12">
+					            <div class="radio radio-primary">
+	                                <input type="radio" name="radioEncrypt" id="radio1" value="normal"
+									<?php  
+										if ($email['encrypt']=='normal') {
+											echo "checked";
+										}
+									?>
+	                                >
+	                                <label for="radio1">
+	                                   	Normal
+	                                </label>
+	                            </div>
+	                            <div class="radio radio-primary">
+	                                <input type="radio" name="radioEncrypt" id="radio2" value="ssl"
+	                                <?php  
+										if ($email['encrypt']=='ssl') {
+											echo "checked";
+										}
+									?>
+	                                >
+	                                <label for="radio2">
+	                                    SSL
+	                                </label>
+	                            </div>
+					        </div>
+					    </div>
+					    <div class="ln_solid"></div>
+					    <div class="form-group">
+					        <div class="col-md-4 col-sm-4 col-xs-5 pull-right">
+					            <button type="submit" class="btn btn-success"> Cập Nhật</button>
+					        </div>
+					    </div>
+					</form>
+		        </div>
+		    </div>
+		</div>
+	</div>
+</div>
+<script>
+ 	$(document).ready(function(){
+ 		var domain = "";
+ 		$('.lfm').filemanager('image', {prefix: domain});
+ 		var lfm = function(options, cb) {
+			var route_prefix = (options && options.prefix) ? options.prefix : '/admin/quan-ly-hinh-anh';
+			window.open(route_prefix + '?type=' + options.type || 'file', 'FileManager', 'width=900,height=600');
+			window.SetUrl = cb;
+		}
+		lfm({type: 'image', prefix: 'prefix'}, function(url, path) {
+		});
+ 	});
+ </script>	
+@stop
