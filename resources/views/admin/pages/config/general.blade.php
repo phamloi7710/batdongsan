@@ -56,17 +56,63 @@ Cấu Hình Thông Tin Chung Cho Website
 					        </div>
 					    </div>
 					    <div class="form-group">
-						    <label class="control-label col-md-3 col-sm-3 col-xs-12">Logo</label>
+						    <label class="control-label col-md-3 col-sm-3 col-xs-12">Thiết Lập Logo</label>
 						    <div class="col-md-6 col-sm-6 col-xs-12">
 						        <div class="imageupload panel panel-default">
 						            <div class="panel-heading clearfix">
 						                <i>Upload và chỉnh sửa hình ảnh của logo.</i>
 						            </div>
-						            <img src="{{asset('')}}{{$general['logo']}}" id="holder" style="margin-top:15px;max-height:200px;">
-						            <input name="logo" style="display: none;" id="thumbnail" class="form-control" type="text" name="filepath">
+						            @if(isset($general['logo']))
+						            <img src="{{asset('')}}{{$general['logo']}}" id="previewLogo" style="margin-top:15px;max-height:200px;">
+						            @else
+						            <img id="previewLogo" style="margin-top:15px;max-height:200px;">
+						            @endif
+						            <input style="display: none;" name="logo" id="setUrlLogo" class="form-control" type="text" name="filepath">
 						            <div class="file-tab panel-body">
 						                <label class="btn btn-default btn-file">
-						                <span id="lfm" data-input="thumbnail" data-preview="holder">Tải Lên Hình Ảnh</span> 
+						                <span class="lfm" id="lfm" data-input="setUrlLogo" data-preview="previewLogo">Tải Lên Hình Ảnh</span> 
+						                </label>
+						            </div>
+						        </div>
+						    </div>
+						</div>
+						<div class="form-group">
+						    <label class="control-label col-md-3 col-sm-3 col-xs-12">Thiết Lập Favicon</label>
+						    <div class="col-md-6 col-sm-6 col-xs-12">
+						        <div class="imageupload panel panel-default">
+						            <div class="panel-heading clearfix">
+						                <i>Chỉnh sửa ảnh favicon để hiển thị logo trên thanh công cụ của trình duyệt. Cỡ ảnh (16x16px hoặc 32x32px), chấp nhận các định dạng ico, png, gif.</i>
+						            </div>
+						            @if(isset($general['favicon']))
+						            <img src="{{asset('')}}{{$general['favicon']}}" id="previewFavicon" style="margin-top:15px;max-height:200px;">
+						            @else
+						            <img id="previewFavicon" style="margin-top:15px;max-height:200px;">
+						            @endif
+						            <input style="display: none;" name="favicon" id="setUrlFavicon" class="form-control" type="text" name="filepath">
+						            <div class="file-tab panel-body">
+						                <label class="btn btn-default btn-file">
+						                <span class="lfm" id="lfm" data-input="setUrlFavicon" data-preview="previewFavicon">Tải Lên Hình Ảnh</span> 
+						                </label>
+						            </div>
+						        </div>
+						    </div>
+						</div>
+						<div class="form-group">
+						    <label class="control-label col-md-3 col-sm-3 col-xs-12">Hình Ảnh</label>
+						    <div class="col-md-6 col-sm-6 col-xs-12">
+						        <div class="imageupload panel panel-default">
+						            <div class="panel-heading clearfix">
+						                <i>Thiết lập hình ảnh đại diện chung cho website. Hình ảnh này sẽ được hiển thị khi chia sẻ lên các mạng xã hội.</i>
+						            </div>
+						            @if(isset($general['image']))
+						            <img src="{{asset('')}}{{$general['image']}}" id="previewImage" style="margin-top:15px;max-height:200px;">
+						            @else
+						            <img id="previewImage" style="margin-top:15px;max-height:200px;">
+						            @endif
+						            <input style="display: none;" name="image" id="setUrlFavicon" class="form-control" type="text" name="filepath">
+						            <div class="file-tab panel-body">
+						                <label class="btn btn-default btn-file">
+						                <span class="lfm" id="lfm" data-input="setUrlFavicon" data-preview="previewImage">Tải Lên Hình Ảnh</span> 
 						                </label>
 						            </div>
 						        </div>
@@ -87,19 +133,13 @@ Cấu Hình Thông Tin Chung Cho Website
 <script>
  	$(document).ready(function(){
  		var domain = "";
- 		$('#lfm').filemanager('image', {prefix: domain});
-
-
-
+ 		$('.lfm').filemanager('image', {prefix: domain});
  		var lfm = function(options, cb) {
-
 			var route_prefix = (options && options.prefix) ? options.prefix : '/laravel-filemanager';
-
 			window.open(route_prefix + '?type=' + options.type || 'file', 'FileManager', 'width=300,height=600');
 			window.SetUrl = cb;
 		}
 		lfm({type: 'image', prefix: 'prefix'}, function(url, path) {
-
 		});
  	});
  </script>	
