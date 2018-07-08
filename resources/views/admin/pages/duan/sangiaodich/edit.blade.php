@@ -218,7 +218,11 @@ Sửa Sàn Giao Dịch
                             <div class="panel-heading clearfix">
                                 <i>Upload và chỉnh sửa hình ảnh của sàn giao dịch.</i>
                             </div>
+<<<<<<< HEAD
                             <img id="previewImage" style="margin-top:15px;max-height:250px;">
+=======
+                            <img id="previewImage" style="margin-top:15px;max-height:200px;">
+>>>>>>> 9b5541f1faff057a79a61baebe82f4844e650a98
                             <input style="display: none;" name="image" id="setUrlImage" class="form-control" type="text" name="filepath">
                             <div class="file-tab panel-body">
                                 <label class="btn btn-default btn-file">

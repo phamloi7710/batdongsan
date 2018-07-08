@@ -59,6 +59,7 @@ Danh Sách Dự Án
 		                    @endforeach
 		                </tbody>
 		            </table>
+		            <div class="pull-right">{{$duan->render()}}</div>
 		        </div>
 		    </div>
 		</div>

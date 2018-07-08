@@ -84,9 +84,18 @@ Route::group(['prefix'=>'admin','middleware' => 'auth'],function(){
 // Frontend
 Route::get('','Frontend\HomeController@getIndexFrontend')->name('getIndexFrontend');
 Route::get('du-an/{slug}.html','Frontend\DuAnController@getDetail')->name('getDuAnDetail');
+<<<<<<< HEAD
 Route::get('san-giao-dich/{slug}.html','Frontend\SanGiaoDichController@getDetail')->name('getSanGiaoDichDetail');
 Route::get('san-giao-dich','Frontend\SanGiaoDichController@getSanGiaoDich')->name('getSanGiaoDich');
 Route::get('san-giao-dich/{slug}','Frontend\SanGiaoDichController@getSanGiaoDichTheoDanhMuc')->name('getSanGiaoDichTheoDanhMuc');
+=======
+
+
+
+
+
+
+>>>>>>> 9b5541f1faff057a79a61baebe82f4844e650a98
 
 
 

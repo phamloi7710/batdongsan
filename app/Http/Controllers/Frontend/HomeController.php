@@ -14,7 +14,11 @@ class HomeController extends Controller
     {
     	$duanmoi = DuAn::where('status','active')->where('new','true')->get();
     	$duan = DuAn::where('status','active')->get();
+<<<<<<< HEAD
     	$sangiaodichnoibat = SanGiaoDich::where('status', 'active')->where('noibat','true')->get();
     	return view('frontend.index',['duanmoi'=>$duanmoi, 'duan'=>$duan, 'sangiaodichnoibat'=>$sangiaodichnoibat]);
+=======
+    	return view('frontend.index',['duanmoi'=>$duanmoi, 'duan'=>$duan]);
+>>>>>>> 9b5541f1faff057a79a61baebe82f4844e650a98
     }
 }

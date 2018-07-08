@@ -1,6 +1,6 @@
 <script type="text/javascript">
     $(document).ready(function(){
-        $(".custom-notifications").delay(1600).slideUp();
+        $(".custom-notifications").delay(3000).slideUp();
     })
 </script>
 @if(Session('success'))

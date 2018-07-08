@@ -76,6 +76,7 @@ class SanGiaoDichController extends Controller
         $sangiaodich->slug = changeTitle($request->txtTitle);
         $sangiaodich->cate_id = $request->sltCate;
         $sangiaodich->image = $request->image;
+<<<<<<< HEAD
         $sangiaodich->userPostAddress = $request->txtUserPostAddress;
         $sangiaodich->userPostPhone = $request->txtUserPostPhone;
         $sangiaodich->userPostEmail = $request->txtUserPostEmail;
@@ -85,6 +86,8 @@ class SanGiaoDichController extends Controller
         $sangiaodich->area = $request->sltArea;
         $sangiaodich->address = $request->txtAddress;
         $sangiaodich->type = $request->sltType;
+=======
+>>>>>>> 9b5541f1faff057a79a61baebe82f4844e650a98
         $sangiaodich->summary = $request->summary;
         $sangiaodich->description = $request->description;
         $sangiaodich->sort = $request->txtSort;
@@ -130,6 +133,7 @@ class SanGiaoDichController extends Controller
         $sangiaodich->slug = changeTitle($request->txtTitle);
         $sangiaodich->cate_id = $request->sltCate;
         $sangiaodich->image = $request->image;
+<<<<<<< HEAD
         $sangiaodich->userPostAddress = $request->txtUserPostAddress;
         $sangiaodich->userPostPhone = $request->txtUserPostPhone;
         $sangiaodich->userPostEmail = $request->txtUserPostEmail;
@@ -139,6 +143,8 @@ class SanGiaoDichController extends Controller
         $sangiaodich->area = $request->sltArea;
         $sangiaodich->address = $request->txtAddress;
         $sangiaodich->type = $request->sltType;
+=======
+>>>>>>> 9b5541f1faff057a79a61baebe82f4844e650a98
         $sangiaodich->summary = $request->summary;
         $sangiaodich->description = $request->description;
         $sangiaodich->sort = $request->txtSort;

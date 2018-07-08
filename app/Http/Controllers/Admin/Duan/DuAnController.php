@@ -58,7 +58,8 @@ class DuAnController extends Controller
     }
     public function getListDuAn()
     {
-        $duan = DuAn::all();
+        $duan = DuAn::where('id','>',0);
+        $duan = $duan->paginate(5);
         return view('admin.pages.duan.duan.list',['duan'=>$duan]);
     }
     public function getAddDuAn()
