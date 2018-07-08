@@ -30,7 +30,7 @@ Danh Sách Dự Án
 		                	@foreach($duan as $value)
 		                    <tr>
 		                        <td>{{$value->title}}</td>
-		                        <td class="center" style="width: 18%;"><img width="180" src="{{url('uploads/du-an')}}/{{$value->image}}" alt=""></td>
+		                        <td class="center" style="width: 18%;"><img width="180" src="{{url('')}}/{{$value->image}}" alt=""></td>
 		                        <td class="center" style="width: 12%;">{{$value->danhmuc->title}}</td>
 		                        
 		                        <td class="center" style="width: 8%; font-size: 40px">

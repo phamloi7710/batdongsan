@@ -1,5 +1,5 @@
 @section('title')
-Điện tử
+Sàn Giao Dịch Bất Động Sản Tecco
 @stop
 @extends('admin.general.master')
 @section('content')

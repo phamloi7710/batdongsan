@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSanGiaoDichTable extends Migration
+class CreateNhomSanGiaoDichTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,20 +13,13 @@ class CreateSanGiaoDichTable extends Migration
      */
     public function up()
     {
-        Schema::create('san-giao-dich', function (Blueprint $table) {
+        Schema::create('nhom_san_giao_dich', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title')->nullable();
             $table->text('slug')->nullable();
-            $table->string('image')->nullable();
-            $table->integer('cate_id')->nullable();
-            $table->text('summary')->nullable();
             $table->longText('description')->nullable();
             $table->enum('status', array('active', 'inActive'))->default('active');
             $table->integer('sort')->nullable();
-            $table->longText('SEO')->nullable();
-            $table->enum('hot', array('true', 'false'))->default('false');
-            $table->enum('new', array('true', 'false'))->default('false');
-            $table->enum('noibat', array('true', 'false'))->default('false');
             $table->timestamps();
         });
     }
@@ -38,6 +31,6 @@ class CreateSanGiaoDichTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('san-giao-dich');
+        Schema::dropIfExists('nhom_san-giao-dich');
     }
 }

@@ -28,6 +28,9 @@ Route::group(['prefix'=>'admin','middleware' => 'auth'],function(){
 		Route::get('chinh-sua-du-an/{slug}.html','Admin\DuAn\DuAnController@getEditDuAn')->where(['url'=>'[0-9A-Za-z\-]+','id' => '[0-9]'])->name('getEditDuAn');
 		Route::post('chinh-sua-du-an/{slug}.html','Admin\DuAn\DuAnController@postEditDuAn')->where(['url'=>'[0-9A-Za-z\-]+','id' => '[0-9]'])->name('postEditDuAn');
 		Route::get('xoa-danh-muc-du-an/{id}.html','Admin\DuAn\DuAnController@getDeleteDuAn')->name('getDeleteDuAn');
+
+
+
 	});
 	Route::group(['prefix'=>'danh-muc-san-giao-dich'], function(){
 		Route::get('danh-sach.html','Admin\DuAn\SanGiaoDichController@getListDanhMucSanGiaoDich')->name('getListDanhMucSanGiaoDich');
@@ -41,8 +44,8 @@ Route::group(['prefix'=>'admin','middleware' => 'auth'],function(){
 		Route::get('danh-sach.html','Admin\DuAn\SanGiaoDichController@getListSanGiaoDich')->name('getListSanGiaoDich');
 		Route::get('them-moi.html','Admin\DuAn\SanGiaoDichController@getAddSanGiaoDich')->name('getAddSanGiaoDich');
 		Route::post('them-moi.html','Admin\DuAn\SanGiaoDichController@postAddSanGiaoDich')->name('postAddSanGiaoDich');
-		Route::get('chinh-sua-duansan-giao-dich/{slug}.html','Admin\DuAn\SanGiaoDichController@getEditSanGiaoDich')->where(['url'=>'[0-9A-Za-z\-]+','id' => '[0-9]'])->name('getEditSanGiaoDich');
-		Route::post('chinh-sua-duansan-giao-dich/{slug}.html','Admin\DuAn\SanGiaoDichController@postEditSanGiaoDich')->where(['url'=>'[0-9A-Za-z\-]+','id' => '[0-9]'])->name('postEditSanGiaoDich');
+		Route::get('chinh-sua-san-giao-dich/{slug}.html','Admin\DuAn\SanGiaoDichController@getEditSanGiaoDich')->where(['url'=>'[0-9A-Za-z\-]+','id' => '[0-9]'])->name('getEditSanGiaoDich');
+		Route::post('chinh-sua-san-giao-dich/{slug}.html','Admin\DuAn\SanGiaoDichController@postEditSanGiaoDich')->where(['url'=>'[0-9A-Za-z\-]+','id' => '[0-9]'])->name('postEditSanGiaoDich');
 		Route::get('xoa-danh-muc-du-an/{id}.html','Admin\DuAn\SanGiaoDichController@getDeleteSanGiaoDich')->name('getDeleteSanGiaoDich');
 	});
 	Route::group(['prefix'=>'cau-hinh'], function(){
@@ -78,16 +81,12 @@ Route::group(['prefix'=>'admin','middleware' => 'auth'],function(){
 
 
 
-
-
 // Frontend
 Route::get('','Frontend\HomeController@getIndexFrontend')->name('getIndexFrontend');
-
-
-
-
-
-
+Route::get('du-an/{slug}.html','Frontend\DuAnController@getDetail')->name('getDuAnDetail');
+Route::get('san-giao-dich/{slug}.html','Frontend\SanGiaoDichController@getDetail')->name('getSanGiaoDichDetail');
+Route::get('san-giao-dich','Frontend\SanGiaoDichController@getSanGiaoDich')->name('getSanGiaoDich');
+Route::get('san-giao-dich/{slug}','Frontend\SanGiaoDichController@getSanGiaoDichTheoDanhMuc')->name('getSanGiaoDichTheoDanhMuc');
 
 
 

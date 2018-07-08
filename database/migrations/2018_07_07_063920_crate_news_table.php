@@ -15,9 +15,9 @@ class CrateNewsTable extends Migration
     {
         Schema::create('news', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title')->nullable();
+            $table->string('title', 255)->nullable();
             $table->text('slug')->nullable();
-            $table->string('image')->nullable();
+            $table->string('image', 255)->nullable();
             $table->integer('cate_id')->nullable();
             $table->text('summary')->nullable();
             $table->longText('description')->nullable();

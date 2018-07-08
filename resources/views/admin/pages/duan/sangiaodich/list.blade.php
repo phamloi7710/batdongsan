@@ -30,7 +30,7 @@ Danh Sách Sàn Giao Dịch
 		                    <tr>
 		                        <td>{{$value->title}}</td>
 		                        <td class="center" style="width: 20%;"><img width="200" src="{{url('uploads/san-giao-dich')}}/{{$value->image}}" alt=""></td>
-		                        <td class="center" style="width: 20%;">{{$value->danhmuc->title}}</td>
+		                        <td class="center" style="width: 20%;">{{$value->category->title}}</td>
 		                        <td class="center" style="width: 12%; font-size: 25px">
                                 <?php  
                                     if($value->status=='active')

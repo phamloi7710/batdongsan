@@ -15,7 +15,7 @@ class CreateNhomDuAnTable extends Migration
     {
         Schema::create('nhom_du_an', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title')->nullable();
+            $table->string('title', 255)->nullable();
             $table->text('slug')->nullable();
             $table->longText('description')->nullable();
             $table->enum('status', array('active', 'inActive'))->default('active');

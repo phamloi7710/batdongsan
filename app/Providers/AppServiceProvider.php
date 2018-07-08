@@ -4,6 +4,11 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
+use App\Model\SanGiaoDich\Category;
+use App\Model\SanGiaoDich\SanGiaoDich;
+use View;
+use DB;
+use Lang;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -14,6 +19,10 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
+        $sangiaodichcategory = Category::where('status','active')->orderBy('sort','ASC')->get();
+        View::composer('frontend.general.danhmucsangiaodich', function($view) use($sangiaodichcategory) {
+            $view->with('sangiaodichcategory',$sangiaodichcategory);
+        });
     }
 
     /**

@@ -62,11 +62,11 @@ Thêm Mới Tin Tức
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Thiết Lập Logo</label>
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Hình Ảnh</label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
                         <div class="imageupload panel panel-default">
                             <div class="panel-heading clearfix">
-                                <i>Upload và chỉnh sửa hình ảnh của logo.</i>
+                                <i>Upload và chỉnh sửa hình ảnh của tin tức.</i>
                             </div>
                             <img id="previewImage" style="margin-top:15px;max-height:200px;">
                             <input style="display: none;" name="image" id="setUrlImage" class="form-control" type="text" name="filepath">
@@ -183,17 +183,5 @@ Thêm Mới Tin Tức
         </div>
     </div>
 </div>
-<script>
-    $(document).ready(function(){
-        var domain = "";
-        $('.lfm').filemanager('image', {prefix: domain});
-        var lfm = function(options, cb) {
-            var route_prefix = (options && options.prefix) ? options.prefix : '/admin/quan-ly-hinh-anh';
-            window.open(route_prefix + '?type=' + options.type || 'file', 'FileManager', 'width=900,height=600');
-            window.SetUrl = cb;
-        }
-        lfm({type: 'image', prefix: 'prefix'}, function(url, path) {
-        });
-    });
- </script>
+
 @endsection
