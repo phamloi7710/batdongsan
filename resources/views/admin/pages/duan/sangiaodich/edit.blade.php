@@ -62,13 +62,14 @@ Sửa Sàn Giao Dịch
                     <div class="col-md-6 col-sm-6 col-xs-12">
                         <div class="imageupload panel panel-default">
                             <div class="panel-heading clearfix">
+                                <i>Upload và chỉnh sửa hình ảnh của sàn giao dịch.</i>
                             </div>
+                            <img id="previewImage" style="margin-top:15px;max-height:200px;">
+                            <input style="display: none;" name="image" id="setUrlImage" class="form-control" type="text" name="filepath">
                             <div class="file-tab panel-body">
                                 <label class="btn btn-default btn-file">
-                                    <span>Chọn Ảnh</span>
-                                    <input name="image" type="file" name="image-file">
+                                <span class="lfm" id="lfm" data-input="setUrlImage" data-preview="previewImage">Tải Lên Hình Ảnh</span> 
                                 </label>
-                                <button type="button" class="btn btn-default">Xoá</button>
                             </div>
                         </div>
                     </div>

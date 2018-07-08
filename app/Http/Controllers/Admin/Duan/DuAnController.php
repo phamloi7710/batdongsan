@@ -6,9 +6,6 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\DuAn\Category;
 use App\Model\DuAn\DuAn;
-use Illuminate\Support\Facades\Input;
-use Session;
-use Validator;
 class DuAnController extends Controller
 {
     public function getListDanhMucDuAn()
@@ -61,7 +58,8 @@ class DuAnController extends Controller
     }
     public function getListDuAn()
     {
-        $duan = DuAn::all();
+        $duan = DuAn::where('id','>',0);
+        $duan = $duan->paginate(5);
         return view('admin.pages.duan.duan.list',['duan'=>$duan]);
     }
     public function getAddDuAn()
@@ -75,30 +73,7 @@ class DuAnController extends Controller
         $duan->title = $request->txtTitle;
         $duan->slug = changeTitle($request->txtTitle);
         $duan->cate_id = $request->sltCate;
-        if ($request->hasFile('image')) {
-            $rules = $duan->rules;
-            $file = array('image' => Input::file('image'));
-            $validator = Validator::make($file, $rules);
-            if ($validator->fails()) {
-                // send back to the page with the input data and errors
-                Session::flash('error', Lang::get('course.checkMineImageWaring'));
-                return redirect()->back();
-            } else {
-
-                // checking file is valid.
-                if (Input::file('image')->isValid()) {
-                    $destinationPath = 'uploads/du-an'; // upload path
-                    $extension = Input::file('image')->getClientOriginalExtension(); // getting image extension
-                    $fileName = time() . rand(11111, 99999) . '.' . $extension; // renameing image
-                    Input::file('image')->move($destinationPath, $fileName); // uploading file to given path
-                    $duan->image = $fileName;
-                } else {
-                    // sending back with error message.
-                    Session::flash('error', Lang::get('page.waringUploadImage'));
-                    return redirect()->back()->witch('error', Lang::get('page.waringUploadImage'));
-                }
-            }
-        }
+        $duan->image = $request->image;
         $duan->summary = $request->summary;
         $duan->description = $request->description;
         $duan->sort = $request->txtSort;
@@ -143,30 +118,7 @@ class DuAnController extends Controller
         $duan->title = $request->txtTitle;
         $duan->slug = changeTitle($request->txtTitle);
         $duan->cate_id = $request->sltCate;
-        if ($request->hasFile('image')) {
-            $rules = $duan->rules;
-            $file = array('image' => Input::file('image'));
-            $validator = Validator::make($file, $rules);
-            if ($validator->fails()) {
-                // send back to the page with the input data and errors
-                Session::flash('error', Lang::get('course.checkMineImageWaring'));
-                return redirect()->back();
-            } else {
-
-                // checking file is valid.
-                if (Input::file('image')->isValid()) {
-                    $destinationPath = 'uploads/du-an'; // upload path
-                    $extension = Input::file('image')->getClientOriginalExtension(); // getting image extension
-                    $fileName = time() . rand(11111, 99999) . '.' . $extension; // renameing image
-                    Input::file('image')->move($destinationPath, $fileName); // uploading file to given path
-                    $duan->image = $fileName;
-                } else {
-                    // sending back with error message.
-                    Session::flash('error', Lang::get('page.waringUploadImage'));
-                    return redirect()->back()->witch('error', Lang::get('page.waringUploadImage'));
-                }
-            }
-        }
+        $duan->image = $request->image;
         $duan->summary = $request->summary;
         $duan->description = $request->description;
         $duan->sort = $request->txtSort;
@@ -204,4 +156,5 @@ class DuAnController extends Controller
         $duan->delete();
          return redirect()->route('getListDuAn')->with('success','Xoá Dự Án Thành Công!');
     }
+
 }

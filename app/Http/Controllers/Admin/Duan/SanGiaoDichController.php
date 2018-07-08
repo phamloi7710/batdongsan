@@ -75,30 +75,7 @@ class SanGiaoDichController extends Controller
         $sangiaodich->title = $request->txtTitle;
         $sangiaodich->slug = changeTitle($request->txtTitle);
         $sangiaodich->cate_id = $request->sltCate;
-        if ($request->hasFile('image')) {
-            $rules = $sangiaodich->rules;
-            $file = array('image' => Input::file('image'));
-            $validator = Validator::make($file, $rules);
-            if ($validator->fails()) {
-                // send back to the page with the input data and errors
-                Session::flash('error', Lang::get('course.checkMineImageWaring'));
-                return redirect()->back();
-            } else {
-
-                // checking file is valid.
-                if (Input::file('image')->isValid()) {
-                    $destinationPath = 'uploads/san-giao-dich'; // upload path
-                    $extension = Input::file('image')->getClientOriginalExtension(); // getting image extension
-                    $fileName = time() . rand(11111, 99999) . '.' . $extension; // renameing image
-                    Input::file('image')->move($destinationPath, $fileName); // uploading file to given path
-                    $sangiaodich->image = $fileName;
-                } else {
-                    // sending back with error message.
-                    Session::flash('error', Lang::get('page.waringUploadImage'));
-                    return redirect()->back()->witch('error', Lang::get('page.waringUploadImage'));
-                }
-            }
-        }
+        $sangiaodich->image = $request->image;
         $sangiaodich->summary = $request->summary;
         $sangiaodich->description = $request->description;
         $sangiaodich->sort = $request->txtSort;
@@ -143,30 +120,7 @@ class SanGiaoDichController extends Controller
         $sangiaodich->title = $request->txtTitle;
         $sangiaodich->slug = changeTitle($request->txtTitle);
         $sangiaodich->cate_id = $request->sltCate;
-        if ($request->hasFile('image')) {
-            $rules = $sangiaodich->rules;
-            $file = array('image' => Input::file('image'));
-            $validator = Validator::make($file, $rules);
-            if ($validator->fails()) {
-                // send back to the page with the input data and errors
-                Session::flash('error', Lang::get('course.checkMineImageWaring'));
-                return redirect()->back();
-            } else {
-
-                // checking file is valid.
-                if (Input::file('image')->isValid()) {
-                    $destinationPath = 'uploads/san-giao-dich'; // upload path
-                    $extension = Input::file('image')->getClientOriginalExtension(); // getting image extension
-                    $fileName = time() . rand(11111, 99999) . '.' . $extension; // renameing image
-                    Input::file('image')->move($destinationPath, $fileName); // uploading file to given path
-                    $sangiaodich->image = $fileName;
-                } else {
-                    // sending back with error message.
-                    Session::flash('error', Lang::get('page.waringUploadImage'));
-                    return redirect()->back()->witch('error', Lang::get('page.waringUploadImage'));
-                }
-            }
-        }
+        $sangiaodich->image = $request->image;
         $sangiaodich->summary = $request->summary;
         $sangiaodich->description = $request->description;
         $sangiaodich->sort = $request->txtSort;
