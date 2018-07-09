@@ -3,11 +3,7 @@
     <head>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
         <meta charset="UTF-8" />
-<<<<<<< HEAD
         <title>@yield('title')</title>
-=======
-        <title>RUNECOM12</title>
->>>>>>> 9b5541f1faff057a79a61baebe82f4844e650a98
         <meta content="RUNECOM12" name="description" />
         <meta content="" name="keywords" />
         <link rel="shortcut icon" type="image/x-icon" />
@@ -144,11 +140,7 @@
                                             <li class="level0"><a class='' href='/tin-tuc.html'><span>Tin tức</span></a></li>
                                             <li class="level0"><a class='' href='/gioi-thieu.html'><span>Giới thiệu</span></a></li>
                                             <li class="level0"><a class='' href='/lien-he.html'><span>Liên hệ</span></a></li>
-<<<<<<< HEAD
                                             <li class="level0"><a class='' href="{{route('getSanGiaoDich')}}"><span>Sàn giao dịch</span></a></li>
-=======
-                                            <li class="level0"><a class='' href='/san-giao-dich.html'><span>Sàn giao dịch</span></a></li>
->>>>>>> 9b5541f1faff057a79a61baebe82f4844e650a98
                                             <li class="level0"><a class='' href='/thu-vien-anh.html'><span>Thư viện ảnh</span></a></li>
                                             </ul class='menu nav navbar-nav'>
                                         </nav>

@@ -327,24 +327,17 @@ Sàn Giao Dịch Bất Động Sản Tecco
                         <div class="property-block property-list clearfix">
                             <div class="row">
                                 <div class="property-resize property-item-box clearfix">
-<<<<<<< HEAD
                                     @foreach($sangiaodichnoibat as $value)
                                     <div class="property-item clearfix">
                                         <div class="image image-resize col-md-3 col-xs-12 col-sm-4">
                                             <a href="/san-giao-dich/can-mua-dat-du-an-gia-hoa-quan-9-de-o.html">
                                             <img src="{{asset('')}}{{$value->image}}" class="img-responsive" />
-=======
-                                    <div class="property-item clearfix">
-                                        <div class="image image-resize col-md-3 col-xs-12 col-sm-4">
-                                            <a href="/san-giao-dich/can-mua-dat-du-an-gia-hoa-quan-9-de-o.html">
-                                            <img src="{{asset('')}}/assets/frontend/uploads/shop108/images/property2.jpg" class="img-responsive" />
->>>>>>> 9b5541f1faff057a79a61baebe82f4844e650a98
+                                    
                                             </a>
                                             <span class="ribbon ribbon2"></span>
                                         </div>
                                         <div class="right-block col-md-9 col-xs-12 col-sm-8">
                                             <h2 class="name">
-<<<<<<< HEAD
                                                 <a href="{{route('getSanGiaoDichDetail',['slug'=>$value->slug])}}">
                                                 {{$value->title}}
                                                 </a>
@@ -357,129 +350,11 @@ Sàn Giao Dịch Bất Động Sản Tecco
                                             </div>
                                             <ul class="detail clearfix">
                                                 <li><i class="fa fa-map-marker"></i><span> {{$value->address}}</span></li>
-                                                <li><i class="fa fa-dollar"></i><span>{{$value->price}} đ</span></li>
+                                                <li><i class="fa fa-dollar"></i><span>{{number_format($value->price, 0, ',', '.')}} (đ)</span></li>
                                             </ul>
                                         </div>
                                     </div>
                                     @endforeach
-=======
-                                                <a href="/san-giao-dich/can-mua-dat-du-an-gia-hoa-quan-9-de-o.html">
-                                                Cần mua đất dự &#225;n Gia H&#242;a Quận 9 để ở
-                                                </a>
-                                            </h2>
-                                            <div class="property-date">Ngày đăng: 27/01/2015</div>
-                                            <div class="description hidden-xs">
-                                                <p>
-                                                    Tôi là cá nhân cần tìm mua 01 lô đất để ở tại dự án Gia Hòa, Quận 9. DT: từ 120 - 150 m2. Hướng: Đông, ĐN, nam.
-                                                </p>
-                                            </div>
-                                            <ul class="detail clearfix">
-                                                <li><i class="fa fa-map-marker"></i><span> Thừa Thi&#234;n - Huế</span></li>
-                                                <li><i class="fa fa-dollar"></i><span>1.201.000.000đ</span></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="property-item clearfix">
-                                        <div class="image image-resize col-md-3 col-xs-12 col-sm-4">
-                                            <a href="/san-giao-dich/can-mua-dat-gan-khu-long-bien-gia-lam-cau-duong-khoang-30-50m2.html">
-                                            <img src="{{asset('')}}/assets/frontend/uploads/shop108/images/property8.jpg" class="img-responsive" />
-                                            </a>
-                                            <span class="ribbon ribbon2"></span>
-                                        </div>
-                                        <div class="right-block col-md-9 col-xs-12 col-sm-8">
-                                            <h2 class="name">
-                                                <a href="/san-giao-dich/can-mua-dat-gan-khu-long-bien-gia-lam-cau-duong-khoang-30-50m2.html">
-                                                Cần mua đất gần khu Long Bi&#234;n, Gia L&#226;m, cầu đuống khoảng 30-50m2
-                                                </a>
-                                            </h2>
-                                            <div class="property-date">Ngày đăng: 27/01/2015</div>
-                                            <div class="description hidden-xs">
-                                                <p>
-                                                    Cần mua đất gần khu Long Biên, Gia Lâm, cầu đuống khoảng 30-50m2 giá khoảng 500 triệu. Điện thoại: 0948775486. ...
-                                                </p>
-                                            </div>
-                                            <ul class="detail clearfix">
-                                                <li><i class="fa fa-map-marker"></i><span>Hồ Ch&#237; Minh</span></li>
-                                                <li><i class="fa fa-dollar"></i><span>1.280.000.000đ</span></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="property-item clearfix">
-                                        <div class="image image-resize col-md-3 col-xs-12 col-sm-4">
-                                            <a href="/san-giao-dich/cho-thue-vp-quan-cau-giay-–-mat-duong-duong-dình-nghẹ-gia-160k-m2.-lh-0948-546-328.html">
-                                            <img src="{{asset('')}}/assets/frontend/uploads/shop108/images/property2.jpg" class="img-responsive" />
-                                            </a>
-                                            <span class="ribbon ribbon2"></span>
-                                        </div>
-                                        <div class="right-block col-md-9 col-xs-12 col-sm-8">
-                                            <h2 class="name">
-                                                <a href="/san-giao-dich/cho-thue-vp-quan-cau-giay-–-mat-duong-duong-dình-nghẹ-gia-160k-m2.-lh-0948-546-328.html">
-                                                CHO THU&#202; VP QUẬN CẦU GIẤY – MẶT ĐƯỜNG DƯƠNG ĐÌNH NGH&#202;̣ GI&#193; 160K/M2. LH 0948 546 328
-                                                </a>
-                                            </h2>
-                                            <div class="property-date">Ngày đăng: 27/01/2015</div>
-                                            <div class="description hidden-xs">
-                                                <p>
-                                                    Khu vực: Cho thuê văn phòng tại Đường Dương Đình Nghệ - Quận Cầu Giấy - Hà Nội. Giá: 160 nghìn/m2/tháng. Diện tích: 80m². . Thông tin mô tả. Độc quyền phân phối cho thuê văn phòng quận cầu giấy : Mỹ đình plaza, tòa nhà mặt đường dương đình nghệ .. ...
-                                                </p>
-                                            </div>
-                                            <ul class="detail clearfix">
-                                                <li><i class="fa fa-map-marker"></i><span>B&#224; Rịa-Vũng T&#224;u</span></li>
-                                                <li><i class="fa fa-dollar"></i><span>1.450.000.000đ</span></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="property-item clearfix">
-                                        <div class="image image-resize col-md-3 col-xs-12 col-sm-4">
-                                            <a href="/san-giao-dich/cho-thue-toa-nha-van-phong-so-8-pho-duy-tan-quan-cau-giay-hn.html">
-                                            <img src="{{asset('')}}/assets/frontend/uploads/shop108/images/property3.jpg" class="img-responsive" />
-                                            </a>
-                                            <span class="ribbon ribbon2"></span>
-                                        </div>
-                                        <div class="right-block col-md-9 col-xs-12 col-sm-8">
-                                            <h2 class="name">
-                                                <a href="/san-giao-dich/cho-thue-toa-nha-van-phong-so-8-pho-duy-tan-quan-cau-giay-hn.html">
-                                                CHO THU&#202; T&#210;A NH&#192; VĂN PH&#210;NG SỐ 8 PHỐ DUY T&#194;N - QUẬN CẦU GIẤY - HN
-                                                </a>
-                                            </h2>
-                                            <div class="property-date">Ngày đăng: 27/01/2015</div>
-                                            <div class="description hidden-xs">
-                                                <p>
-                                                    Hotline: 0914-954-155, 0974-713-391 . Vị trí: Đường Trần Thái Tông khu ĐTM Yên Hòa, Cầu Giấy, đối diện KeangNam, MobiFone, dễ dàng kết nối với các tuyến đường trung tâm Phạm Hùng, Hồ Tùng Mậu, Lê Đức Thọ. Quy Mô: tòa nhà gồm 25 tầng nổi, 2 tầng hầm ....
-                                                </p>
-                                            </div>
-                                            <ul class="detail clearfix">
-                                                <li><i class="fa fa-map-marker"></i><span>B&#224; Rịa-Vũng T&#224;u</span></li>
-                                                <li><i class="fa fa-dollar"></i><span>2.100.000.000đ</span></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="property-item clearfix">
-                                        <div class="image image-resize col-md-3 col-xs-12 col-sm-4">
-                                            <a href="/san-giao-dich/cho-thue-nha-xuong-6000m2-mat-tien-tran-dai-nghia-gia-270-trieu-thang.-lh-0989616749.html">
-                                            <img src="{{asset('')}}/assets/frontend/uploads/shop108/images/property8.jpg" class="img-responsive" />
-                                            </a>
-                                            <span class="ribbon ribbon2"></span>
-                                        </div>
-                                        <div class="right-block col-md-9 col-xs-12 col-sm-8">
-                                            <h2 class="name">
-                                                <a href="/san-giao-dich/cho-thue-nha-xuong-6000m2-mat-tien-tran-dai-nghia-gia-270-trieu-thang.-lh-0989616749.html">
-                                                CHO THU&#202; NH&#192; XƯỞNG, 6000M2 MẶT TIỀN TRẦN ĐẠI NGHĨA, GI&#193; 270 TRIỆU/TH&#193;NG. LH: 0989616749
-                                                </a>
-                                            </h2>
-                                            <div class="property-date">Ngày đăng: 27/01/2015</div>
-                                            <div class="description hidden-xs">
-                                                <p>
-                                                    cCho thuê nhà xưởng.. - Thuận tiện giao thông, đầy đủ tiện nghi, đạt chứng nhận môi trường, PCCC.. - Mặt tiền đường Trần Đại Nghĩa, xã Tân Nhựt, Bình Chánh.. - Gần đường dẫn cao tốc Trung Lương – TP. HCM.. - Tổng diện tích khuôn viên đất 6.000m2.. - D...
-                                                </p>
-                                            </div>
-                                            <ul class="detail clearfix">
-                                                <li><i class="fa fa-map-marker"></i><span>B&#236;nh Phước</span></li>
-                                                <li><i class="fa fa-dollar"></i><span>989.000.000đ</span></li>
-                                            </ul>
-                                        </div>
-                                    </div>
->>>>>>> 9b5541f1faff057a79a61baebe82f4844e650a98
                                 </div>
                             </div>
                         </div>
