@@ -30,7 +30,7 @@
         <script src="{{asset('assets/admin/')}}/vendors/switchery/dist/switchery.min.js"></script>
         <script src="{{asset('assets/admin/')}}/vendors/select2/dist/js/select2.full.min.js"></script>
         <script src="{{asset('assets/admin/')}}/vendors/iCheck/icheck.min.js"></script>
-        <script src="{{asset('vendor/laravel-filemanager/js/lfm.js')}}"></script>
+        <script src="{{asset('assets/admin')}}/laravel-filemanager/js/lfm.js"></script>
         <script src="{{asset('assets/admin/build/js/custom.js')}}"></script>
         <script src="{{asset('assets/admin/theme/custom.js')}}"></script>
     </body>
