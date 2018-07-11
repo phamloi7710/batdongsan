@@ -72,7 +72,7 @@ Sàn Giao Dịch Bất Động Sản Tecco
                                         <div class="property-item clearfix">
                                             <div class="image image-resize col-md-3 col-xs-12 col-sm-4">
                                                 <a href="/san-giao-dich/that-de-dang-khi-so-huu-lo-dat-nen-du-an-gia-re-quan-9.html">
-                                                <img src="{{url('')}}/{{$value->image}}" class="img-responsive" />
+                                                <img src="{{url('')}}/uploads/san-giao-dich/{{$value->image}}" class="img-responsive" />
                                                 </a>
                                                 <span class="ribbon ribbon2">{{$value->type}}</span>
                                             </div>

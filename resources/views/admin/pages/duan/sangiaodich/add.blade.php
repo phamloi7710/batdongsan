@@ -212,22 +212,19 @@ Thêm Mới Sàn Giao Dịch
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Hình Ảnh</label>
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12"> Hình Ảnh</label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
                         <div class="imageupload panel panel-default">
                             <div class="panel-heading clearfix">
-                                <i>Upload và chỉnh sửa hình ảnh của sàn giao dịch.</i>
+                                <i class="panel-title pull-left">Upload và chỉnh sửa hình ảnh của sàn giao dịch.</i>
                             </div>
-<<<<<<< HEAD
-                            <img id="previewImage" style="margin-top:15px;max-height:250px;">
-=======
-                            <img id="previewImage" style="margin-top:15px;max-height:200px;">
->>>>>>> 9b5541f1faff057a79a61baebe82f4844e650a98
-                            <input style="display: none;" name="image" id="setUrlImage" class="form-control" type="text" name="filepath">
                             <div class="file-tab panel-body">
                                 <label class="btn btn-default btn-file">
-                                <span class="lfm" id="lfm" data-input="setUrlImage" data-preview="previewImage">Tải Lên Hình Ảnh</span> 
+                                    <span>Chọn Hình</span>
+                                    <!-- The file is stored here. -->
+                                    <input name="image" type="file" name="image-file">
                                 </label>
+                                <button type="button" class="btn btn-default">Xoá</button>
                             </div>
                         </div>
                     </div>

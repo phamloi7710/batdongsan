@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\DuAn\Category;
 use App\Model\DuAn\DuAn;
+use Illuminate\Support\Facades\Input;
+use Session;
+use Validator;
 class DuAnController extends Controller
 {
     public function getListDanhMucDuAn()
@@ -73,7 +76,26 @@ class DuAnController extends Controller
         $duan->title = $request->txtTitle;
         $duan->slug = changeTitle($request->txtTitle);
         $duan->cate_id = $request->sltCate;
-        $duan->image = $request->image;
+        if($request->hasFile('image')) {
+            $rules = $duan->rules;
+            $file = array('image' => Input::file('image'));
+            $validator = Validator::make($file, $rules);
+            if ($validator->fails()) {
+                Session::flash('error', Lang::get('slider.checkMineImageWaring'));
+                return redirect()->back();
+            } else {
+                if (Input::file('image')->isValid()) {
+                    $destinationPath = 'uploads/du-an';
+                    $extension = Input::file('image')->getClientOriginalExtension();
+                    $fileName = time() . rand(11111, 99999) . '.' . $extension;
+                    Input::file('image')->move($destinationPath, $fileName);
+                    $duan->image = $fileName;
+                } else {
+                    Session::flash('error', Lang::get('page.waringUploadImage'));
+                    return redirect()->back()->witch('error', Lang::get('slider.waringUploadImage'));
+                }
+            }
+        }
         $duan->summary = $request->summary;
         $duan->description = $request->description;
         $duan->sort = $request->txtSort;
@@ -118,7 +140,26 @@ class DuAnController extends Controller
         $duan->title = $request->txtTitle;
         $duan->slug = changeTitle($request->txtTitle);
         $duan->cate_id = $request->sltCate;
-        $duan->image = $request->image;
+        if($request->hasFile('image')) {
+            $rules = $duan->rules;
+            $file = array('image' => Input::file('image'));
+            $validator = Validator::make($file, $rules);
+            if ($validator->fails()) {
+                Session::flash('error', Lang::get('slider.checkMineImageWaring'));
+                return redirect()->back();
+            } else {
+                if (Input::file('image')->isValid()) {
+                    $destinationPath = 'uploads/du-an';
+                    $extension = Input::file('image')->getClientOriginalExtension();
+                    $fileName = time() . rand(11111, 99999) . '.' . $extension;
+                    Input::file('image')->move($destinationPath, $fileName);
+                    $duan->image = $fileName;
+                } else {
+                    Session::flash('error', Lang::get('page.waringUploadImage'));
+                    return redirect()->back()->witch('error', Lang::get('slider.waringUploadImage'));
+                }
+            }
+        }
         $duan->summary = $request->summary;
         $duan->description = $request->description;
         $duan->sort = $request->txtSort;

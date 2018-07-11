@@ -58,30 +58,37 @@ Sửa Dự Án
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Hình Ảnh</label>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12"> Hình Ảnh</label>
+                    <div class="col-md-5 col-sm-5 col-xs-12">
                         <div class="imageupload panel panel-default">
                             <div class="panel-heading clearfix">
-                                <i>Upload và chỉnh sửa hình ảnh của dự án.</i>
+                                <i class="panel-title pull-left"> Upload hình ảnh của dự án.</i>
                             </div>
-                            @if(isset($duan['image']))
-                            <img src="{{asset('')}}{{$duan['image']}}" id="previewImage" style="margin-top:15px;max-height:200px;">
-                            @else
-                            <img id="previewImage" style="margin-top:15px;max-height:200px;">
-                            @endif
-                            <input style="display: none;" name="image" id="setUrlImage" class="form-control" type="text" name="filepath">
                             <div class="file-tab panel-body">
                                 <label class="btn btn-default btn-file">
-                                <span class="lfm" id="lfm" data-input="setUrlImage" data-preview="previewImage">Tải Lên Hình Ảnh</span> 
+                                    <span>Chọn Hình</span>
+                                    <!-- The file is stored here. -->
+                                    <input name="image" type="file" name="image-file">
                                 </label>
+                                <button type="button" class="btn btn-default">Xoá</button>
                             </div>
                         </div>
                     </div>
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="imageupload panel panel-default">
+                            <div class="panel-heading clearfix">
+                                <i class="panel-title pull-left"> Hình ảnh hiện tại</i>
+                            </div>
+                            <div class="panel-body">
+                                <img width="100%" src="{{url('')}}/uploads/du-an/{{$duan->image}}" alt="">
+                            </div>
                         </div>
+                    </div>
+                </div>
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Sắp Xếp 
                     </label>
-                    <div class="col-md-1 col-sm-1 col-xs-12">
+                    <div class="col-md-2 col-sm-2 col-xs-12">
                         <input value="{{$duan->sort}}" name="txtSort" type="number" class="form-control">
                         @if($errors->has('txtSort'))
                             <p style="color:red; float:left">{{$errors->first('txtSort')}}</p>

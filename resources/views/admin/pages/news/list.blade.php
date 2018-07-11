@@ -32,7 +32,7 @@ Danh Sách Tin Tức
 		                        <td>{{$value->title}}</td>
 		                        <td class="center" style="width: 18%;">
 		                        	@if($value->image)
-		                        	<img width="180" src="{{url('')}}/{{$value->image}}" alt="{{$value->title}}">
+		                        	<img width="180" src="{{url('')}}/uploads/tin-tuc/{{$value->image}}" alt="{{$value->title}}">
 		                        	@else
 		                        	<p>Chưa Có Hình Ảnh</p>
 		                        	@endif

@@ -62,22 +62,23 @@ Thêm Mới Tin Tức
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Hình Ảnh</label>
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12"> Hình Ảnh</label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
                         <div class="imageupload panel panel-default">
                             <div class="panel-heading clearfix">
-                                <i>Upload và chỉnh sửa hình ảnh của tin tức.</i>
+                                <i class="panel-title pull-left">Upload và chỉnh sửa hình ảnh của dự án.</i>
                             </div>
-                            <img id="previewImage" style="margin-top:15px;max-height:200px;">
-                            <input style="display: none;" name="image" id="setUrlImage" class="form-control" type="text" name="filepath">
                             <div class="file-tab panel-body">
                                 <label class="btn btn-default btn-file">
-                                <span class="lfm" id="lfm" data-input="setUrlImage" data-preview="previewImage">Tải Lên Hình Ảnh</span> 
+                                    <span>Chọn Hình</span>
+                                    <!-- The file is stored here. -->
+                                    <input name="image" type="file" name="image-file">
                                 </label>
+                                <button type="button" class="btn btn-default">Xoá</button>
                             </div>
                         </div>
                     </div>
-                        </div>
+                </div>
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Sắp Xếp 
                     </label>

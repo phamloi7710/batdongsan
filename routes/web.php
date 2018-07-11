@@ -10,8 +10,7 @@ Route::get('admin/logout.html','Account\LoginController@getLogoutAdmin')->name('
 
 // Admin
 Route::group(['prefix'=>'admin','middleware' => 'auth'],function(){
-	Route::get('/quan-ly-hinh-anh', '\UniSharp\LaravelFilemanager\controllers\LfmController@show');
-    Route::post('/quan-ly-hinh-anh/upload', '\UniSharp\LaravelFilemanager\controllers\UploadController@upload');
+	
 	Route::get('', 'Admin\AdminController@getIndexAdmin')->name('getIndexAdmin');
 	Route::group(['prefix'=>'danh-muc-du-an'], function(){
 		Route::get('danh-sach.html','Admin\DuAn\DuAnController@getListDanhMucDuAn')->name('getListDanhMucDuAn');
@@ -87,3 +86,23 @@ Route::get('du-an/{slug}.html','Frontend\DuAnController@getDetail')->name('getDu
 Route::get('san-giao-dich/{slug}.html','Frontend\SanGiaoDichController@getDetail')->name('getSanGiaoDichDetail');
 Route::get('san-giao-dich','Frontend\SanGiaoDichController@getSanGiaoDich')->name('getSanGiaoDich');
 Route::get('san-giao-dich/{slug}','Frontend\SanGiaoDichController@getSanGiaoDichTheoDanhMuc')->name('getSanGiaoDichTheoDanhMuc');
+Route::get('tin-tuc','Frontend\TinTucController@getNews')->name('getNewsFrontend');
+Route::get('tin-tuc/{slug}.html','Frontend\TinTucController@getDetail')->name('getNewsDetail');
+Route::get('tin-tuc/{slug}','Frontend\TinTucController@getNewsCategory')->name('getNewsCategory');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

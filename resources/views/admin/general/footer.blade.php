@@ -7,19 +7,6 @@
                 <!-- /footer content -->
             </div>
         </div>
-        <script>
-            $(document).ready(function(){
-                var domain = "";
-                $('.lfm').filemanager('image', {prefix: domain});
-                var lfm = function(options, cb) {
-                    var route_prefix = (options && options.prefix) ? options.prefix : '/admin/quan-ly-hinh-anh';
-                    window.open(route_prefix + '?type=' + options.type || 'file', 'FileManager', 'width=900,height=600');
-                    window.SetUrl = cb;
-                }
-                lfm({type: 'image', prefix: 'prefix'}, function(url, path) {
-                });
-            });
-         </script>
         <!-- Bootstrap -->
         <script src="{{asset('assets/admin/vendors/bootstrap/dist/js/bootstrap.min.js')}}"></script>
         <script src="{{asset('assets/admin/vendors/fastclick/lib/fastclick.js')}}"></script>
@@ -30,7 +17,6 @@
         <script src="{{asset('assets/admin/')}}/vendors/switchery/dist/switchery.min.js"></script>
         <script src="{{asset('assets/admin/')}}/vendors/select2/dist/js/select2.full.min.js"></script>
         <script src="{{asset('assets/admin/')}}/vendors/iCheck/icheck.min.js"></script>
-        <script src="{{asset('assets/admin')}}/laravel-filemanager/js/lfm.js"></script>
         <script src="{{asset('assets/admin/build/js/custom.js')}}"></script>
         <script src="{{asset('assets/admin/theme/custom.js')}}"></script>
     </body>

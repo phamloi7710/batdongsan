@@ -11,7 +11,7 @@ Sửa Sàn Giao Dịch
         </div>
         <div class="x_content">
             <br />
-            <form method="POST" action="{{route('postEditSanGiaoDich')}}" class="form-horizontal form-label-left" enctype="multipart/form-data">
+            <form method="POST" action="{{route('postEditSanGiaoDich',['slug'=>$sangiaodich->slug,'id'=>$sangiaodich->id])}}" class="form-horizontal form-label-left" enctype="multipart/form-data">
               <input type="hidden" name="_token" value="{{csrf_token()}}"/>
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12"> Tiêu Đề
@@ -30,7 +30,7 @@ Sửa Sàn Giao Dịch
                         <select name="sltCate" class="form-control" required="required">
                             <option value="">-----Chọn Danh Mục-----</option>
                             @foreach($categories as $cate)
-                            <option value="{{$cate->id}}">{{$cate->title}}</option>
+                            <option value="{{$cate->id}}" @if($sangiaodich->cate_id==$cate->id) selected @endif>{{$cate->title}}</option>
                             @endforeach
                         </select>
                         @if($errors->has('sltCate'))
@@ -42,7 +42,7 @@ Sửa Sàn Giao Dịch
                     <label class="control-label col-md-3 col-sm-3 col-xs-12"> Giá
                     </label>
                     <div class="col-md-3 col-sm-3 col-xs-12">
-                        <input name="txtPrice" value="{{old('txtPrice')?old('txtPrice'):0}}" type="number" class="form-control" required="required">
+                        <input name="txtPrice" value="{{$sangiaodich->price}}" type="number" class="form-control" required="required">
                         @if($errors->has('txtPrice'))
                             <p style="color:red; float:left">{{$errors->first('txtPrice')}}</p>
                         @endif
@@ -50,7 +50,7 @@ Sửa Sàn Giao Dịch
                     <label class="control-label col-md-1 col-sm-1 col-xs-12"> Số Phòng
                     </label>
                     <div class="col-md-2 col-sm-2 col-xs-12">
-                        <input name="txtRoom" value="{{old('txtRoom')?old('txtRoom'):0}}" type="number" class="form-control" required="required">
+                        <input name="txtRoom" value="{{$sangiaodich->room}}" type="number" class="form-control" required="required">
                         @if($errors->has('txtRoom'))
                             <p style="color:red; float:left">{{$errors->first('txtRoom')}}</p>
                         @endif
@@ -132,8 +132,8 @@ Sửa Sàn Giao Dịch
                     </label>
                     <div class="col-md-2 col-sm-2 col-xs-12">
                         <select name="sltType" class="form-control">
-                            <option value="Mua Bán"> Mua Bán</option>
-                            <option value="Cho Thuê"> Cho Thuê</option>
+                            <option value="Mua Bán" @if($sangiaodich->type=='Mua Bán') selected @endif> Mua Bán</option>
+                            <option value="Cho Thuê" @if($sangiaodich->type=='Cho Thuê') selected @endif> Cho Thuê</option>
                         </select>
                         @if($errors->has('txtRoom'))
                             <p style="color:red; float:left">{{$errors->first('txtRoom')}}</p>
@@ -144,7 +144,7 @@ Sửa Sàn Giao Dịch
                     <label class="control-label col-md-3 col-sm-3 col-xs-12"> Địa Chỉ
                     </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input name="txtAddress" value="{{old('txtAddress')}}" type="text" class="form-control">
+                        <input name="txtAddress" value="{{$sangiaodich->address}}" type="text" class="form-control">
                         @if($errors->has('txtAddress'))
                             <p style="color:red; float:left">{{$errors->first('txtAddress')}}</p>
                         @endif
@@ -159,7 +159,7 @@ Sửa Sàn Giao Dịch
                     <label class="control-label col-md-3 col-sm-3 col-xs-12"> Người Đăng
                     </label>
                     <div class="col-md-2 col-sm-2 col-xs-12">
-                        <input name="txtUserPostName" value="{{old('txtUserPostName')}}" type="text" class="form-control" required="required">
+                        <input name="txtUserPostName" value="{{$sangiaodich->userPostName}}" type="text" class="form-control" required="required">
                         @if($errors->has('txtUserPostName'))
                             <p style="color:red; float:left">{{$errors->first('txtUserPostName')}}</p>
                         @endif
@@ -167,7 +167,7 @@ Sửa Sàn Giao Dịch
                     <label class="control-label col-md-1 col-sm-1 col-xs-12"> Email
                     </label>
                     <div class="col-md-3 col-sm-3 col-xs-12">
-                        <input name="txtUserPostEmail" value="{{old('txtUserPostEmail')}}" type="text" class="form-control" required="required">
+                        <input name="txtUserPostEmail" value="{{$sangiaodich->userPostEmail}}" type="text" class="form-control" required="required">
                         @if($errors->has('txtUserPostEmail'))
                             <p style="color:red; float:left">{{$errors->first('txtUserPostEmail')}}</p>
                         @endif
@@ -177,7 +177,7 @@ Sửa Sàn Giao Dịch
                     <label class="control-label col-md-3 col-sm-3 col-xs-12"> Số Điện Thoại
                     </label>
                     <div class="col-md-2 col-sm-2 col-xs-12">
-                        <input name="txtUserPostPhone" value="{{old('txtUserPostPhone')}}" type="text" class="form-control" required="required">
+                        <input name="txtUserPostPhone" value="{{$sangiaodich->userPostPhone}}" type="text" class="form-control" required="required">
                         @if($errors->has('txtUserPostPhone'))
                             <p style="color:red; float:left">{{$errors->first('txtUserPostPhone')}}</p>
                         @endif
@@ -185,7 +185,7 @@ Sửa Sàn Giao Dịch
                     <label class="control-label col-md-1 col-sm-1 col-xs-12"> Địa Chỉ
                     </label>
                     <div class="col-md-3 col-sm-3 col-xs-12">
-                        <input name="txtUserPostAddress" value="{{old('txtUserPostAddress')}}" type="text" class="form-control" required="required">
+                        <input name="txtUserPostAddress" value="{{$sangiaodich->userPostAddress}}" type="text" class="form-control" required="required">
                         @if($errors->has('txtUserPostAddress'))
                             <p style="color:red; float:left">{{$errors->first('txtUserPostAddress')}}</p>
                         @endif
@@ -195,7 +195,7 @@ Sửa Sàn Giao Dịch
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12"> Tóm Tắt</label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                        <textarea name="summary" class="form-control"></textarea>
+                        <textarea name="summary" class="form-control">{{$sangiaodich->summary}}</textarea>
                         @if($errors->has('summary'))
                             <p style="color:red; float:left">{{$errors->first('summary')}}</p>
                         @endif
@@ -204,7 +204,7 @@ Sửa Sàn Giao Dịch
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12"> Nội Dung Sàn Giao Dịch </label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
-                        <textarea name="description" id="ckeditor"></textarea>
+                        <textarea name="description" id="ckeditor">{{$sangiaodich->description}}</textarea>
                         <script>CKEDITOR.replace('ckeditor');</script>
                         @if($errors->has('description'))
                             <p style="color:red; float:left">{{$errors->first('description')}}</p>
@@ -212,22 +212,29 @@ Sửa Sàn Giao Dịch
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Hình Ảnh</label>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12"> Hình Ảnh</label>
+                    <div class="col-md-5 col-sm-5 col-xs-12">
                         <div class="imageupload panel panel-default">
                             <div class="panel-heading clearfix">
-                                <i>Upload và chỉnh sửa hình ảnh của sàn giao dịch.</i>
+                                <i class="panel-title pull-left"> Upload hình ảnh của sàn giao dịch.</i>
                             </div>
-<<<<<<< HEAD
-                            <img id="previewImage" style="margin-top:15px;max-height:250px;">
-=======
-                            <img id="previewImage" style="margin-top:15px;max-height:200px;">
->>>>>>> 9b5541f1faff057a79a61baebe82f4844e650a98
-                            <input style="display: none;" name="image" id="setUrlImage" class="form-control" type="text" name="filepath">
                             <div class="file-tab panel-body">
                                 <label class="btn btn-default btn-file">
-                                <span class="lfm" id="lfm" data-input="setUrlImage" data-preview="previewImage">Tải Lên Hình Ảnh</span> 
+                                    <span>Chọn Hình</span>
+                                    <!-- The file is stored here. -->
+                                    <input name="image" type="file" name="image-file">
                                 </label>
+                                <button type="button" class="btn btn-default">Xoá</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="imageupload panel panel-default">
+                            <div class="panel-heading clearfix">
+                                <i class="panel-title pull-left"> Hình ảnh hiện tại</i>
+                            </div>
+                            <div class="panel-body">
+                                <img width="100%" src="{{url('')}}/uploads/san-giao-dich/{{$sangiaodich->image}}" alt="">
                             </div>
                         </div>
                     </div>
@@ -236,7 +243,7 @@ Sửa Sàn Giao Dịch
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Sắp Xếp 
                     </label>
                     <div class="col-md-1 col-sm-1 col-xs-12">
-                        <input value="{{old('txtSort')?old('txtSort'):0}}" name="txtSort" type="number" class="form-control">
+                        <input value="{{$sangiaodich->sort}}" name="txtSort" type="number" class="form-control">
                         @if($errors->has('txtSort'))
                             <p style="color:red; float:left">{{$errors->first('txtSort')}}</p>
                         @endif
@@ -247,13 +254,13 @@ Sửa Sàn Giao Dịch
                     </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
                         <div class="radio radio-primary">
-                            <input type="radio" name="status" id="radio1" checked value="active">
+                            <input type="radio" name="status" id="radio1" @if($sangiaodich->status=='active') checked @endif value="active">
                             <label for="radio1">
                                 Hiển Thị 
                             </label>
                         </div>
                         <div class="radio radio-primary">
-                            <input type="radio" name="status" id="radio2" value="inActive">
+                            <input type="radio" name="status" id="radio2" @if($sangiaodich->status=='inActive') checked @endif value="inActive">
                             <label for="radio2">
                                 Ngưng Hiển Thị 
                             </label>
@@ -273,19 +280,19 @@ Sửa Sàn Giao Dịch
                     </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
                         <div class="checkbox checkbox-primary">
-                            <input type="checkbox" name="new" id="checkbox1" value="true">
+                            <input type="checkbox" name="new" id="checkbox1" @if($sangiaodich->new=='true') checked @endif value="true">
                             <label for="checkbox1">
                                 Sàn Giao Dịch Mới
                             </label>
                         </div>
                         <div class="checkbox checkbox-primary">
-                            <input type="checkbox" name="hot" id="checkbox2" value="true">
+                            <input type="checkbox" name="hot" id="checkbox2" @if($sangiaodich->hot=='true') checked @endif value="true">
                             <label for="checkbox2">
                                 Sàn Giao Dịch HOT
                             </label>
                         </div>
                         <div class="checkbox checkbox-primary">
-                            <input type="checkbox" name="noibat" id="checkbox3" value="true">
+                            <input type="checkbox" name="noibat" id="checkbox3" @if($sangiaodich->noibat=='true') checked @endif value="true">
                             <label for="checkbox3">
                                 Sàn Giao Dịch Nổi Bật
                             </label>
@@ -301,7 +308,7 @@ Sửa Sàn Giao Dịch
                     <label class="control-label col-md-3 col-sm-3 col-xs-12"> Tiêu Đề Trang
                     </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input name="txtSeoTitle" value="{{old('txtSeoTitle')}}" type="text" class="form-control">
+                        <input name="txtSeoTitle" value="{{$dataSEO['title']}}" type="text" class="form-control">
                         <i>Tiêu đề tùy chỉnh hiển thị trong thẻ tiêu đề cho trang này</i>
                         @if($errors->has('txtSeoTitle'))
                             <p style="color:red; float:left">{{$errors->first('txtSeoTitle')}}</p>
@@ -312,7 +319,7 @@ Sửa Sàn Giao Dịch
                     <label class="control-label col-md-3 col-sm-3 col-xs-12"> Mô Tả Trang
                     </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input name="txtSeoDescription" value="{{old('txtSeoDescription')}}" type="text" class="form-control">
+                        <input name="txtSeoDescription" value="{{$dataSEO['description']}}" type="text" class="form-control">
                         <i>Mô tả META cho trang này. Thao tác này sẽ ghi đè mọi mô tả được tạo tự động</i>
                         @if($errors->has('txtSeoDescription'))
                             <p style="color:red; float:left">{{$errors->first('txtSeoDescription')}}</p>
@@ -323,7 +330,7 @@ Sửa Sàn Giao Dịch
                     <label class="control-label col-md-3 col-sm-3 col-xs-12"> Từ Khoá (Ngăn Cách Bằng Dấu Phẩy)
                     </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input name="txtSeoKeywords" value="{{old('txtSeoKeywords')}}" type="text" class="form-control">
+                        <input name="txtSeoKeywords" value="{{$dataSEO['keywords']}}" type="text" class="form-control">
                         <i>Danh sách các từ khóa quan trọng nhất được phân cách bằng dấu phẩy cho trang này sẽ được viết dưới dạng từ khóa META</i>
                         @if($errors->has('txtSeoKeywords'))
                             <p style="color:red; float:left">{{$errors->first('txtSeoKeywords')}}</p>

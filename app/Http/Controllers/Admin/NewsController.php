@@ -7,6 +7,9 @@ use App\Http\Controllers\Controller;
 use App\Model\News\Category;
 use App\Model\News\News;
 use Auth;
+use Illuminate\Support\Facades\Input;
+use Session;
+use Validator;
 class NewsController extends Controller
 {
 	public function __construct()
@@ -53,15 +56,15 @@ class NewsController extends Controller
     }
     public function getDeleteNewsCategories($id)
     {
-        // $duan = DuAn::where('cate_id',$id)->count();
-        // if ($duan==0) {
-        //     $category = Category::find($id);
-        //     $category->delete();
-        //     return redirect()->route('getlistNewsCategories')->with('success','Xoá Danh Mục Thành Công!');
-        // }
-        // else{
-        //     return redirect()->route('getlistNewsCategories')->with('error','Không Thể Xoá. Danh Muc Này Đang Chứa Tin Tức!');
-        // }
+        $news = DuAn::where('cate_id',$id)->count();
+        if ($news==0) {
+            $category = Category::find($id);
+            $category->delete();
+            return redirect()->route('getlistNewsCategories')->with('success','Xoá Danh Mục Thành Công!');
+        }
+        else{
+            return redirect()->route('getlistNewsCategories')->with('error','Không Thể Xoá. Danh Muc Này Đang Chứa Tin Tức!');
+        }
         $category = Category::find($id);
         $category->delete();
         return redirect()->route('getlistNewsCategories')->with('success','Xoá Danh Mục Thành Công!');
@@ -82,7 +85,26 @@ class NewsController extends Controller
         $news->cate_id = $request->sltCate;
         $news->user_id = Auth::user()->id;
         $news->summary = $request->summary;
-        $news->image = $request->image;
+        if($request->hasFile('image')) {
+            $rules = $news->rules;
+            $file = array('image' => Input::file('image'));
+            $validator = Validator::make($file, $rules);
+            if ($validator->fails()) {
+                Session::flash('error', Lang::get('slider.checkMineImageWaring'));
+                return redirect()->back();
+            } else {
+                if (Input::file('image')->isValid()) {
+                    $destinationPath = 'uploads/tin-tuc';
+                    $extension = Input::file('image')->getClientOriginalExtension();
+                    $fileName = time() . rand(11111, 99999) . '.' . $extension;
+                    Input::file('image')->move($destinationPath, $fileName);
+                    $news->image = $fileName;
+                } else {
+                    Session::flash('error', Lang::get('page.waringUploadImage'));
+                    return redirect()->back()->witch('error', Lang::get('slider.waringUploadImage'));
+                }
+            }
+        }
         $news->description = $request->description;
         $news->sort = $request->txtSort;
         $news->status = $request->status;
@@ -127,7 +149,26 @@ class NewsController extends Controller
         $news->cate_id = $request->sltCate;
         $news->user_id = Auth::user()->id;
         $news->summary = $request->summary;
-        $news->image = $request->image;
+        if($request->hasFile('image')) {
+            $rules = $news->rules;
+            $file = array('image' => Input::file('image'));
+            $validator = Validator::make($file, $rules);
+            if ($validator->fails()) {
+                Session::flash('error', Lang::get('slider.checkMineImageWaring'));
+                return redirect()->back();
+            } else {
+                if (Input::file('image')->isValid()) {
+                    $destinationPath = 'uploads/tin-tuc';
+                    $extension = Input::file('image')->getClientOriginalExtension();
+                    $fileName = time() . rand(11111, 99999) . '.' . $extension;
+                    Input::file('image')->move($destinationPath, $fileName);
+                    $news->image = $fileName;
+                } else {
+                    Session::flash('error', Lang::get('page.waringUploadImage'));
+                    return redirect()->back()->witch('error', Lang::get('slider.waringUploadImage'));
+                }
+            }
+        }
         $news->description = $request->description;
         $news->sort = $request->txtSort;
         $news->status = $request->status;

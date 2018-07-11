@@ -17,7 +17,6 @@ Danh Sách Dự Án
 		                <thead>
 		                    <tr class="center">
 		                        <th>Tên Dự Án</th>
-		                        
 		                        <th>Hình Ảnh</th>
 		                        <th>Danh Mục</th>
 		                        <th>Trạng Thái</th>
@@ -30,7 +29,7 @@ Danh Sách Dự Án
 		                	@foreach($duan as $value)
 		                    <tr>
 		                        <td>{{$value->title}}</td>
-		                        <td class="center" style="width: 18%;"><img width="180" src="{{url('')}}/{{$value->image}}" alt=""></td>
+		                        <td class="center" style="width: 18%;"><img width="180" src="{{url('')}}/uploads/du-an/{{$value->image}}" alt=""></td>
 		                        <td class="center" style="width: 12%;">{{$value->danhmuc->title}}</td>
 		                        
 		                        <td class="center" style="width: 8%; font-size: 40px">

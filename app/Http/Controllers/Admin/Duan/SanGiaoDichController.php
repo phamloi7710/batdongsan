@@ -75,7 +75,26 @@ class SanGiaoDichController extends Controller
         $sangiaodich->title = $request->txtTitle;
         $sangiaodich->slug = changeTitle($request->txtTitle);
         $sangiaodich->cate_id = $request->sltCate;
-        $sangiaodich->image = $request->image;
+        if($request->hasFile('image')) {
+            $rules = $sangiaodich->rules;
+            $file = array('image' => Input::file('image'));
+            $validator = Validator::make($file, $rules);
+            if ($validator->fails()) {
+                Session::flash('error', Lang::get('slider.checkMineImageWaring'));
+                return redirect()->back();
+            } else {
+                if (Input::file('image')->isValid()) {
+                    $destinationPath = 'uploads/san-giao-dich';
+                    $extension = Input::file('image')->getClientOriginalExtension();
+                    $fileName = time() . rand(11111, 99999) . '.' . $extension;
+                    Input::file('image')->move($destinationPath, $fileName);
+                    $sangiaodich->image = $fileName;
+                } else {
+                    Session::flash('error', Lang::get('page.waringUploadImage'));
+                    return redirect()->back()->witch('error', Lang::get('slider.waringUploadImage'));
+                }
+            }
+        }
         $sangiaodich->userPostAddress = $request->txtUserPostAddress;
         $sangiaodich->userPostPhone = $request->txtUserPostPhone;
         $sangiaodich->userPostEmail = $request->txtUserPostEmail;
@@ -129,7 +148,26 @@ class SanGiaoDichController extends Controller
         $sangiaodich->title = $request->txtTitle;
         $sangiaodich->slug = changeTitle($request->txtTitle);
         $sangiaodich->cate_id = $request->sltCate;
-        $sangiaodich->image = $request->image;
+        if($request->hasFile('image')) {
+            $rules = $sangiaodich->rules;
+            $file = array('image' => Input::file('image'));
+            $validator = Validator::make($file, $rules);
+            if ($validator->fails()) {
+                Session::flash('error', Lang::get('slider.checkMineImageWaring'));
+                return redirect()->back();
+            } else {
+                if (Input::file('image')->isValid()) {
+                    $destinationPath = 'uploads/san-giao-dich';
+                    $extension = Input::file('image')->getClientOriginalExtension();
+                    $fileName = time() . rand(11111, 99999) . '.' . $extension;
+                    Input::file('image')->move($destinationPath, $fileName);
+                    $sangiaodich->image = $fileName;
+                } else {
+                    Session::flash('error', Lang::get('page.waringUploadImage'));
+                    return redirect()->back()->witch('error', Lang::get('slider.waringUploadImage'));
+                }
+            }
+        }
         $sangiaodich->userPostAddress = $request->txtUserPostAddress;
         $sangiaodich->userPostPhone = $request->txtUserPostPhone;
         $sangiaodich->userPostEmail = $request->txtUserPostEmail;

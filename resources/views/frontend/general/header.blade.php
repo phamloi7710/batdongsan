@@ -137,7 +137,7 @@
                                             <ul class='menu nav navbar-nav'>
                                             <li class="level0"><a class='' href='/trang-chu.html'><span>Trang chủ</span></a></li>
                                             <li class="level0"><a class='' href='/du-an.html'><span>Dự án</span></a></li>
-                                            <li class="level0"><a class='' href='/tin-tuc.html'><span>Tin tức</span></a></li>
+                                            <li class="level0"><a class='' href="{{route('getNewsFrontend')}}"><span>Tin tức</span></a></li>
                                             <li class="level0"><a class='' href='/gioi-thieu.html'><span>Giới thiệu</span></a></li>
                                             <li class="level0"><a class='' href='/lien-he.html'><span>Liên hệ</span></a></li>
                                             <li class="level0"><a class='' href="{{route('getSanGiaoDich')}}"><span>Sàn giao dịch</span></a></li>
