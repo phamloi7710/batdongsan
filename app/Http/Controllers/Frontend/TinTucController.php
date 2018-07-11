@@ -24,7 +24,8 @@ class TinTucController extends Controller
     public function getDetail($slug)
     {
     	$newsDetail = News::where('slug',$slug)->first();
-    	return view('frontend.pages.chitiettintuc',['newsDetail'=>$newsDetail]);
+    	$categoryNews = Category::where('slug', $newsDetail->category->slug)->first();
+    	return view('frontend.pages.chitiettintuc',['newsDetail'=>$newsDetail,'categoryNews'=>$categoryNews]);
     }
     public function getNewsCategory($slug)
     {

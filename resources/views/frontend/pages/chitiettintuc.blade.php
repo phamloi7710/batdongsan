@@ -20,7 +20,7 @@
                     </h3>
                     <ul class="level0">
                         @foreach($category as $value)
-                        <li><a href="/tin-tuc/tin-cong-ty"><i class="far fa-arrow-alt-circle-right"></i>{{$value->title}}</a></li>
+                        <li><a href="{{route('getNewsCategory',['slug'=>$value->slug])}}"><i class="far fa-arrow-alt-circle-right"></i>{{$value->title}}</a></li>
                         @endforeach
                     </ul>
                 </div>
