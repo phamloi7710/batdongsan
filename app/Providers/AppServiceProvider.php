@@ -19,10 +19,14 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
-        $sangiaodichcategory = Category::where('status','active')->orderBy('sort','ASC')->get();
-        View::composer('frontend.general.danhmucsangiaodich', function($view) use($sangiaodichcategory) {
-            $view->with('sangiaodichcategory',$sangiaodichcategory);
-        });
+         if(Schema::hasTable('san_giao_dich'))
+        {
+            $sangiaodichcategory = Category::where('status','active')->orderBy('sort','ASC')->get();
+            View::composer('frontend.general.danhmucsangiaodich', function($view) use($sangiaodichcategory) {
+                $view->with('sangiaodichcategory',$sangiaodichcategory);
+            });
+        }
+        
     }
 
     /**

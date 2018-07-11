@@ -120,7 +120,7 @@
                                 <div class="col-md-3 col-xs-12 col-sm-12 header-left">
                                     <div class="logo clearfix">
                                         <a href="/" title="">
-                                        <img alt="C&#212;NG TY TNHH PH&#193;T TRIỂN C&#212;NG NGHỆ RUNTIME" src="{{asset('')}}/assets/frontend/uploads/shop108/images/logo.png" class="img-responsive" />
+                                        <img alt="Công Ty Dịch Vụ Bất Động Sản Tecco Nghệ An " src="{{asset('')}}/assets/frontend/uploads/shop108/images/logo.png" class="img-responsive" />
                                         </a>
                                     </div>
                                 </div>
@@ -135,13 +135,13 @@
                                         </div>
                                         <nav id="mobile-menu" class="mobile-menu collapse navbar-collapse">
                                             <ul class='menu nav navbar-nav'>
-                                            <li class="level0"><a class='' href='/trang-chu.html'><span>Trang chủ</span></a></li>
-                                            <li class="level0"><a class='' href='/du-an.html'><span>Dự án</span></a></li>
-                                            <li class="level0"><a class='' href="{{route('getNewsFrontend')}}"><span>Tin tức</span></a></li>
-                                            <li class="level0"><a class='' href='/gioi-thieu.html'><span>Giới thiệu</span></a></li>
-                                            <li class="level0"><a class='' href='/lien-he.html'><span>Liên hệ</span></a></li>
-                                            <li class="level0"><a class='' href="{{route('getSanGiaoDich')}}"><span>Sàn giao dịch</span></a></li>
-                                            <li class="level0"><a class='' href='/thu-vien-anh.html'><span>Thư viện ảnh</span></a></li>
+                                            <li class="level0"><a href="{{route('getIndexFrontend')}}"><span>Trang chủ</span></a></li>
+                                            <li class="level0"><a href="{{route('getDuAn')}}"><span>Dự án</span></a></li>
+                                            <li class="level0"><a href="{{route('getNewsFrontend')}}"><span>Tin tức</span></a></li>
+                                            <li class="level0"><a href="ẻb "><span>Giới thiệu</span></a></li>
+                                            <li class="level0"><a href="ffrfbgnhergrbg "><span>Liên hệ</span></a></li>
+                                            <li class="level0"><a href="{{route('getSanGiaoDich')}}"><span>Sàn giao dịch</span></a></li>
+                                            <li class="level0"><a href="dqw "><span>Thư viện ảnh</span></a></li>
                                             </ul class='menu nav navbar-nav'>
                                         </nav>
                                     </nav>

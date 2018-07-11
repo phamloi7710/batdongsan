@@ -7,6 +7,7 @@
                 <!-- /footer content -->
             </div>
         </div>
+        
         <!-- Bootstrap -->
         <script src="{{asset('assets/admin/vendors/bootstrap/dist/js/bootstrap.min.js')}}"></script>
         <script src="{{asset('assets/admin/vendors/fastclick/lib/fastclick.js')}}"></script>

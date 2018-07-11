@@ -2,7 +2,9 @@
 Route::get('test', function (){
 	return view('test');
 });
-
+Route::group(['prefix'=>'ajax'], function(){
+		Route::get('district/{province_id}','Admin\AjaxController@getDistrict');
+	});
 Route::get('admin/dang-nhap-he-thong.html','Account\LoginController@getLoginAdmin')->name('login');
 Route::post('admin/dang-nhap-he-thong.html','Account\LoginController@postLoginAdmin')->name('postLoginAdmin');
 Route::get('admin/logout.html','Account\LoginController@getLogoutAdmin')->name('getLogoutAdmin');
@@ -10,6 +12,7 @@ Route::get('admin/logout.html','Account\LoginController@getLogoutAdmin')->name('
 
 // Admin
 Route::group(['prefix'=>'admin','middleware' => 'auth'],function(){
+	
 	
 	Route::get('', 'Admin\AdminController@getIndexAdmin')->name('getIndexAdmin');
 	Route::group(['prefix'=>'danh-muc-du-an'], function(){
@@ -21,6 +24,9 @@ Route::group(['prefix'=>'admin','middleware' => 'auth'],function(){
 		Route::get('xoa-danh-muc-du-an/{id}.html','Admin\DuAn\DuAnController@getDeleteDanhMucDuAn')->name('getDeleteDanhMucDuAn');
 	});
 	Route::group(['prefix'=>'du-an'], function(){
+		Route::group(['prefix'=>'ajax'], function(){
+			Route::get('district/{province_id}','Admin\AjaxController@getDistrict');
+		});
 		Route::get('danh-sach.html','Admin\DuAn\DuAnController@getListDuAn')->name('getListDuAn');
 		Route::get('them-moi.html','Admin\DuAn\DuAnController@getAddDuAn')->name('getAddDuAn');
 		Route::post('them-moi.html','Admin\DuAn\DuAnController@postAddDuAn')->name('postAddDuAn');
@@ -82,6 +88,7 @@ Route::group(['prefix'=>'admin','middleware' => 'auth'],function(){
 
 // Frontend
 Route::get('','Frontend\HomeController@getIndexFrontend')->name('getIndexFrontend');
+Route::get('du-an/','Frontend\DuAnController@getDuAn')->name('getDuAn');
 Route::get('du-an/{slug}.html','Frontend\DuAnController@getDetail')->name('getDuAnDetail');
 Route::get('san-giao-dich/{slug}.html','Frontend\SanGiaoDichController@getDetail')->name('getSanGiaoDichDetail');
 Route::get('san-giao-dich','Frontend\SanGiaoDichController@getSanGiaoDich')->name('getSanGiaoDich');

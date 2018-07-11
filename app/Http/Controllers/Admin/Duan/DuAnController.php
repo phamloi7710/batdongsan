@@ -9,8 +9,17 @@ use App\Model\DuAn\DuAn;
 use Illuminate\Support\Facades\Input;
 use Session;
 use Validator;
+use App\Model\Province;
+use App\Model\District;
 class DuAnController extends Controller
 {
+    public function __construct()
+    {
+        $province = Province::all();
+        $district = District::all();
+        view()->share('province',$province);
+        view()->share('district',$district);
+    }
     public function getListDanhMucDuAn()
     {
         $categories = Category::all();
@@ -76,6 +85,9 @@ class DuAnController extends Controller
         $duan->title = $request->txtTitle;
         $duan->slug = changeTitle($request->txtTitle);
         $duan->cate_id = $request->sltCate;
+        $duan->type = $request->sltLoai;
+        $duan->provinceid = $request->sltProvince;
+        $duan->districtid = $request->sltDistrict;
         if($request->hasFile('image')) {
             $rules = $duan->rules;
             $file = array('image' => Input::file('image'));
