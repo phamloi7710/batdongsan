@@ -96,6 +96,7 @@ Route::get('san-giao-dich/{slug}','Frontend\SanGiaoDichController@getSanGiaoDich
 Route::get('tin-tuc','Frontend\TinTucController@getNews')->name('getNewsFrontend');
 Route::get('tin-tuc/{slug}.html','Frontend\TinTucController@getDetail')->name('getNewsDetail');
 Route::get('tin-tuc/{slug}','Frontend\TinTucController@getNewsCategory')->name('getNewsCategory');
+Route::get('tim-kiem-du-an/ket-qua.html','Frontend\TimKiemController@getDuAn')->name('getSearchDuAn');
 
 
 

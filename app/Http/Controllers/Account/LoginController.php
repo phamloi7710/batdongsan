@@ -21,14 +21,14 @@ class LoginController extends Controller
             'password' => $request->txtPassword,
         ];
     	if(Auth::attempt($data,$remember)){
-    		return redirect()->route('getIndexAdmin')->with('success',trans('login.loginSuccessfully'));
+    		return redirect()->route('getIndexAdmin')->with('success','Đăng Nhập Thành Công');
     	}
     	else{
-    		return redirect()->route('login')->with('error',trans('login.loginFailed'));
+    		return redirect()->route('login')->with('error','Đăng Nhập Thất Bại');
     	}
     }
     public function getLogoutAdmin() {
        Auth::logout();
-       return redirect()->route('getLoginAdmin');
+       return redirect()->route('login');
     }
 }
