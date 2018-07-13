@@ -4,23 +4,26 @@
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
         <meta charset="UTF-8" />
         <title>@yield('title')</title>
-        <meta content="RUNECOM12" name="description" />
-        <meta content="" name="keywords" />
-        <link rel="shortcut icon" type="image/x-icon" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta property="fb:app_id" content="227481454296289" />
-        <meta content="vi_VN" property="og:locale" />
-        <meta content="website" property="og:type" />
-        <meta content="RUNECOM12" property="og:title" />
-        <meta content="RUNECOM12" property="og:description" />
-        <meta content="http://runecom12.runtime.vn" property="og:image" />
-        <meta content="/" property="og:url" />
-        <meta content="RUNTIME" property="og:site_name" />
-        <link href="{{asset('')}}/assets/frontend/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-        <link href="{{asset('')}}/assets/frontend/App_Themes/Home/font-awesome.min.css" rel="stylesheet" />
-        <link href="{{asset('')}}/assets/frontend/App_Themes/Home/common.css" rel="stylesheet" type="text/css" />
-        <link href="{{asset('')}}/assets/frontend/App_Themes/Home/animate.css" rel="stylesheet" type="text/css" />
-        <link href="{{asset('')}}/assets/frontend/jQuery-ui/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+        <meta name="og:image" content="@if($config){{url('')}}/uploads/images/{{$config->logo}}@endif">
+        <meta name="description" content="@yield('description')"/>
+        <meta name="keywords" content="@yield('seoKeywords')"/>
+        <meta property="fb:app_id" content="@yield('fbAppId')"/>
+        <meta property="og:locale" content="VN_vn">
+        <meta property="og:type" content="@yield('type')">
+        <meta property="og:site_name" content="@if($config) {{$config->name}} @endif">
+        <meta property="og:title" content="@yield('title')">
+        <meta property="og:image" content="@yield('image')">
+        <meta property="og:description" content="@yield('description')">
+        <meta property="og:url" content="{{url('')}}">
+        <link rel="image_src" href="@if($config){{url('')}}/uploads/images/{{$config->logo}}@endif">
+        <link rel="canonical" href="@yield('url')"/>
+        <link rel="shortcut icon" href="@if($config){{url('')}}/uploads/images/{{$config->favicon}}@endif" type="image/x-icon">
+        <link rel="icon" href="@if($config){{url('')}}/uploads/images/{{$config->favicon}}@endif" type="image/x-icon">
+        <link href="{{asset('')}}/assets/frontend/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="{{asset('')}}/assets/frontend/App_Themes/Home/font-awesome.min.css" rel="stylesheet">
+        <link href="{{asset('')}}/assets/frontend/App_Themes/Home/common.css" rel="stylesheet" type="text/css">
+        <link href="{{asset('')}}/assets/frontend/App_Themes/Home/animate.css" rel="stylesheet" type="text/css">
+        <link href="{{asset('')}}/assets/frontend/jQuery-ui/jquery-ui.min.css" rel="stylesheet" type="text/css">
         <script src="{{asset('')}}/assets/frontend/jQuery/jquery-2.1.4.min.js" type="text/javascript"></script>
         <script src="{{asset('')}}/assets/frontend/jQuery/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
         <script src="{{asset('')}}/assets/frontend/bootstrap/js/bootstrap.min.js"></script>
@@ -54,7 +57,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <ul class="nav navbar-nav topmenu-contact pull-left">
-                                    <li><i class="fa fa-phone"></i> <span>Hotline:0908770095</span></li>
+                                    <li><i class="fa fa-phone"></i> <span>Hotline: @if($config) {{$config->hotline}} @endif</span></li>
                                 </ul>
                                 <ul class="nav navbar-nav navbar-right topmenu  hidden-xs hidden-sm">
                                     <li class="order-check"><a href="/kiem-tra-don-hang.html"><i class="fa fa-pencil-square-o"></i> Kiểm tra đơn hàng</a></li>
@@ -94,25 +97,6 @@
                         </div>
                     </div>
                 </section>
-                <script type="text/javascript">
-                    $("#btnsearch").click(function () {
-                        SearchProduct();
-                    });
-                    $("#txtsearch").keydown(function (event) {
-                        if (event.keyCode == 13) {
-                            SearchProduct();
-                        }
-                    });
-                    function SearchProduct() {
-                        var key = $('#txtsearch').val();
-                        if (key == '' || key == 'Tìm kiếm...') {
-                            $('#txtsearch').focus();
-                            return;
-                        }
-                        var group = $('#lbgroup').val();
-                        window.location = '/tim-kiem.html?group=' + group + '&key=' + key;
-                    }
-                </script>
                 <section class="navigation-menu clearfix">
                     <div class="container">
                         <div class="menu-top">
@@ -120,7 +104,7 @@
                                 <div class="col-md-3 col-xs-12 col-sm-12 header-left">
                                     <div class="logo clearfix">
                                         <a href="/" title="">
-                                        <img alt="Công Ty Dịch Vụ Bất Động Sản Tecco Nghệ An " src="{{asset('')}}/assets/frontend/uploads/shop108/images/logo.png" class="img-responsive" />
+                                        <img alt="Công Ty Dịch Vụ Bất Động Sản Tecco Nghệ An " src="@if($config) {{asset('')}}/uploads/images/{{$config->logo}} @endif" class="img-responsive"/>
                                         </a>
                                     </div>
                                 </div>

@@ -1,5 +1,17 @@
 @section('title')
-Sàn Giao Dịch Bất Động Sản Tecco
+    @if($config){{$config->name}}@endif
+@stop
+@section('keywords')
+    @if($config){{$config->keywords}}@endif
+@stop
+@section('description')
+    @if($config){{$config->seoDescription}}@endif
+@stop
+@section('image')
+    @if($config){{url('')}}/uploads/{{$config->image}}@endif
+@stop
+@section('seoKeywords')
+    @if($config){{$config->seoKeywords}}@endif
 @stop
 @extends('frontend.general.master')
 @section('content')

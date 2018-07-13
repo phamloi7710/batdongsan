@@ -12,14 +12,14 @@ Cấu Hình Thông Tin Chung Cho Website
 		            <div class="clearfix"></div>
 		        </div>
 		        <div class="x_content">
-		            <form method="POST" action="{{route('postGeneralConfig')}}" class="form-horizontal form-label-left">
+		            <form method="POST" action="{{route('postGeneralConfig')}}" class="form-horizontal form-label-left" enctype="multipart/form-data">
 	                	<input type="hidden" name="_token" value="{{csrf_token()}}"/>
 					    <div class="form-group">
 					        <label class="control-label col-md-3 col-sm-3 col-xs-12">
 					        	Tên Website
 					        </label>
 					        <div class="col-md-6 col-sm-6 col-xs-12">
-					            <input name="txtName" value="{{$general['name']}}" type="text" class="form-control">
+					            <input name="txtName" value="{{$config['name']}}" type="text" class="form-control">
 
 					        </div>
 					    </div>
@@ -28,15 +28,21 @@ Cấu Hình Thông Tin Chung Cho Website
 					        	Địa Chỉ
 					        </label>
 					        <div class="col-md-6 col-sm-6 col-xs-12">
-					            <input name="txtAddress" value="{{$general['address']}}" type="text" class="form-control">
+					            <input name="txtAddress" value="{{$config['address']}}" type="text" class="form-control">
 					        </div>
 					    </div>
 					    <div class="form-group">
 					        <label class="control-label col-md-3 col-sm-3 col-xs-12">
 					        	Số Điện Thoại 
 					        </label>
-					        <div class="col-md-6 col-sm-6 col-xs-12">
-					            <input name="txtPhone" value="{{$general['phone']}}" type="text" class="form-control">
+					        <div class="col-md-2 col-sm-2 col-xs-12">
+					            <input name="txtPhone" value="{{$config['phone']}}" type="text" class="form-control">
+					        </div>
+					        <label class="control-label col-md-1 col-sm-1 col-xs-12">
+					        	Fax
+					        </label>
+					        <div class="col-md-3 col-sm-3 col-xs-12">
+					            <input name="txtFax" value="{{$config['fax']}}" type="text" class="form-control">
 					        </div>
 					    </div>
 					    <div class="form-group">
@@ -44,7 +50,7 @@ Cấu Hình Thông Tin Chung Cho Website
 					        	Hotline
 					        </label>
 					        <div class="col-md-6 col-sm-6 col-xs-12">
-					            <input name="txtHotLine" value="{{$general['hotline']}}" type="text" class="form-control">
+					            <input name="txtHotLine" value="{{$config['hotline']}}" type="text" class="form-control">
 					        </div>
 					    </div>
 					    <div class="form-group">
@@ -52,72 +58,133 @@ Cấu Hình Thông Tin Chung Cho Website
 					        	Email Liên Hệ
 					        </label>
 					        <div class="col-md-6 col-sm-6 col-xs-12">
-					            <input name="txtEmail" value="{{$general['email']}}" type="text" class="form-control">
+					            <input name="txtEmail" value="{{$config['email']}}" type="text" class="form-control">
 					        </div>
 					    </div>
-					    <div class="form-group">
-						    <label class="control-label col-md-3 col-sm-3 col-xs-12">Thiết Lập Logo</label>
-						    <div class="col-md-6 col-sm-6 col-xs-12">
-						        <div class="imageupload panel panel-default">
-						            <div class="panel-heading clearfix">
-						                <i>Upload và chỉnh sửa hình ảnh của logo.</i>
-						            </div>
-						            @if(isset($general['logo']))
-						            <img src="{{asset('')}}{{$general['logo']}}" id="previewLogo" style="margin-top:15px;max-height:200px;">
-						            @else
-						            <img id="previewLogo" style="margin-top:15px;max-height:200px;">
-						            @endif
-						            <input style="display: none;" name="logo" id="setUrlLogo" class="form-control" type="text" name="filepath">
-						            <div class="file-tab panel-body">
-						                <label class="btn btn-default btn-file">
-						                <span class="lfm" id="lfm" data-input="setUrlLogo" data-preview="previewLogo">Tải Lên Hình Ảnh</span> 
-						                </label>
-						            </div>
-						        </div>
-						    </div>
-						</div>
-						<div class="form-group">
-						    <label class="control-label col-md-3 col-sm-3 col-xs-12">Thiết Lập Favicon</label>
-						    <div class="col-md-6 col-sm-6 col-xs-12">
-						        <div class="imageupload panel panel-default">
-						            <div class="panel-heading clearfix">
-						                <i>Chỉnh sửa ảnh favicon để hiển thị logo trên thanh công cụ của trình duyệt. Cỡ ảnh (16x16px hoặc 32x32px), chấp nhận các định dạng ico, png, gif.</i>
-						            </div>
-						            @if(isset($general['favicon']))
-						            <img src="{{asset('')}}{{$general['favicon']}}" id="previewFavicon" style="margin-top:15px;max-height:200px;">
-						            @else
-						            <img id="previewFavicon" style="margin-top:15px;max-height:200px;">
-						            @endif
-						            <input style="display: none;" name="favicon" id="setUrlFavicon" class="form-control" type="text" name="filepath">
-						            <div class="file-tab panel-body">
-						                <label class="btn btn-default btn-file">
-						                <span class="lfm" id="lfm" data-input="setUrlFavicon" data-preview="previewFavicon">Tải Lên Hình Ảnh</span> 
-						                </label>
-						            </div>
-						        </div>
-						    </div>
-						</div>
-						<div class="form-group">
-						    <label class="control-label col-md-3 col-sm-3 col-xs-12">Hình Ảnh</label>
-						    <div class="col-md-6 col-sm-6 col-xs-12">
-						        <div class="imageupload panel panel-default">
-						            <div class="panel-heading clearfix">
-						                <i>Thiết lập hình ảnh đại diện chung cho website. Hình ảnh này sẽ được hiển thị khi chia sẻ lên các mạng xã hội.</i>
-						            </div>
-						            @if(isset($general['image']))
-						            <img src="{{asset('')}}{{$general['image']}}" id="previewImage" style="margin-top:15px;max-height:200px;">
-						            @else
-						            <img id="previewImage" style="margin-top:15px;max-height:200px;">
-						            @endif
-						            <input style="display: none;" name="image" id="setUrlFavicon" class="form-control" type="text" name="filepath">
-						            <div class="file-tab panel-body">
-						                <label class="btn btn-default btn-file">
-						                <span class="lfm" id="lfm" data-input="setUrlFavicon" data-preview="previewImage">Tải Lên Hình Ảnh</span> 
-						                </label>
-						            </div>
-						        </div>
-						    </div>
-						</div>
+		                <div class="form-group">
+		                    <label class="control-label col-md-3 col-sm-3 col-xs-12"> Logo</label>
+		                    <div class="col-md-5 col-sm-5 col-xs-12">
+		                        <div class="imageupload panel panel-default">
+		                            <div class="panel-heading clearfix">
+		                                <i class="panel-title pull-left"> Upload logo của website.</i>
+		                            </div>
+		                            <div class="file-tab panel-body">
+		                                <label class="btn btn-default btn-file">
+		                                    <span>Chọn Hình</span>
+		                                    <!-- The file is stored here. -->
+		                                    <input name="logo" type="file" name="image-file">
+		                                </label>
+		                                <button type="button" class="btn btn-default">Xoá</button>
+		                            </div>
+		                        </div>
+		                    </div>
+		                    <div class="col-md-4 col-sm-4 col-xs-12">
+		                        <div class="imageupload panel panel-default">
+		                            <div class="panel-heading clearfix">
+		                                <i class="panel-title pull-left"> Hình ảnh hiện tại</i>
+		                            </div>
+		                            <div class="panel-body">
+		                                <img width="100%" src="@if($config) {{url('')}}/uploads/images/{{$config->logo}} @endif" alt="">
+		                            </div>
+		                        </div>
+		                    </div>
+		                </div>
+						
+		                <div class="form-group">
+		                    <label class="control-label col-md-3 col-sm-3 col-xs-12"> Favicon</label>
+		                    <div class="col-md-5 col-sm-5 col-xs-12">
+		                        <div class="imageupload panel panel-default">
+		                            <div class="panel-heading clearfix">
+		                                <i class="panel-title pull-left"> Chỉnh sửa ảnh favicon để hiển thị logo trên thanh công cụ của trình duyệt. Cỡ ảnh (16x16px hoặc 32x32px), chấp nhận các định dạng ico, png, gif.</i>
+		                            </div>
+		                            <div class="file-tab panel-body">
+		                                <label class="btn btn-default btn-file">
+		                                    <span>Chọn Hình</span>
+		                                    <!-- The file is stored here. -->
+		                                    <input name="favicon" type="file" name="image-file">
+		                                </label>
+		                                <button type="button" class="btn btn-default">Xoá</button>
+		                            </div>
+		                        </div>
+		                    </div>
+		                    <div class="col-md-4 col-sm-4 col-xs-12">
+		                        <div class="imageupload panel panel-default">
+		                            <div class="panel-heading clearfix">
+		                                <i class="panel-title pull-left"> Hình ảnh hiện tại</i>
+		                            </div>
+		                            <div class="panel-body">
+		                                <img width="100%" src="@if($config) {{url('')}}/uploads/images/{{$config->favicon}} @endif" alt="">
+		                            </div>
+		                        </div>
+		                    </div>
+		                </div>
+						
+		                <div class="form-group">
+		                    <label class="control-label col-md-3 col-sm-3 col-xs-12"> Hình Ảnh</label>
+		                    <div class="col-md-5 col-sm-5 col-xs-12">
+		                        <div class="imageupload panel panel-default">
+		                            <div class="panel-heading clearfix">
+		                                <i class="panel-title pull-left"> Thiết lập hình ảnh đại diện chung cho website. Hình ảnh này sẽ được hiển thị khi chia sẻ lên các mạng xã hội.</i>
+		                            </div>
+		                            <div class="file-tab panel-body">
+		                                <label class="btn btn-default btn-file">
+		                                    <span>Chọn Hình</span>
+		                                    <!-- The file is stored here. -->
+		                                    <input name="image" type="file" name="image-file">
+		                                </label>
+		                                <button type="button" class="btn btn-default">Xoá</button>
+		                            </div>
+		                        </div>
+		                    </div>
+		                    <div class="col-md-4 col-sm-4 col-xs-12">
+		                        <div class="imageupload panel panel-default">
+		                            <div class="panel-heading clearfix">
+		                                <i class="panel-title pull-left"> Hình ảnh hiện tại</i>
+		                            </div>
+		                            <div class="panel-body">
+		                                <img width="100%" src="@if($config){{url('')}}/uploads/images/{{$config->image}}@endif" alt="">
+		                            </div>
+		                        </div>
+		                    </div>
+		                </div>
+		                <div class="x_title">
+		                    <h4> SEO </h4>
+		                    <span>(Không Bắt Buộc)</span>
+		                    <div class="clearfix"></div>
+		                </div>
+		                <div class="form-group">
+		                    <label class="control-label col-md-2 col-sm-2 col-xs-12"> Tiêu Đề Trang
+		                    </label>
+		                    <div class="col-md-8 col-sm-8 col-xs-12">
+		                        <input name="txtSeoTitle" value="@if($config) {{$config->seoTitle}} @endif" type="text" class="form-control">
+		                        <i>Tiêu đề tùy chỉnh hiển thị trong thẻ tiêu đề cho website</i>
+		                        @if($errors->has('txtSeoTitle'))
+		                            <p style="color:red; float:left">{{$errors->first('txtSeoTitle')}}</p>
+		                        @endif
+		                    </div>
+		                </div>
+		                <div class="form-group">
+		                    <label class="control-label col-md-2 col-sm-2 col-xs-12"> Mô Tả Trang
+		                    </label>
+		                    <div class="col-md-8 col-sm-8 col-xs-12">
+		                        <input name="txtSeoDescription" value="@if($config) {{$config->seoDescription}} @endif" type="text" class="form-control">
+		                        <i>Mô tả META cho website.</i>
+		                        @if($errors->has('txtSeoDescription'))
+		                            <p style="color:red; float:left">{{$errors->first('txtSeoDescription')}}</p>
+		                        @endif
+		                    </div>
+		                </div>
+		                <div class="form-group">
+		                    <label class="control-label col-md-2 col-sm-2 col-xs-12"> Từ Khoá Tìm Kiếm
+		                    </label>
+		                    <div class="col-md-8 col-sm-8 col-xs-12">
+		                        <input name="txtSeoKeywords" value="@if($config) {{$config->seoKeywords}} @endif" type="text" class="form-control">
+		                        <i>Các từ khoá xuất hiện trên các công cụ tìm kiếm, ngăn cách nhau bằng dấu phẩy.</i>
+		                        @if($errors->has('txtSeoDescription'))
+		                            <p style="color:red; float:left">{{$errors->first('txtSeoDescription')}}</p>
+		                        @endif
+		                    </div>
+		                </div>
 					    <div class="ln_solid"></div>
 					    <div class="form-group">
 					        <div class="col-md-4 col-sm-4 col-xs-5 pull-right">
@@ -130,17 +197,4 @@ Cấu Hình Thông Tin Chung Cho Website
 		</div>
 	</div>
 </div>
-<script>
- 	$(document).ready(function(){
- 		var domain = "";
- 		$('.lfm').filemanager('image', {prefix: domain});
- 		var lfm = function(options, cb) {
-			var route_prefix = (options && options.prefix) ? options.prefix : '/admin/quan-ly-hinh-anh';
-			window.open(route_prefix + '?type=' + options.type || 'file', 'FileManager', 'width=900,height=600');
-			window.SetUrl = cb;
-		}
-		lfm({type: 'image', prefix: 'prefix'}, function(url, path) {
-		});
- 	});
- </script>	
 @stop

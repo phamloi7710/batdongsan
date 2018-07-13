@@ -168,15 +168,15 @@
                                         Thông tin công ty
                                     </h3>
                                     <div class="box-address-content">
-                                        <b>C&#212;NG TY TNHH PH&#193;T TRIỂN C&#212;NG NGHỆ RUNTIME</b>
-                                        <p><i class="fa fa-map-marker"></i> 5/12A Quang Trung, P.14, Q.G&#242; Vấp, Tp.Hồ Ch&#237; Minh</p>
+                                        <b>@if($config) {{$config->name}} @endif</b>
+                                        <p><i class="fa fa-map-marker"></i>@if($config) {{$config->address}} @endif</p>
                                         <p>
                                             <i class="fa fa-envelope"></i>
-                                            <a href="mailto:info@runtime.vn">info@runtime.vn</a>
+                                            <a href="mailto:@if($config) {{$config->email}} @endif">@if($config) {{$config->email}} @endif</a>
                                         </p>
                                         <p>
                                             <i class="fa fa-phone"></i>
-                                            Phone:  (08) 85 85 66 38
+                                            Phone:  @if($config) {{$config->phone}} @endif
                                         </p>
                                     </div>
                                 </div>

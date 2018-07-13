@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateConfigTable extends Migration
+class UpdateConfigTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,8 @@ class CreateConfigTable extends Migration
      */
     public function up()
     {
-        Schema::create('config', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('key')->unique();
-            $table->longText('value')->nullable();
-            $table->timestamps();
+        Schema::table('config', function (Blueprint $table) {
+            $table->longText('seoKeywords')->after('seoDescription')->nullable();
         });
     }
 
@@ -28,6 +25,8 @@ class CreateConfigTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('config');
+        Schema::table('config', function (Blueprint $table) {
+            $table->dropColumn('seoKeywords');
+        });
     }
 }
