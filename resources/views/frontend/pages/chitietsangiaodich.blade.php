@@ -1,6 +1,13 @@
 @section('title')
-Sàn Giao Dịch Bất Động Sản Tecco
-@stop
+{{$sangiaodich->title}}@stop
+@section('seoDescription')
+{{$sangiaodich->seoDescription}}@stop
+@section('seoKeywords')
+{{$sangiaodich->seoKeywords}}@stop
+@section('seoTitle')
+{{$sangiaodich->seoTitle}}@stop
+@section('url')
+{{route('getSanGiaoDichDetail',['slug'=>$sangiaodich->slug])}}@stop
 @extends('frontend.general.master')
 @section('content')
 <div class="box-html">
@@ -23,11 +30,6 @@ Sàn Giao Dịch Bất Động Sản Tecco
                         <li>&nbsp;&nbsp;<i class="fas fa-angle-double-right"></i><strong>{{$sangiaodich->title}}</strong> </li>
                     </ul>
                 </div>
-                <script type="text/javascript">
-                    $(".link-site-more").hover(function () { $(this).find(".s-c-n").show(); }, function () { $(this).find(".s-c-n").hide(); });
-                </script>
-                <script src="Scripts/common/mycard.js" type="text/javascript"></script>
-                <script src="Scripts/common/tabs.js" type="text/javascript"></script>
                 <div class="property-detail clearfix">
                     <h1 class="title clearfix"><span>Sàn giao dịch</span></h1>
                     <div class="property-block clearfix ">
@@ -36,7 +38,7 @@ Sàn Giao Dịch Bất Động Sản Tecco
                                 <div id="property-slider" class="flexslider property-slider">
                                     <ul class="slides">
                                         <li class="image">
-                                            <img src="{{url('')}}/assets/frontend/uploads/shop108/images/property8.jpg" class="img-responsive" />
+                                            <img src="{{url('')}}/uploads/san-giao-dich/{{$sangiaodich->image}}" class="img-responsive" />
                                         </li>
                                     </ul>
                                 </div>
@@ -70,19 +72,24 @@ Sàn Giao Dịch Bất Động Sản Tecco
                         </div>
                     </div>
                 </div>
-                <div class="property-tabs">
-                    <ul class="nav nav-tabs">
-                        <li role="presentation" class="active"><a href="#">Chi tiết</a></li>
-                    </ul>
-                    <div class="tab-content">
-                        <div class="pm-mota" style="font-family: Tahoma; margin: 0px 0px 5px; padding: 0px; color: rgb(142, 142, 142); font-weight: bold; line-height: 18px;">
-                            Thông tin mô tả
-                        </div>
-                        <div ac="2" cid="7869" class="pm-content stat" ct="2" style="font-family: Tahoma; font-size: 13px; margin: 0px; padding: 0px; color: rgb(0, 0, 0); line-height: 18px;">
-                            {!!$sangiaodich->description!!}
-                        </div>
+                <div class="project-tabs  margin-top-10">
+                <ul class="nav nav-tabs">
+                    <li role="presentation" class="active"><a data-toggle="tab" href="#tab1">Chi Tiết Sàn Giao Dịch</a></li>
+                    <li role="presentation" class=""><a data-toggle="tab" href="#tab2">Bình Luận</a></li>
+                    <li role="presentation" class=""><a data-toggle="tab" href="#tab3">Đánh Giá</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane fade in active" id="tab1">
+                        {!!$sangiaodich->description!!}
+                    </div>
+                    <div class="tab-pane fade" id="tab2">
+                        tab 2
+                    </div>
+                    <div class="tab-pane fade" id="tab3">
+                        tab 3
                     </div>
                 </div>
+            </div>
                 <div class="property-info-detail clearfix">
                     <h3>
                         Thông tin người đăng

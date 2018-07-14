@@ -6,13 +6,21 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\SanGiaoDich\Category;
 use App\Model\SanGiaoDich\SanGiaoDich;
+use App\Model\Config;
 class SanGiaoDichController extends Controller
 {
+   
+   public function __construct()
+    {
+        $config = Config::where('id','>',0)->first();       
+        view()->share('config',$config);
+    }
     public function getDetail($slug)
     {
         $sangiaodich = SanGiaoDich::where('slug', $slug)->first();
+        
         $sangiaodichcategory = Category::all();
-        return view('frontend.pages.chitietsangiaodich',['sangiaodich'=>$sangiaodich,'sangiaodichcategory'=>$sangiaodichcategory]);
+        return view('frontend.pages.chitietsangiaodich',['sangiaodich'=>$sangiaodich,'sangiaodichcategory'=>$sangiaodichcategory,]);
     }
     public function getSanGiaoDich()
     {

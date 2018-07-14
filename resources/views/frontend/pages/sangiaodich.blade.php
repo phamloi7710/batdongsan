@@ -1,6 +1,18 @@
+
 @section('title')
-Sàn Giao Dịch Bất Động Sản Tecco
-@stop
+Sàn Giao Dịch Bất Động Sản Tecco @stop
+
+@section('seoDescription')
+{{$config->seoDescription}}@stop
+
+@section('seoKeywords')
+{{$config->seoKeywords}}@stop
+
+@section('seoTitle')
+{{$config->seoTitle}}@stop
+
+@section('url')
+{{route('getSanGiaoDich')}}@stop
 @extends('frontend.general.master')
 @section('content')
 <div class="box-html">

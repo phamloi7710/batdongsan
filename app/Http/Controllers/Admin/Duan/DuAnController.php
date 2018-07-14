@@ -130,12 +130,9 @@ class DuAnController extends Controller
         else{
             $duan->noibat = $request->noibat;
         }
-        $dataSEO = [
-            'title' => $request->txtSeoTitle,
-            'description' => $request->txtSeoDescription,
-            'keywords' => $request->txtSeoKeywords,
-        ];
-        $duan->SEO = serialize($dataSEO);
+        $duan->seoTitle = $request->txtSeoTitle;
+        $duan->seoDescription = $request->txtSeoDescription;
+        $duan->seoKeywords = $request->txtSeoKeywords;
         $duan->save();
         return redirect()->route('getListDuAn')->with('success','Thêm Mới Dự Án Thành Công!');
     }
@@ -194,12 +191,9 @@ class DuAnController extends Controller
             $duan->noibat = $request->noibat;
         }
         $duan->status = $request->status;
-        $dataSEO = [
-            'title' => $request->txtSeoTitle,
-            'description' => $request->txtSeoDescription,
-            'keywords' => $request->txtSeoKeywords,
-        ];
-        $duan->SEO = serialize($dataSEO);
+        $duan->seoTitle = $request->txtSeoTitle;
+        $duan->seoDescription = $request->txtSeoDescription;
+        $duan->seoKeywords = $request->txtSeoKeywords;
         $duan->save();
         return redirect()->route('getListDuAn')->with('success','Cập Nhật Dự Án Thành Công!');
     }

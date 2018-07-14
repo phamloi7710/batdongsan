@@ -1,6 +1,17 @@
 @section('title')
-Tin Tức
-@stop
+Tin Tức Bất Động Sản Tecco @stop
+
+@section('seoDescription')
+{{$config->seoDescription}}@stop
+
+@section('seoKeywords')
+{{$config->seoKeywords}}@stop
+
+@section('seoTitle')
+{{$config->seoTitle}}@stop
+
+@section('url')
+{{route('getNewsFrontend')}}@stop
 @extends('frontend.general.master')
 @section('content')
 <div class="box-html">

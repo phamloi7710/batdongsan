@@ -8,6 +8,7 @@ use App\Model\DuAn\Category;
 use App\Model\DuAn\DuAn;
 use App\Model\Province;
 use App\Model\District;
+use App\Model\Config;
 use Illuminate\Support\Facades\Input;
 class DuAnController extends Controller
 {
@@ -18,16 +19,18 @@ class DuAnController extends Controller
 		$duannoibat = DuAn::where('status','active')->where('noibat','true')->orderBy('sort','ASC')->get();
         $province = Province::all();
         $district = District::all();
+        $config = Config::where('id','>',0)->first();
         view()->share('duan', $duan);
 		view()->share('danhmuc', $danhmuc);
         view()->share('duannoibat',$duannoibat);
         view()->share('province',$province);
-		view()->share('district',$district);
+        view()->share('district',$district);
+		view()->share('config',$config);
 	}
     public function getDetail($slug)
     {
         $duan = DuAn::where('slug', $slug)->first();
-        return view('frontend.pages.chitietduan');
+        return view('frontend.pages.chitietduan',['duan'=>$duan]);
     }
     public function getDuAn(Request $request)
     {

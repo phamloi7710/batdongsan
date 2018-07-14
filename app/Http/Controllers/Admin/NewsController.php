@@ -126,20 +126,16 @@ class NewsController extends Controller
         else{
             $news->noibat = $request->noibat;
         }
-        $dataSEO = [
-            'title' => $request->txtSeoTitle,
-            'description' => $request->txtSeoDescription,
-            'keywords' => $request->txtSeoKeywords,
-        ];
-        $news->SEO = serialize($dataSEO);
+        $news->seoTitle = $request->txtSeoTitle;
+        $news->seoDescription = $request->txtSeoDescription;
+        $news->seoKeywords = $request->txtSeoKeywords;        
         $news->save();
         return redirect()->route('getlistNews')->with('success','Thêm Mới Dự Án Thành Công!');
     }
     public function getEditNews($slug)
     {
         $news = News::where('slug', $slug)->first();
-        $dataSEO = unserialize($news->SEO);
-        return view('admin.pages.news.edit',['news'=>$news,'dataSEO'=>$dataSEO]);
+        return view('admin.pages.news.edit',['news'=>$news]);
     }
     public function postEditNews(Request $request, $slug)
     {
@@ -190,12 +186,9 @@ class NewsController extends Controller
         else{
             $news->noibat = $request->noibat;
         }
-        $dataSEO = [
-            'title' => $request->txtSeoTitle,
-            'description' => $request->txtSeoDescription,
-            'keywords' => $request->txtSeoKeywords,
-        ];
-        $news->SEO = serialize($dataSEO);
+        $news->seoTitle = $request->txtSeoTitle;
+        $news->seoDescription = $request->txtSeoDescription;
+        $news->seoKeywords = $request->txtSeoKeywords;
         $news->save();
         return redirect()->route('getlistNews')->with('success','Cập Nhật Tin Tức Thành Công!');
     }

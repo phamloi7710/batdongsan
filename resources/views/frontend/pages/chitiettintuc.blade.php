@@ -1,5 +1,18 @@
+
 @section('title')
 {{$newsDetail->title}}
+@stop
+@section('seoDescription')
+{{$newsDetail->seoDescription}}
+@stop
+@section('seoKeywords')
+{{$newsDetail->seoKeywords}}
+@stop
+@section('seoTitle')
+{{$newsDetail->seoTitle}}
+@stop
+@section('url')
+{{route('getNewsDetail', ['slug'=>$newsDetail->slug])}}
 @stop
 @extends('frontend.general.master')
 @section('content')

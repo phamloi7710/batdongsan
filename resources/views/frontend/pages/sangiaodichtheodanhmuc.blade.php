@@ -1,6 +1,16 @@
+
 @section('title')
-Sàn Giao Dịch Bất Động Sản Tecco
-@stop
+Sàn Giao Dịch Bất Động Sản Tecco @stop
+@section('seoDescription')
+{{$config->seoDescription}}@stop
+@section('seoKeywords')
+{{$config->seoKeywords}}@stop
+@section('seoTitle')
+{{$config->seoTitle}}@stop
+@section('url')
+{{route('getSanGiaoDichTheoDanhMuc',['slug'=>$category->slug])}}@stop
+@extends('frontend.general.master')
+@section('content')
 @extends('frontend.general.master')
 @section('content')
 <div class="box-html">
@@ -71,7 +81,7 @@ Sàn Giao Dịch Bất Động Sản Tecco
                                         @foreach($sangiaodich as $value)
                                         <div class="property-item clearfix">
                                             <div class="image image-resize col-md-3 col-xs-12 col-sm-4">
-                                                <a href="/san-giao-dich/that-de-dang-khi-so-huu-lo-dat-nen-du-an-gia-re-quan-9.html">
+                                                <a href="{{route('getSanGiaoDichDetail',['slug'=>$value->slug])}}">
                                                 <img src="{{url('')}}/uploads/san-giao-dich/{{$value->image}}" class="img-responsive" />
                                                 </a>
                                                 <span class="ribbon ribbon2">{{$value->type}}</span>
@@ -103,8 +113,8 @@ Sàn Giao Dịch Bất Động Sản Tecco
                                         @foreach($muaban as $value)
                                         <div class="property-item clearfix">
                                             <div class="image image-resize col-md-3 col-xs-12 col-sm-4">
-                                                <a href="/san-giao-dich/that-de-dang-khi-so-huu-lo-dat-nen-du-an-gia-re-quan-9.html">
-                                                <img src="{{url('')}}/{{$value->image}}" class="img-responsive" />
+                                                <a href="{{route('getSanGiaoDichDetail',['slug'=>$value->slug])}}">
+                                                <img src="{{url('')}}/uploads/san-giao-dich/{{$value->image}}" class="img-responsive" />
                                                 </a>
                                                 <span class="ribbon ribbon2">{{$value->type}}</span>
                                             </div>
@@ -135,8 +145,8 @@ Sàn Giao Dịch Bất Động Sản Tecco
                                         @foreach($chothue as $value)
                                         <div class="property-item clearfix">
                                             <div class="image image-resize col-md-3 col-xs-12 col-sm-4">
-                                                <a href="/san-giao-dich/that-de-dang-khi-so-huu-lo-dat-nen-du-an-gia-re-quan-9.html">
-                                                <img src="{{url('')}}/{{$value->image}}" class="img-responsive" />
+                                                <a href="{{route('getSanGiaoDichDetail',['slug'=>$value->slug])}}">
+                                                <img src="{{url('')}}/uploads/san-giao-dich/{{$value->image}}" class="img-responsive" />
                                                 </a>
                                                 <span class="ribbon ribbon2">{{$value->type}}</span>
                                             </div>

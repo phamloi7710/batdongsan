@@ -308,7 +308,7 @@ Sửa Sàn Giao Dịch
                     <label class="control-label col-md-3 col-sm-3 col-xs-12"> Tiêu Đề Trang
                     </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input name="txtSeoTitle" value="{{$dataSEO['title']}}" type="text" class="form-control">
+                        <input name="txtSeoTitle" value="{{$sangiaodich->seoTitle}}" type="text" class="form-control">
                         <i>Tiêu đề tùy chỉnh hiển thị trong thẻ tiêu đề cho trang này</i>
                         @if($errors->has('txtSeoTitle'))
                             <p style="color:red; float:left">{{$errors->first('txtSeoTitle')}}</p>
@@ -319,7 +319,7 @@ Sửa Sàn Giao Dịch
                     <label class="control-label col-md-3 col-sm-3 col-xs-12"> Mô Tả Trang
                     </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input name="txtSeoDescription" value="{{$dataSEO['description']}}" type="text" class="form-control">
+                        <input name="txtSeoDescription" value="{{$sangiaodich->seoDescription}}" type="text" class="form-control">
                         <i>Mô tả META cho trang này. Thao tác này sẽ ghi đè mọi mô tả được tạo tự động</i>
                         @if($errors->has('txtSeoDescription'))
                             <p style="color:red; float:left">{{$errors->first('txtSeoDescription')}}</p>
@@ -330,7 +330,7 @@ Sửa Sàn Giao Dịch
                     <label class="control-label col-md-3 col-sm-3 col-xs-12"> Từ Khoá (Ngăn Cách Bằng Dấu Phẩy)
                     </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input name="txtSeoKeywords" value="{{$dataSEO['keywords']}}" type="text" class="form-control">
+                        <input name="txtSeoKeywords" value="{{$sangiaodich->seoKeywords}}" type="text" class="form-control">
                         <i>Danh sách các từ khóa quan trọng nhất được phân cách bằng dấu phẩy cho trang này sẽ được viết dưới dạng từ khóa META</i>
                         @if($errors->has('txtSeoKeywords'))
                             <p style="color:red; float:left">{{$errors->first('txtSeoKeywords')}}</p>

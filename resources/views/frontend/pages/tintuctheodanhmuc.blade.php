@@ -1,6 +1,15 @@
 @section('title')
-{{$categoryNews->title}}
-@stop
+{{$categoryNews->title}}@stop
+@section('seoDescription')
+{{$config->seoDescription}}@stop
+@section('seoKeywords')
+{{$config->seoKeywords}}@stop
+@section('seoTitle')
+{{$config->seoTitle}}@stop
+@section('url')
+{{route('getNewsCategory',['slug'=>$categoryNews->slug])}}@stop
+@extends('frontend.general.master')
+@section('content')
 @extends('frontend.general.master')
 @section('content')
 <div class="box-html">

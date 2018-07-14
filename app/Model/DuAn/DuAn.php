@@ -14,6 +14,7 @@ class DuAn extends Model
 	}
 	public function tinh()
     {
-    	return $this -> belongsTo('App\Model\Province','provinceid','provinceid');
-	}
+        return $this -> belongsTo('App\Model\Province','provinceid','provinceid');
+    }
+    
 }

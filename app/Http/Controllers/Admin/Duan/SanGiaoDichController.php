@@ -126,12 +126,9 @@ class SanGiaoDichController extends Controller
         else{
             $sangiaodich->noibat = $request->noibat;
         }
-        $dataSEO = [
-            'title' => $request->txtSeoTitle,
-            'description' => $request->txtSeoDescription,
-            'keywords' => $request->txtSeoKeywords,
-        ];
-        $sangiaodich->SEO = serialize($dataSEO);
+        $sangiaodich->seoTitle = $request->txtSeoTitle;
+        $sangiaodich->seoDescription = $request->txtSeoDescription;
+        $sangiaodich->seoKeywords = $request->txtSeoKeywords;
         $sangiaodich->save();
         return redirect()->route('getListSanGiaoDich')->with('success','Thêm Mới Sàn Giao Dịch Thành Công!');
     }
@@ -199,12 +196,9 @@ class SanGiaoDichController extends Controller
         else{
             $sangiaodich->noibat = $request->noibat;
         }
-        $dataSEO = [
-            'title' => $request->txtSeoTitle,
-            'description' => $request->txtSeoDescription,
-            'keywords' => $request->txtSeoKeywords,
-        ];
-        $sangiaodich->SEO = serialize($dataSEO);
+        $sangiaodich->seoTitle = $request->txtSeoTitle;
+        $sangiaodich->seoDescription = $request->txtSeoDescription;
+        $sangiaodich->seoKeywords = $request->txtSeoKeywords;
         $sangiaodich->save();
         return redirect()->route('getListSanGiaoDich')->with('success','Cập Nhật Sàn Giao Dịch Thành Công!');
     }

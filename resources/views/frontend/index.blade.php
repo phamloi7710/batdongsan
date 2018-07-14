@@ -1,19 +1,21 @@
 @section('title')
-    @if($config){{$config->name}}@endif
-@stop
-@section('keywords')
-    @if($config){{$config->keywords}}@endif
-@stop
-@section('description')
-    @if($config){{$config->seoDescription}}@endif
-@stop
-@section('image')
-    @if($config){{url('')}}/uploads/{{$config->image}}@endif
+@if($config){{$config->name}}@endif
 @stop
 @section('seoKeywords')
-    @if($config){{$config->seoKeywords}}@endif
+@if($config){{$config->seoKeywords}}@endif
 @stop
+@section('seoDescription')
+@if($config){{$config->seoDescription}}@endif
+@stop
+@section('seoKeywords')
+@if($config){{$config->seoKeywords}}@endif
+@stop
+@section('seoTitle')
+@if($config){{$config->seoTitle}}@endif
+@stop
+@section('url'){{url('')}}@stop
 @extends('frontend.general.master')
+
 @section('content')
 <div class="container">
     <div class="row">
@@ -284,11 +286,11 @@
                                     @foreach($sangiaodichnoibat as $value)
                                     <div class="property-item clearfix">
                                         <div class="image image-resize col-md-3 col-xs-12 col-sm-4">
-                                            <a href="/san-giao-dich/can-mua-dat-du-an-gia-hoa-quan-9-de-o.html">
-                                            <img src="{{asset('')}}{{$value->image}}" class="img-responsive" />
+                                            <a href="{{route('getSanGiaoDichDetail',['slug'=>$value->slug])}}">
+                                            <img src="{{asset('')}}/uploads/san-giao-dich/{{$value->image}}" class="img-responsive" />
                                     
                                             </a>
-                                            <span class="ribbon ribbon2"></span>
+                                            <span class="ribbon ribbon2">{{$value->type}}</span>
                                         </div>
                                         <div class="right-block col-md-9 col-xs-12 col-sm-8">
                                             <h2 class="name">
@@ -316,65 +318,6 @@
                 </section>
                 <link href="{{asset('')}}/assets/frontend/fancyBox/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" media="screen" />
                 <script src="{{asset('')}}/assets/frontend/fancyBox/jquery.fancybox.js" type="text/javascript"></script>
-                <section class="gallery-content clearfix">
-                    <h1 class="title clearfix">
-                        <span>Thư viện ảnh</span>
-                    </h1>
-                    <div class="gallery-block">
-                        <div class="row">
-                            <div class="col-md-6 gallery-item gallery-large-item">
-                                <div class="image">
-                                    <a href="/thu-vien-anh/biet-thu.html" data-id="7">
-                                    <img src="{{asset('')}}/assets/frontend/uploads/shop108/images/property3.jpg" class="img-responsive">
-                                    </a>
-                                    <div class="gallery-thumbnail">
-                                        <a href="/thu-vien-anh/biet-thu.html" data-id="7">Biệt thự</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3 gallery-item gallery-small-item">
-                                <div class="image">
-                                    <a href="/thu-vien-anh/canh-ho.html" data-id="9">
-                                    <img src="{{asset('')}}/assets/frontend/uploads/shop108/images/property8.jpg" class="img-responsive">
-                                    </a>
-                                    <div class="gallery-thumbnail">
-                                        <a href="/thu-vien-anh/canh-ho.html" data-id="9">Canh hộ</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3 gallery-item gallery-small-item">
-                                <div class="image">
-                                    <a href="/thu-vien-anh/nha-pho.html" data-id="8">
-                                    <img src="{{asset('')}}/assets/frontend/uploads/shop108/images/property2.jpg" class="img-responsive">
-                                    </a>
-                                    <div class="gallery-thumbnail">
-                                        <a href="/thu-vien-anh/nha-pho.html" data-id="8">Nh&#224; phố</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3 gallery-item gallery-small-item">
-                                <div class="image">
-                                    <a href="/thu-vien-anh/dat-cong-tac.html" data-id="16">
-                                    <img src="{{asset('')}}/assets/frontend/uploads/shop108/images/apartment-a-244x163.jpg" class="img-responsive">
-                                    </a>
-                                    <div class="gallery-thumbnail">
-                                        <a href="/thu-vien-anh/dat-cong-tac.html" data-id="16">Đất c&#244;ng t&#225;c</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3 gallery-item gallery-small-item">
-                                <div class="image">
-                                    <a href="/thu-vien-anh/phong-ngu.html" data-id="24">
-                                    <img src="{{asset('')}}/assets/frontend/uploads/shop108/images/apartment-b-244x163.jpg" class="img-responsive">
-                                    </a>
-                                    <div class="gallery-thumbnail">
-                                        <a href="/thu-vien-anh/phong-ngu.html" data-id="24">Ph&#242;ng ngủ</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
                 <div style="visibility: hidden;" id="loadslide">
                     <div id="photos">
                         <ul class="slides"></ul>

@@ -4,16 +4,16 @@
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
         <meta charset="UTF-8" />
         <title>@yield('title')</title>
-        <meta name="og:image" content="@if($config){{url('')}}/uploads/images/{{$config->logo}}@endif">
-        <meta name="description" content="@yield('description')"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="@yield('seoDescription')"/>
         <meta name="keywords" content="@yield('seoKeywords')"/>
-        <meta property="fb:app_id" content="@yield('fbAppId')"/>
-        <meta property="og:locale" content="VN_vn">
-        <meta property="og:type" content="@yield('type')">
-        <meta property="og:site_name" content="@if($config) {{$config->name}} @endif">
-        <meta property="og:title" content="@yield('title')">
-        <meta property="og:image" content="@yield('image')">
-        <meta property="og:description" content="@yield('description')">
+        <meta property="fb:app_id" content=""/>
+        <meta property="og:locale" content="vi_VN">
+        <meta property="og:type" content="website">
+        <meta property="og:site_name" content="@if($config){{$config->name}}@endif">
+        <meta property="og:title" content="@if($config){{$config->seoTitle}}@endif">
+        <meta property="og:image" content="{{url('')}}/uploads/{{$config->image}}">
+        <meta property="og:description" content="@yield('seoDescription')">
         <meta property="og:url" content="{{url('')}}">
         <link rel="image_src" href="@if($config){{url('')}}/uploads/images/{{$config->logo}}@endif">
         <link rel="canonical" href="@yield('url')"/>

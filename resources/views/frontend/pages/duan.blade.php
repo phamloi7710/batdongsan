@@ -1,6 +1,18 @@
 @section('title')
-Tất Cả Dự Án
-@stop
+Tất Cả Dự Án @stop
+
+@section('seoDescription')
+{{$config->seoDescription}}@stop
+
+@section('seoKeywords')
+{{$config->seoKeywords}}@stop
+
+@section('seoTitle')
+{{$config->seoTitle}}@stop
+
+@section('url')
+{{route('getDuAn')}}@stop
+
 @extends('frontend.general.master')
 @section('content')
 <div class="box-html">
@@ -40,7 +52,7 @@ Tất Cả Dự Án
                                         <a href="{{route('getDuAnDetail',['slug'=>$value->slug])}}" title="{{$value->title}}">
                                         <img src="{{url('')}}/uploads/du-an/{{$value->image}}" class="img-responsive" />
                                         </a>
-                                        <span class="ribbon"></span>
+                                        <span class="ribbon">{{$value->type}}</span>
                                     </div>
                                     <div class="description">
                                         <p>
@@ -123,7 +135,7 @@ Tất Cả Dự Án
                                 <a href="{{route('getDuAnDetail',['slug'=>$value->slug])}}" title="{{$value->title}}">
                                 <img src="{{url('')}}/uploads/du-an/{{$value->image}}" class="img-responsive" />
                                 </a>
-                                <span class="ribbon"></span>
+                                <span class="ribbon">{{$value->type}}</span>
                             </div>
                             <div class="description">
                                 <p>
