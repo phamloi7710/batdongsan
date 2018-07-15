@@ -11,7 +11,7 @@ Route::get('admin/logout.html','Account\LoginController@getLogoutAdmin')->name('
 
 
 // Admin
-Route::group(['prefix'=>'admin','middleware' => 'auth'],function(){
+Route::group(['prefix'=>'admin','middleware' => 'checkRole'],function(){
 	
 	
 	Route::get('', 'Admin\AdminController@getIndexAdmin')->name('getIndexAdmin');
@@ -73,6 +73,10 @@ Route::group(['prefix'=>'admin','middleware' => 'auth'],function(){
 		Route::post('chinh-sua-tin-tuc/{slug}.html','Admin\NewsController@postEditNews')->where(['url'=>'[0-9A-Za-z\-]+','id' => '[0-9]'])->name('postEditNews');
 		Route::get('xoa-tin-tuc/{id}.html','Admin\NewsController@getDeleteNews')->name('getDeleteNews');
 	});
+	Route::group(['prefix'=>'lien-he'], function(){
+		Route::get('danh-sach', 'Admin\LienHeController@getList')->name('getListLienHe');
+		Route::post('cap-nhat/{id}', 'Admin\LienHeController@postEdit')->name('postEditLienHe');
+	});
 });
 
 
@@ -97,6 +101,8 @@ Route::get('tin-tuc','Frontend\TinTucController@getNews')->name('getNewsFrontend
 Route::get('tin-tuc/{slug}.html','Frontend\TinTucController@getDetail')->name('getNewsDetail');
 Route::get('tin-tuc/{slug}','Frontend\TinTucController@getNewsCategory')->name('getNewsCategory');
 Route::get('tim-kiem-du-an/ket-qua.html','Frontend\TimKiemController@getDuAn')->name('getSearchDuAn');
+Route::get('lien-he.html','Frontend\LienHeController@getLienHe')->name('getLienHe');
+Route::post('lien-he.html','Frontend\LienHeController@postLienHe')->name('postLienHe');
 
 
 

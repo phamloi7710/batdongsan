@@ -71,7 +71,9 @@ class NewsController extends Controller
     }
     public function getlistNews()
     {
-    	return view('admin.pages.news.list');
+        $news = News::where('id','>',0);
+        $news = $news->paginate(10)->setPath('');
+    	return view('admin.pages.news.list',['news'=>$news]);
     }
     public function getAddNews()
     {

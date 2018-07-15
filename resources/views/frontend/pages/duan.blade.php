@@ -2,16 +2,16 @@
 Tất Cả Dự Án @stop
 
 @section('seoDescription')
-{{$config->seoDescription}}@stop
+@if($config){{$config->seoDescription}}@endif @stop
 
 @section('seoKeywords')
-{{$config->seoKeywords}}@stop
+@if($config){{$config->seoKeywords}}@endif @stop
 
 @section('seoTitle')
-{{$config->seoTitle}}@stop
+@if($config){{$config->seoTitle}}@endif @stop
 
 @section('url')
-{{route('getDuAn')}}@stop
+@if($config){{route('getDuAn')}}@endif @stop
 
 @extends('frontend.general.master')
 @section('content')
@@ -42,6 +42,7 @@ Tất Cả Dự Án @stop
                     </h1>
                     <div class="project-block project-grid clearfix">
                         <div class="row">
+                            @if(count($duan)>0)
                             @foreach($duan as $value)
                             <div class="col-md-3 col-sm-3 col-xs-12 project-resize project-item-box">
                                 <div class="project-item">
@@ -62,7 +63,12 @@ Tất Cả Dự Án @stop
                                 </div>
                             </div>
                             @endforeach
+
+                            @else
+                            <p style="text-align: center; margin-top: 25px; margin-bottom: 50px; font-size: 18px; color: #45D4F5; ">Không Có Dữ Liệu Để Hiển Thị</p>
+                            @endif
                         </div>
+                        <div class="center paging">{{$duan->render()}}</div>
                     </div>
                 </section>
             </div>
@@ -126,6 +132,7 @@ Tất Cả Dự Án @stop
                         <span>Dự án nổi bật</span>
                     </h3>
                     <div class="box-project-block">
+                        @if(count($duannoibat)>0)
                         @foreach($duannoibat as $value)
                         <div class="item">
                             <h2 class="name">
@@ -144,6 +151,9 @@ Tất Cả Dự Án @stop
                             </div>
                         </div>
                         @endforeach
+                        @else
+                        <p style="text-align: center; margin-top: 25px; margin-bottom: 50px; font-size: 18px; color: #45D4F5; ">Không Có Dữ Liệu Để Hiển Thị</p>
+                        @endif
                     </div>
                 </div>
             </div>

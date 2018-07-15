@@ -29,13 +29,13 @@
                             <li><a href="{{route('getListDanhMucDuAn')}}"> Nhóm Dự Án</a></li>
                         </ul>
                     </li>
-                    <li>
+                    <!-- <li>
                         <a><i class="fas fa-cogs"></i> Sàn Giao Dịch<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="{{route('getListDanhMucSanGiaoDich')}}"> Nhóm Sàn Giao Dịch</a></li>
                             <li><a href="{{route('getListSanGiaoDich')}}"> Sàn Giao Dịch</a></li>
                         </ul>
-                    </li>
+                    </li> -->
                     <li>
                         <a><i class="fas fa-cogs"></i> Tin Tức<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
@@ -50,6 +50,9 @@
                             <li><a href="{{route('getEmailConfig')}}"> Cấu Hình Email</a></li>
                              <li><a href=""> Cấu Hình Mạng Xã Hội </a></li>
                         </ul>
+                    </li>
+                    <li>
+                        <a href="{{route('getListLienHe')}}"><i class="fas fa-cogs"></i> Liên Hệ </a>
                     </li>
                 </ul>
             </div>

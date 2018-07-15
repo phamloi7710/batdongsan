@@ -3,13 +3,13 @@
 Sàn Giao Dịch Bất Động Sản Tecco @stop
 
 @section('seoDescription')
-{{$config->seoDescription}}@stop
+@if($config){{$config->seoDescription}}@endif @stop
 
 @section('seoKeywords')
-{{$config->seoKeywords}}@stop
+@if($config){{$config->seoKeywords}}@endif @stop
 
 @section('seoTitle')
-{{$config->seoTitle}}@stop
+@if($config){{$config->seoTitle}}@endif @stop
 
 @section('url')
 {{route('getSanGiaoDich')}}@stop
@@ -40,7 +40,7 @@ Sàn Giao Dịch Bất Động Sản Tecco @stop
                     <h1 class="title clearfix">
                         <span>Sàn giao dịch</span>
                     </h1>
-                    <nav class="navbar navbar-default filter">
+                    <!-- <nav class="navbar navbar-default filter">
                         <ul class="display">
                             <li id="grid" class="active grid"><a href="#" title="Grid"><i class="glyphicon glyphicon-th-list"></i></a></li>
                             <li id="list" class="list"><a href="#" title="List"><i class="glyphicon glyphicon-th"></i></a></li>
@@ -69,7 +69,7 @@ Sàn Giao Dịch Bất Động Sản Tecco @stop
                                 <option value="?sort=createddate&amp;order=desc">Ng&#224;y giảm dần</option>
                             </select>
                         </div>
-                    </nav>
+                    </nav> -->
                     <div class="property-tabs">
                         <ul class="nav nav-tabs">
                             <li class="active"><a data-toggle="tab" href="?tab=#tatca">Tất Cả</a></li>
@@ -80,6 +80,7 @@ Sàn Giao Dịch Bất Động Sản Tecco @stop
                             <div id="tatca" class="property-block property-list clearfix tab-pane fade in active">
                                 <div class="row">
                                     <div class="property-resize property-item-box clearfix">
+                                        @if(count($sangiaodich)>0)
                                         @foreach($sangiaodich as $value)
                                         <div class="property-item clearfix">
                                             <div class="image image-resize col-md-3 col-xs-12 col-sm-4">
@@ -106,12 +107,16 @@ Sàn Giao Dịch Bất Động Sản Tecco @stop
                                             </div>
                                         </div>
                                         @endforeach
+                                        @else
+                                        <p style="text-align: center; margin-top: 25px; margin-bottom: 50px; font-size: 18px; color: #45D4F5; ">Không Có Dữ Liệu Để Hiển Thị</p>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
                             <div id="muaban" class="property-block property-list clearfix tab-pane fade">
                                 <div class="row">
                                     <div class="property-resize property-item-box clearfix">
+                                        @if(count($muaban)>0)
                                         @foreach($muaban as $value)
                                         <div class="property-item clearfix">
                                             <div class="image image-resize col-md-3 col-xs-12 col-sm-4">
@@ -138,12 +143,16 @@ Sàn Giao Dịch Bất Động Sản Tecco @stop
                                             </div>
                                         </div>
                                         @endforeach
+                                        @else
+                                        <p style="text-align: center; margin-top: 25px; margin-bottom: 50px; font-size: 18px; color: #45D4F5; ">Không Có Dữ Liệu Để Hiển Thị</p>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
                             <div id="chothue" class="property-block property-list clearfix tab-pane fade">
                                 <div class="row">
                                     <div class="property-resize property-item-box clearfix">
+                                        @if(count($chothue)>0)
                                         @foreach($chothue as $value)
                                         <div class="property-item clearfix">
                                             <div class="image image-resize col-md-3 col-xs-12 col-sm-4">
@@ -170,6 +179,9 @@ Sàn Giao Dịch Bất Động Sản Tecco @stop
                                             </div>
                                         </div>
                                         @endforeach
+                                        @else
+                                        <p style="text-align: center; margin-top: 25px; margin-bottom: 50px; font-size: 18px; color: #45D4F5; ">Không Có Dữ Liệu Để Hiển Thị</p>
+                                        @endif
                                     </div>
                                 </div>
                             </div>

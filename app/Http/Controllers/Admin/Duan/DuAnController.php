@@ -93,7 +93,7 @@ class DuAnController extends Controller
             $file = array('image' => Input::file('image'));
             $validator = Validator::make($file, $rules);
             if ($validator->fails()) {
-                Session::flash('error', Lang::get('slider.checkMineImageWaring'));
+                Session::flash('error', 'Cho phép tệp định dạng tải lên: .jpeg, .bmp, .png và cho kích thước tối đa tối đa: 20000 Kb');
                 return redirect()->back();
             } else {
                 if (Input::file('image')->isValid()) {
@@ -103,8 +103,8 @@ class DuAnController extends Controller
                     Input::file('image')->move($destinationPath, $fileName);
                     $duan->image = $fileName;
                 } else {
-                    Session::flash('error', Lang::get('page.waringUploadImage'));
-                    return redirect()->back()->witch('error', Lang::get('slider.waringUploadImage'));
+                    Session::flash('error', 'Đã xảy ra sự cố khi cập nhật nội dung của bạn');
+                    return redirect()->back()->witch('error', 'Đã xảy ra sự cố khi cập nhật nội dung của bạn');
                 }
             }
         }

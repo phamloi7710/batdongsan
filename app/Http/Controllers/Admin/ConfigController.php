@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\Config;
+use App\Model\Email;
 use Session;
 use Validator;
 use Illuminate\Support\Facades\Input;
@@ -182,38 +183,39 @@ class ConfigController extends Controller
 
     public function getEmailConfig()
     {
-        $email = Config::where('key', 'email')->value('value');
-        $email = unserialize($email);
+        $email = Email::where('id', '>', 0)->first();
         return view('admin.pages.config.email',['email'=>$email]);
     }
     public function postEmailConfig(Request $request)
     {
         
-        $email = [
-            'sender' => $request->txtSender,
-            'email' => $request->txtEmail,
-            'password' => $request->txtPassword,
-            'driver' => $request->txtDriver,
-            'host' => $request->txtHost,
-            'port' => $request->txtPort,
-            'encrypt' => $request->radioEncrypt,
-        ];
-        $email = serialize($email);
         try {
-            $pSets = Config::where('key','email')->count();
+            $pSets = Email::all()->count();
 
             if($pSets > 0) {
-                Config::where('key','email')->update(['value'=>$email]);
+                $email = Email::where('id', '>', 0)->first();
+                $email->sender = $request->txtSender;
+                $email->email = $request->txtEmail;
+                $email->password = $request->txtPassword;
+                $email->driver = $request->txtDriver;
+                $email->host = $request->txtHost;
+                $email->port = $request->txtPort;
+                $email->save();
+                
                 
             } else {
-                $emailConfig = new Config;
-                $emailConfig->key = 'email';
-                $emailConfig->value = $email;
+                $email = new Email;
+                $email->sender = $request->txtSender;
+                $email->email = $request->txtEmail;
+                $email->password = $request->txtPassword;
+                $email->driver = $request->txtDriver;
+                $email->host = $request->txtHost;
+                $email->port = $request->txtPort;
+                $email->save();
                 
-                $emailConfig->save();
 
             }
-            return redirect()->route('getEmailConfig')->with('success', 'Cập Nhật Thành Công!');
+            return redirect()->back()->with('success','Cập Nhật Thành Công');
 
         } catch (\Exception $e) {
             //throw $e;

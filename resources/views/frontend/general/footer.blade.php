@@ -89,86 +89,12 @@
                 <div class="footer-content clearfix">
                     <div class="container">
                         <div class="row">
-                            <div class="footer-box col-md-3 col-sm-12 col-xs-12">
-                                <div class="item">
-                                    <h3>
-                                        <span>Th&#244;ng tin địa ốc</span>
-                                    </h3>
-                                </div>
-                                <ul>
-                                    <li>
-                                        <a href="/tin-tuc.html">
-                                        Thị trường địa ốc
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/tin-tuc.html">
-                                        Hoạt động doanh nghiệp
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/tin-tuc.html">
-                                        Ch&#237;nh s&#225;ch - Quy hoạch
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/tin-tuc.html">
-                                        T&#224;i ch&#237;nh - Chứng kho&#225;ng
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/tin-tuc.html">
-                                        Bất động sản thế giới
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="footer-box col-md-3 col-sm-12 col-xs-12">
-                                <div class="item">
-                                    <h3>
-                                        <span>Si&#234;u thị địa ốc</span>
-                                    </h3>
-                                </div>
-                                <ul>
-                                    <li>
-                                        <a href="/san-giao-dich.html">
-                                        Nh&#224; phố
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/san-giao-dich.html">
-                                        Villa
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/san-giao-dich.html">
-                                        Căn hộ chung cư
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/san-giao-dich.html">
-                                        Đất thổ cư - Đất ở
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/san-giao-dich.html">
-                                        Đất dự &#225;n - Quy hoạch
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/san-giao-dich.html">
-                                        Văn ph&#242;ng
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
                             <div class="footer-box box-address col-md-3 col-sm-12 col-xs-12">
                                 <div class="item">
                                     <h3>
-                                        Thông tin công ty
+                                        @if($config) {{$config->name}} @endif
                                     </h3>
                                     <div class="box-address-content">
-                                        <b>@if($config) {{$config->name}} @endif</b>
                                         <p><i class="fa fa-map-marker"></i>@if($config) {{$config->address}} @endif</p>
                                         <p>
                                             <i class="fa fa-envelope"></i>
@@ -181,26 +107,37 @@
                                     </div>
                                 </div>
                             </div>
+                            
                             <div class="footer-box box-social col-md-3 col-sm-12 col-xs-12">
                                 <div class="item">
                                     <h3>
-                                        Facebook
+                                        Kết Nối Mạng Xã Hội
                                     </h3>
-                                    <div class="fb-like-box" data-href="https://www.facebook.com/runtime.vn" data-width="289"
-                                        data-height="190" data-colorscheme="dark" data-show-faces="true" data-header="false"
-                                        data-stream="false" data-show-border="false">
-                                    </div>
                                     <div class="social-icon">
                                         <ul>
-                                            <li><a target="_blank"><i class="fa fa-google-plus"></i></a></li>
-                                            <li><a href="https://www.facebook.com/runtime.vn" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                                            <li><a target="_blank"><i class="fa fa-youtube"></i></a></li>
-                                            <li><a target="_blank"><i class="fa fa-twitter "></i></a></li>
+                                            <li><a href="" target="_blank"><i class="fab fa-google-plus-square"></i></a></li>
+                                            <li><a href="" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                                            <li><a href="" target="_blank"><i class="fab fa-youtube"></i></a></li>
+                                            <li><a href="" target="_blank"><i class="fab fa-twitter"></i></a></li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
-                            <div class="footer-box box-letter col-md-3 col-sm-12 col-xs-12 hide">
+                            <div class="footer-box col-md-3 col-sm-12 col-xs-12">
+                                <div class="item">
+                                    <h3>
+                                        <span>Tin Tức Bất Động Sản</span>
+                                    </h3>
+                                </div>
+                                <ul>
+                                    @foreach($news as $value)
+                                    <li>
+                                        <a href="{{route('getNewsDetail',['slug'=>$value->slug])}}">{{$value->title}}</a>
+                                    </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                            <div class="footer-box box-letter col-md-3 col-sm-12 col-xs-12">
                                 <div class="item">
                                     <h3>
                                         Đăng ký nhận tin
@@ -211,10 +148,10 @@
                                     <div class="letter-content">
                                         <div class="new-paper">
                                             <div class="input-box">
-                                                <input type="text" name="email" id="txtNewsletter" class="input-text form-control" value="" placeholder="Your Emain Address" />
+                                                <input type="email" name="email" class="form-control" placeholder="Xin Mời Nhập Email Của Bạn">
                                             </div>
                                             <div class="button text-center">
-                                                <a class="btn btn-primary">Nhận tin</a>
+                                                <a class="btn btn-success ">Nhận tin</a>
                                             </div>
                                         </div>
                                     </div>
@@ -229,7 +166,7 @@
             <div id="loading_mask_loader" class="loader">
                 <img alt="Loading..." src="{{asset('')}}/assets/frontend/Images/ajax-loader-main.gif" />
                 <div>
-                    Please wait...
+                    Vui Lòng Chờ...
                 </div>
             </div>
         </div>
@@ -237,6 +174,19 @@
         <i class="fa fa-angle-up">
         </i>
         </a>
+        
+        <script src="{{asset('')}}/assets/frontend/bootstrap/js/bootstrap.min.js"></script>
+        <script src="{{asset('')}}/assets/frontend/jQuery/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
+        <script src="{{asset('')}}/assets/frontend/jQuery-ui/jquery-ui.min.js" type="text/javascript"></script>
+        <script src="{{asset('')}}/assets/frontend/common/fix-height.js" data-img-box=".image-resize" type="text/javascript"></script>
+        <script src="{{asset('')}}/assets/frontend/common/common.js" type="text/javascript"></script>
+        <script src="{{asset('')}}/assets/frontend/common/jquery.cookie.js" type="text/javascript"></script>
+        <script src="{{asset('')}}/assets/frontend/lazyLoad/jquery.lazyload.min.js" type="text/javascript"></script>
+        <script src="{{asset('')}}/assets/frontend/app/directives/directive.js"></script>
+        <script src="{{asset('')}}/assets/frontend/app/directives/angular-summernote.js"></script>
+        <script src="{{asset('')}}/assets/frontend/app/directives/paging.js"></script>
+        <script src="{{asset('')}}/assets/frontend/app/services/ajaxServices.js"></script>
+        <script src="{{asset('')}}/assets/frontend/app/services/alertsServices.js"></script>
     </body>
 </html>
 <script type="text/javascript">

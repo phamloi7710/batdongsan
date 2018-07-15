@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 use App\Model\SanGiaoDich\Category;
 use App\Model\Config;
+use App\Model\News\News;
 use App\Model\SanGiaoDich\SanGiaoDich;
 use View;
 use DB;
@@ -25,6 +26,13 @@ class AppServiceProvider extends ServiceProvider
             $sangiaodichcategory = Category::where('status','active')->orderBy('sort','ASC')->get();
             View::composer('frontend.general.danhmucsangiaodich', function($view) use($sangiaodichcategory) {
                 $view->with('sangiaodichcategory',$sangiaodichcategory);
+            });
+        }
+        if(Schema::hasTable('news'))
+        {
+            $news = News::where('status','active')->orderBy('sort','ASC')->limit(5)->get();
+            View::composer('frontend.general.footer', function($view) use($news) {
+                $view->with('news',$news);
             });
         }
         if(Schema::hasTable('config'))

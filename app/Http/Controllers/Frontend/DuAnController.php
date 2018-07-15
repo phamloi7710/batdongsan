@@ -51,7 +51,7 @@ class DuAnController extends Controller
         if ($type) {
             $duan->where('type',$type);
         }
-        $duan = $duan->paginate(15)->appends($request->all());
+        $duan = $duan->paginate(10)->appends($request->all());
     	return view('frontend.pages.duan',['duan'=>$duan]);
     }
 }

@@ -66,6 +66,7 @@ Danh Sách Tin Tức
 		                    @endforeach
 		                </tbody>
 		            </table>
+		            <div class="pull-right">{{$news->render()}}</div>
 		        </div>
 		    </div>
 		</div>

@@ -43,6 +43,7 @@ Kết Quả Tìm Kiếm Dự Án
                                     </div>
                                     @endforeach
                                 </div>
+                                <div class="center paging">{{$duan->render()}}</div>
                             </div>
                         </div>
                     </div>

@@ -4,11 +4,11 @@ return [
     'name' => 'Laravel',
     'env' => 'production',
     'debug' => true,
-    'url' => 'https://batdongsan37.000webhostapp.com',
+    'url' => 'batdongsan.lo',
     'timezone' => 'UTC',
     'locale' => 'en',
     'fallback_locale' => 'en',
-    'key' => 'base64:gxWC7vVEYTEYw7jfs/5tOvR7tR+EuHrm6+E4WYwFso4=',
+    'key' => 'base64:Vi28DhnE0WadryukauSr6zcSL4bZN4C140rrpZSAp3I=',
     'cipher' => 'AES-256-CBC',
     'providers' => [
         Illuminate\Auth\AuthServiceProvider::class,

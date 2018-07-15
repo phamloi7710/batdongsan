@@ -29,7 +29,7 @@ class TimKiemController extends Controller
         if ($huyen) {
             $duan->where('districtid',$huyen);
         }
-        $duan = $duan->paginate(15)->appends($request->all())->setPath('');
+        $duan = $duan->paginate(1)->appends($request->all())->setPath('');
     	return view('frontend.pages.timkiemduan',['duan'=>$duan]);
     }
 }

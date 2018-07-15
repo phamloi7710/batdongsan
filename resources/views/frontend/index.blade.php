@@ -15,7 +15,6 @@
 @stop
 @section('url'){{url('')}}@stop
 @extends('frontend.general.master')
-
 @section('content')
 <div class="container">
     <div class="row">
@@ -29,11 +28,10 @@
                 <ul class="slides">
                     <li ng-repeat="item in Slideshows">
                         <a title="@{{item.Name}}" href="@{{item.Link}}">
-                            <img alt="@{{item.Name}}" ng-src="@{{item.Image}}" />
+                        <img alt="@{{item.Name}}" ng-src="@{{item.Image}}" />
                         </a>
                     </li>
                 </ul>
-
             </div>
             <script type="text/javascript">
                 $(document).ready(function () {
@@ -78,49 +76,48 @@
                         <div class="top-title">
                             <i class="fa fa-search"></i><span>Tìm kiếm</span>
                         </div>
-                         <form method="GET" action="{{route('getSearchDuAn')}}" class="form-horizontal form-label-left">
+                        <form method="GET" action="{{route('getSearchDuAn')}}" class="form-horizontal form-label-left">
                             <div class="form-search clearfix">
-                            <div class=col-md-10>
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <select class="form-control"  name="danhmuc">
-                                            <option value="">--Chọn danh mục--</option>
-                                            @foreach($category as $value)
-                                            <option value="{{$value->id}}">{{$value->title}}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <select class="form-control" name="loaigiaodich">
-                                            <option value="">--Chọn loại giao dịch--</option>
-                                            <option value="Mua Bán">Mua Bán</option>
-                                            <option value="Cho Thuê">Cho Thuê</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <select class="form-control" id="tinh" name="tinh">
-                                            <option value="">--Chọn tỉnh--</option>
-                                            @foreach($tinh as $value)
-                                            <option value="{{$value->provinceid}}">{{$value->name}}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <select class="form-control" id="huyen" name="huyen">
-                                            <option value="">--Chọn huyện--</option>
-                                            @foreach($huyen as $value)
-                                            <option value="{{$value->name}}">{{$value->name}}</option>
-                                            @endforeach
-                                        </select>
+                                <div class=col-md-10>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <select class="form-control"  name="danhmuc">
+                                                <option value="">--Chọn danh mục--</option>
+                                                @foreach($category as $value)
+                                                <option value="{{$value->id}}">{{$value->title}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <select class="form-control" name="loaigiaodich">
+                                                <option value="">--Chọn loại giao dịch--</option>
+                                                <option value="Mua Bán">Mua Bán</option>
+                                                <option value="Cho Thuê">Cho Thuê</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <select class="form-control" id="tinh" name="tinh">
+                                                <option value="">--Chọn tỉnh--</option>
+                                                @foreach($tinh as $value)
+                                                <option value="{{$value->provinceid}}">{{$value->name}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <select class="form-control" id="huyen" name="huyen">
+                                                <option value="">--Chọn huyện--</option>
+                                                @foreach($huyen as $value)
+                                                <option value="{{$value->name}}">{{$value->name}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
+                                <div class="col-md-2">
+                                    <button type="submit" class="btn btn-default">Tìm Kiếm</button>
+                                </div>
                             </div>
-                            <div class="col-md-2">
-                                <button type="submit" class="btn btn-default">Tìm Kiếm</button>
-                            </div>
-                        </div>
                         </form>
-                        
                     </div>
                 </div>
                 <script type="text/javascript">
@@ -149,80 +146,25 @@
                 <script src="{{asset('')}}/assets/frontend/app/services/projectServices.js"></script>
                 <script src="{{asset('')}}/assets/frontend/app/controllers/projectController.js"></script>
                 <!--Begin-->
-                <div class="project-content owl-carousel" ng-controller="projectController" ng-init="initProjectNewSlideController('ProjectNewSlides')">
+                <div class="project-content owl-carousel animatedParent" data-sequence='10'>
                     <h1 class="title clearfix">
-                        <span>Dự án mới</span>
+                        <span>VÌ SAO LẠI CHỌN CHÚNG TÔI?</span>
                     </h1>
-                    <div class="project-slide">
-                        <div class="row">
-                            <div class="controls boxprevnext">
-                                <a class="prev prevlogo"><i class="fa fa-angle-left"></i></a>
-                                <a class="next nextlogo"><i class="fa fa-angle-right"></i></a>
-                            </div>
-                            <div class="project-block project-grid clearfix" id="project-slide">
-                                <div class="project-item-box fixheight" ng-repeat="item in ProjectNewSlides">
-                                    <div class="project-item project-slide-resize">
-                                        <h2 class="name">
-                                            <a href="/du-an/@{{item.Code}}.html" title="@{{item.Name}}">@{{item.Name}}</a>
-                                        </h2>
-                                        <div class="image image-resize">
-                                            <a href="/du-an/@{{item.Code}}.html" title="@{{item.Name}}">
-                                                <img ng-src="@{{item.Image}}" class="img-responsive" alt="@{{item.Name}}" title="@{{item.Name}}"/>
-                                            </a>
-                                            <span class="ribbon">@{{item.Category}}</span>
-                                        </div>
-                                        <div class="description" ng-bind-html="item.Summary">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
+                    <div class="row center">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 item-top">
+                            <img class="animated bounceInLeft" width="322" height="170" src="{{URL('')}}/assets/Frontend/Images/thongtin.jpg">
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 item-top">
+                            <img class="animated bounceInDown" width="322" height="170" src="{{URL('')}}/assets/Frontend/Images/hoptac.jpg">
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 item-top">
+                            <img class="animated bounceInRight" width="322" height="170" src="{{URL('')}}/assets/Frontend/Images/TUVANNHIETTINHCHUYENNGHIEP.jpg">
                         </div>
                     </div>
                 </div>
-                <script type="text/javascript">
-                    $(document).ready(function () {
-                        var owlproductslide2 = $("#project-slide");
-                        owlproductslide2.owlCarousel({
-                            autoPlay: true,
-                            autoPlay: 5000,
-                            items: 4,
-                            slideSpeed: 1000,
-                            pagination: false,
-                            itemsDesktop: [1200, 4],
-                            itemsDesktopSmall: [980, 3],
-                            itemsTablet: [767, 2],
-                            itemsMobile: [480, 1]
-                        });
-                        $(".project-slide .nextlogo").click(function () {
-                            owlproductslide2.trigger('owl.next');
-                        })
-                        $(".project-slide .prevlogo").click(function () {
-                            owlproductslide2.trigger('owl.prev');
-                        })
-                    });
-                </script>
-                <!--End-->
-                <script type="text/javascript">
-                    window.ProjectNewSlides = 
-                    [
-                        @foreach($duanmoi as $value)
-                        {
-                            "Id": "{{$value->id}}",
-                            "Code": "{{$value->slug}}",
-                            "Name": "{{$value->title}}",
-                            "Image": "{{asset('')}}{{$value->image}}",
-                            "ImageThumbnai": "{{asset('')}}/{{$value->image}}",
-                            "Summary": "{!!$value->summary!!}",
-                            "Category": "Mới"
-                        },
-                        @endforeach
-
-                    ];
-                </script>
                 <section class="project-content clearfix">
                     <h1 class="title clearfix">
-                        <span>Tất Cả Dự Án</span>
+                        <span>Dự Án</span>
                     </h1>
                     <nav class="navbar navbar-default filter">
                         <ul class="display">
@@ -245,10 +187,8 @@
                             <span>Sắp xếp</span>
                             <select id="lbsort" onchange="window.location.href = this.options[this.selectedIndex].value">
                                 <option selected="selected" value="?sort=index&amp;order=asc">Mặc định</option>
-                                <option value="?sort=price&amp;order=asc">Gi&#225; tăng dần</option>
-                                <option value="?sort=price&amp;order=desc">Gi&#225; giảm dần</option>
-                                <option value="?sort=name&amp;order=asc">T&#234;n dự &#225;n: A to Z</option>
-                                <option value="?sort=name&amp;order=desc">T&#234;n dự &#225;n: Z to A</option>
+                                <option value="?sort=name&amp;order=asc">Tên dự án: A to Z</option>
+                                <option value="?sort=name&amp;order=desc">Tên dự án: Z to A</option>
                             </select>
                         </div>
                     </nav>
@@ -275,26 +215,56 @@
                         </div>
                     </div>
                 </section>
+                <div class='animatedParent' data-sequence='500'>
+    <h2 class='animated bounceInDown' data-id='1'>It Works!</h2>
+    <h2 class='animated bounceInDown' data-id='222'>This animation will start 500ms after</h2>
+    <h2 class='animated bounceInDown' data-id='3'>This animation will start 500ms after</h2>
+</div>
                 <section class="property-content clearfix">
                     <h1 class="title clearfix">
-                        <span>Sàn giao dịch nổi bật</span>
+                        <span>Tin Tức Về Các Dự Án Đang Triển Khai</span>
                     </h1>
+                    <nav class="navbar navbar-default filter">
+                        <ul class="display">
+                            <li id="grid" class="active grid"><a href="#" title="Grid"><i class="glyphicon glyphicon-th-list"></i></a></li>
+                            <li id="list" class="list"><a href="#" title="List"><i class="glyphicon glyphicon-th"></i></a></li>
+                        </ul>
+                        <div class="limit hidden-xs">
+                            <span>Tin tức/trang</span>
+                            <select id="lblimit" name="lblimit" onchange="window.location.href = this.options[this.selectedIndex].value">
+                                <option value="?limit=10">10</option>
+                                <option selected="selected" value="?limit=12">12</option>
+                                <option value="?limit=20">20</option>
+                                <option value="?limit=50">50</option>
+                                <option value="?limit=100">100</option>
+                                <option value="?limit=250">250</option>
+                                <option value="?limit=500">500</option>
+                            </select>
+                        </div>
+                        <div class="sort hidden-xs">
+                            <span>Sắp xếp</span>
+                            <select id="lbsort" onchange="window.location.href = this.options[this.selectedIndex].value">
+                                <option selected="selected" value="?sort=index&amp;order=asc">Mặc định</option>
+                                <option value="?sort=name&amp;order=asc">Tên tin tức: A to Z</option>
+                                <option value="?sort=name&amp;order=desc">Tên tin tức: Z to A</option>
+                            </select>
+                        </div>
+                    </nav>
                     <div class="property-tabs">
                         <div class="property-block property-list clearfix">
                             <div class="row">
                                 <div class="property-resize property-item-box clearfix">
-                                    @foreach($sangiaodichnoibat as $value)
+                                    @foreach($news as $value)
                                     <div class="property-item clearfix">
                                         <div class="image image-resize col-md-3 col-xs-12 col-sm-4">
-                                            <a href="{{route('getSanGiaoDichDetail',['slug'=>$value->slug])}}">
-                                            <img src="{{asset('')}}/uploads/san-giao-dich/{{$value->image}}" class="img-responsive" />
-                                    
+                                            <a href="{{route('getNewsDetail',['slug'=>$value->slug])}}">
+                                            <img src="{{asset('')}}/uploads/tin-tuc/{{$value->image}}" class="img-responsive" />
                                             </a>
                                             <span class="ribbon ribbon2">{{$value->type}}</span>
                                         </div>
                                         <div class="right-block col-md-9 col-xs-12 col-sm-8">
                                             <h2 class="name">
-                                                <a href="{{route('getSanGiaoDichDetail',['slug'=>$value->slug])}}">
+                                                <a href="{{route('getNewsDetail',['slug'=>$value->slug])}}">
                                                 {{$value->title}}
                                                 </a>
                                             </h2>
@@ -304,10 +274,10 @@
                                                     {{$value->summary}}
                                                 </p>
                                             </div>
-                                            <ul class="detail clearfix">
+                                            <!-- <ul class="detail clearfix">
                                                 <li><i class="fa fa-map-marker"></i><span> {{$value->address}}</span></li>
                                                 <li><i class="fa fa-dollar"></i><span>{{number_format($value->price, 0, ',', '.')}} (đ)</span></li>
-                                            </ul>
+                                                </ul> -->
                                         </div>
                                     </div>
                                     @endforeach
@@ -315,6 +285,7 @@
                             </div>
                         </div>
                     </div>
+                    <div class="center" style="margin-bottom: 20px;">{{$news->links()}}</div>
                 </section>
                 <link href="{{asset('')}}/assets/frontend/fancyBox/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" media="screen" />
                 <script src="{{asset('')}}/assets/frontend/fancyBox/jquery.fancybox.js" type="text/javascript"></script>
@@ -382,7 +353,7 @@
                         });
                     })
                 </script>
-@endsection
+                @endsection
             </div>
         </div>
     </div>

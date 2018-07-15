@@ -1,13 +1,13 @@
 @section('title')
-{{$sangiaodich->title}}@stop
+@if($sangiaodich){{$sangiaodich->title}}@endif @stop
 @section('seoDescription')
-{{$sangiaodich->seoDescription}}@stop
+@if($sangiaodich){{$sangiaodich->seoDescription}}@endif @stop
 @section('seoKeywords')
-{{$sangiaodich->seoKeywords}}@stop
+@if($sangiaodich){{$sangiaodich->seoKeywords}}@endif @stop
 @section('seoTitle')
-{{$sangiaodich->seoTitle}}@stop
+@if($sangiaodich){{$sangiaodich->seoTitle}}@endif @stop
 @section('url')
-{{route('getSanGiaoDichDetail',['slug'=>$sangiaodich->slug])}}@stop
+@if($sangiaodich){{route('getSanGiaoDichDetail',['slug'=>$sangiaodich->slug])}}@endif @stop
 @extends('frontend.general.master')
 @section('content')
 <div class="box-html">
@@ -27,7 +27,7 @@
                         </li>
                         <b></b> 
                         <li>&nbsp;&nbsp;<i class="fas fa-angle-double-right"></i><a href="{{route('getSanGiaoDich')}}" title=""> Sàn Giao Dịch</a></li><b></b> 
-                        <li>&nbsp;&nbsp;<i class="fas fa-angle-double-right"></i><strong>{{$sangiaodich->title}}</strong> </li>
+                        <li>&nbsp;&nbsp;<i class="fas fa-angle-double-right"></i><strong>@if($sangiaodich){{$sangiaodich->title}}@endif</strong> </li>
                     </ul>
                 </div>
                 <div class="property-detail clearfix">
@@ -38,31 +38,34 @@
                                 <div id="property-slider" class="flexslider property-slider">
                                     <ul class="slides">
                                         <li class="image">
-                                            <img src="{{url('')}}/uploads/san-giao-dich/{{$sangiaodich->image}}" class="img-responsive" />
+                                            @if($sangiaodich)<img src="{{url('')}}/uploads/san-giao-dich/{{$sangiaodich->image}}" class="img-responsive" />
+                                            @else
+                                            <img src="{{url('')}}/assets/frontend/Images/No_Image_Available.jpg" class="img-responsive" />
+                                            @endif
                                         </li>
                                     </ul>
                                 </div>
                             </div>
                             <div class="col-md-6 col-sm-12 col-xs-12 property-info">
-                                <h2 class="name">{{$sangiaodich->title}}</h2>
+                                <h2 class="name">@if($sangiaodich){{$sangiaodich->title}}@endif</h2>
                                 <ul>
                                     <li>
-                                        Giá:<label class="price">{{number_format($sangiaodich->price, 0, ',', '.')}} (đ)</label>
+                                        Giá:<label class="price">@if($sangiaodich){{number_format($sangiaodich->price, 0, ',', '.')}} (đ)@endif</label>
                                     </li>
                                     <li>
-                                        Ngày đăng:<label class="price"> {{date('d/m/Y',strtotime($sangiaodich->created_at))}} {{date('H:i',strtotime($sangiaodich->created_at))}}</label>
+                                        Ngày đăng:<label class="price">@if($sangiaodich){{date('d/m/Y',strtotime($sangiaodich->created_at))}} {{date('H:i',strtotime($sangiaodich->created_at))}}@endif</label>
                                     </li>
                                     <li>
-                                        Địa chỉ:<label>{{$sangiaodich->address}}</label>
+                                        Địa chỉ:<label>@if($sangiaodich){{$sangiaodich->address}}@endif</label>
                                     </li>
                                     <li>
-                                        Khu vực:<label>{{$sangiaodich->area}}</label>
+                                        Khu vực:<label>@if($sangiaodich){{$sangiaodich->area}}@endif</label>
                                     </li>
                                     <li>
-                                        Loại:<label>{{$sangiaodich->type}}</label>
+                                        Loại:<label>@if($sangiaodich){{$sangiaodich->type}}@endif</label>
                                     </li>
                                     <li>
-                                        Danh mục bất động sản:<label>{{$sangiaodich->category->title}}</label>
+                                        Danh mục bất động sản:<label>@if($sangiaodich){{$sangiaodich->category->title}}@endif</label>
                                     </li>
                                     <li>
                                         Người đăng:<label></label>
@@ -80,7 +83,7 @@
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane fade in active" id="tab1">
-                        {!!$sangiaodich->description!!}
+                        @if($sangiaodich){!!$sangiaodich->description!!}@endif
                     </div>
                     <div class="tab-pane fade" id="tab2">
                         tab 2
@@ -95,10 +98,10 @@
                         Thông tin người đăng
                     </h3>
                     <ul>
-                        <li>Đăng bởi : <label>{{$sangiaodich->userPostName}}</label></li>
-                        <li>Địa chỉ: <label>{{$sangiaodich->userPostAddress}}</label></li>
-                        <li>Điện thoại:<label> {{$sangiaodich->userPostPhone}}</label></li>
-                        <li>Email: <label>{{$sangiaodich->userPostEmail}}</label></li>
+                        <li>Đăng bởi : <label>@if($sangiaodich){{$sangiaodich->userPostName}}@endif</label></li>
+                        <li>Địa chỉ: <label>@if($sangiaodich){{$sangiaodich->userPostAddress}}@endif</label></li>
+                        <li>Điện thoại:<label> @if($sangiaodich){{$sangiaodich->userPostPhone}}@endif</label></li>
+                        <li>Email: <label>@if($sangiaodich){{$sangiaodich->userPostEmail}}@endif</label></li>
                     </ul>
                 </div>
                 <div class="share-social">

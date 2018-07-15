@@ -64,8 +64,11 @@
                         <li>&nbsp;&nbsp;<i class="fas fa-angle-double-right"></i><strong>{{$categoryNews->title}}</strong> </li>
                     </ul>
                 </div>
+
                 <div class="news-content">
-                    <h1 class="title"><span>Tin tức</span></h1>
+                    <h1 class="title"><span>Tin tức về {{$categoryNews->title}}</span></h1>
+                    {!!$categoryNews->description!!}<br>
+                    <div class="clearfix"></div>
                     <div class="news-block clearfix">
                         @foreach($newsCate as $value)
                         <div class="news-item clearfix">

@@ -2,13 +2,13 @@
 Tin Tức Bất Động Sản Tecco @stop
 
 @section('seoDescription')
-{{$config->seoDescription}}@stop
+@if($config){{$config->seoDescription}}@endif @stop
 
 @section('seoKeywords')
-{{$config->seoKeywords}}@stop
+@if($config){{$config->seoKeywords}}@endif @stop
 
 @section('seoTitle')
-{{$config->seoTitle}}@stop
+@if($config){{$config->seoTitle}}@endif @stop
 
 @section('url')
 {{route('getNewsFrontend')}}@stop
