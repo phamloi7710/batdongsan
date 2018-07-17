@@ -48,7 +48,14 @@
                         <ul class="nav child_menu">
                             <li><a href="{{route('getGeneralConfig')}}"> Cấu Hình Chung</a></li>
                             <li><a href="{{route('getEmailConfig')}}"> Cấu Hình Email</a></li>
-                             <li><a href=""> Cấu Hình Mạng Xã Hội </a></li>
+                             <li><a href="{{route('getEmailMangXaHoi')}}"> Cấu Hình Mạng Xã Hội </a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a><i class="fas fa-cogs"></i> Đối Tác <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="{{route('getListDoiTac')}}"> Danh Sách</a></li>
+                            <li><a href="{{route('getAddDoiTac')}}"> Thêm Mới</a></li>
                         </ul>
                     </li>
                     <li>

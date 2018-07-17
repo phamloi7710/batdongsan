@@ -14,8 +14,7 @@ Liên Hệ @stop
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <script src="http://maps.google.com/maps/api/js?key=AIzaSyBO93-_2pxx4UBTNduADxfoWpsFrHAFKsA&amp;sensor=true" type="text/javascript"></script>
-                <div class="contact-content clearfix ng-scope" ng-controller="contactController" ng-init="initController('Shop','Maps')">
+                <div class="contact-content clearfix">
                     <h1 class="title">
                         <span>
                         Thông tin liên hệ
@@ -79,7 +78,7 @@ Liên Hệ @stop
                                         </div>
                                         <div class="form-group input-group">
                                             <span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span>
-                                            <input name="txtAddress" type="text" placeholder="Địa chỉ" class="form-control">
+                                            <input name="txtAddress" type="text" placeholder="Địa chỉ" class="form-control" required="required">
                                         </div>
                                         <div class="form-group input-group">
                                             <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
@@ -102,7 +101,7 @@ Liên Hệ @stop
                             </div>
                             <div class="col-md-6 col-sm-12 col-xs-12">
                                 <div class="map clearfix">
-                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2365.5430882569685!2d106.70546397160712!3d10.751674202199766!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f7140dfb737%3A0xa870595fccbcd871!2zQ8O0bmcgVHkgVG5oaCBUbWR2IFbhuq1uIFThuqNpIEjhu5NuZyBWw6Ju!5e0!3m2!1svi!2s!4v1531620456298" width="600" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3282.6878730301605!2d105.6732928816554!3d18.684031714819074!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3139ce6d301b08bb%3A0x4110adc89f69cbda!2zU8OgbiBHRCBC4bqldCDEkOG7mW5nIFPhuqNuIFRFQ0NPIC0gU-G7kSAyMTUgTMOqIEzhu6Np!5e0!3m2!1svi!2s!4v1531790033210" width="600" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
                                     <!-- ngIf: Maps.length>1 -->
                                 </div>
                             </div>

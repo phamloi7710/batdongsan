@@ -52,14 +52,35 @@
                         "Id": 492,
                         "ShopId": 108,
                         "Name": "1",
-                        "Image": "http://runecom12.runtime.vn/Uploads/shop107/images/slide-one.jpg",
+                        "Image": "{{url('')}}/assets/frontend/Images/banner-slide4.jpg",
                         "Link": "#",
                     },
                     {
                         "Id": 492,
                         "ShopId": 108,
                         "Name": "1",
-                        "Image": "http://runecom12.runtime.vn/Uploads/shop107/images/slide-one.jpg",
+                        "Image": "{{url('')}}/assets/frontend/Images/banner-slide0.jpg",
+                        "Link": "#",
+                    },
+                    {
+                        "Id": 492,
+                        "ShopId": 108,
+                        "Name": "1",
+                        "Image": "{{url('')}}/assets/frontend/Images/banner-slide3.jpg",
+                        "Link": "#",
+                    },
+                    {
+                        "Id": 492,
+                        "ShopId": 108,
+                        "Name": "1",
+                        "Image": "{{url('')}}/assets/frontend/Images/banner-slide33-3.jpg",
+                        "Link": "#",
+                    },
+                    {
+                        "Id": 492,
+                        "ShopId": 108,
+                        "Name": "1",
+                        "Image": "{{url('')}}/assets/frontend/Images/banner-slide2.jpg",
                         "Link": "#",
                     },
                 ];
@@ -215,11 +236,6 @@
                         </div>
                     </div>
                 </section>
-                <div class='animatedParent' data-sequence='500'>
-    <h2 class='animated bounceInDown' data-id='1'>It Works!</h2>
-    <h2 class='animated bounceInDown' data-id='222'>This animation will start 500ms after</h2>
-    <h2 class='animated bounceInDown' data-id='3'>This animation will start 500ms after</h2>
-</div>
                 <section class="property-content clearfix">
                     <h1 class="title clearfix">
                         <span>Tin Tức Về Các Dự Án Đang Triển Khai</span>

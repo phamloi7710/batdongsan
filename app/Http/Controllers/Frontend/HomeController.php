@@ -17,7 +17,7 @@ class HomeController extends Controller
     {
         $duanmoi = DuAn::where('status','active')->where('new','true')->get();
     	$news = News::where('status','active')->orderBy('sort','ASC');
-        $news = $news->paginate(1);
+        $news = $news->paginate(10);
     	$category = Category::where('status','active')->get();
     	$duan = DuAn::where('status','active')->get();
     	$tinh = Province::all();

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\Config;
 use App\Model\Email;
+use App\Model\MangXaHoi;
 use Session;
 use Validator;
 use Illuminate\Support\Facades\Input;
@@ -221,6 +222,43 @@ class ConfigController extends Controller
             //throw $e;
             $request->session()->flash('error', 'Cập Nhật Không Thành Công!');
             return redirect()->route('getEmailConfig');
+        }
+    }
+    public function getMangXaHoi()
+    {
+         $mangxahoi = MangXaHoi::where('id', '>', 0)->first();
+        return view('admin.pages.config.mangxahoi',['mangxahoi'=>$mangxahoi]);
+    }
+    public function postMangXaHoi(Request $request)
+    {
+        try {
+            $pSets = MangXaHoi::all()->count();
+
+            if($pSets > 0) {
+                $mangxahoi = MangXaHoi::where('id', '>', 0)->first();
+                $mangxahoi->facebook = $request->txtFacebook;
+                $mangxahoi->youtube = $request->txtYoutube;
+                $mangxahoi->google = $request->txtGoogle;
+                $mangxahoi->twitter = $request->txtTwitter;
+                $mangxahoi->save();
+                
+                
+            } else {
+                $mangxahoi = new MangXaHoi;
+                $mangxahoi->facebook = $request->txtFacebook;
+                $mangxahoi->youtube = $request->txtYoutube;
+                $mangxahoi->google = $request->txtGoogle;
+                $mangxahoi->twitter = $request->txtTwitter;
+                $mangxahoi->save();
+                
+
+            }
+            return redirect()->back()->with('success','Cập Nhật Thành Công');
+
+        } catch (\Exception $e) {
+            //throw $e;
+            $request->session()->flash('error', 'Cập Nhật Không Thành Công!');
+            return redirect()->route('getMangXaHoi');
         }
     }
 }

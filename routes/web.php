@@ -58,6 +58,16 @@ Route::group(['prefix'=>'admin','middleware' => 'checkRole'],function(){
 		Route::post('thong-tin-chung.html','Admin\ConfigController@postGeneralConfig')->name('postGeneralConfig');
 		Route::get('email.html','Admin\ConfigController@getEmailConfig')->name('getEmailConfig');
 		Route::post('email.html','Admin\ConfigController@postEmailConfig')->name('postEmailConfig');
+		Route::get('mang-xa-hoi.html','Admin\ConfigController@getMangXaHoi')->name('getEmailMangXaHoi');
+		Route::post('mang-xa-hoi.html','Admin\ConfigController@postMangXaHoi')->name('postEmailMangXaHoi');
+	});
+	Route::group(['prefix'=>'doi-tac'], function(){
+		Route::get('danh-sach.html','Admin\DoiTacController@getList')->name('getListDoiTac');
+		Route::get('them-moi.html','Admin\DoiTacController@getAdd')->name('getAddDoiTac');
+		Route::post('them-moi.html','Admin\DoiTacController@postAdd')->name('postAddDoiTac');
+		Route::get('chinh-sua/{id}','Admin\DoiTacController@getEdit')->name('getEditDoiTac');
+		Route::post('chinh-sua/{id}','Admin\DoiTacController@postEdit')->name('postEditDoiTac');
+		Route::get('xoa/{id}','Admin\DoiTacController@getXoa')->name('getDeleteDoiTac');
 	});
 	Route::group(['prefix'=>'tin-tuc'], function(){
 		Route::get('danh-muc.html','Admin\NewsController@getlistNewsCategories')->name('getlistNewsCategories');

@@ -193,17 +193,4 @@ Sửa Tin Tức
         </div>
     </div>
 </div>
-<script>
-    $(document).ready(function(){
-        var domain = "";
-        $('.lfm').filemanager('image', {prefix: domain});
-        var lfm = function(options, cb) {
-            var route_prefix = (options && options.prefix) ? options.prefix : '/admin/quan-ly-hinh-anh';
-            window.open(route_prefix + '?type=' + options.type || 'file', 'FileManager', 'width=900,height=600');
-            window.SetUrl = cb;
-        }
-        lfm({type: 'image', prefix: 'prefix'}, function(url, path) {
-        });
-    });
- </script>
 @endsection

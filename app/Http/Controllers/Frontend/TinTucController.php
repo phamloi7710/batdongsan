@@ -22,7 +22,9 @@ class TinTucController extends Controller
 	}
     public function getNews()
     {
-    	return view('frontend.pages.tintuc');
+        $news = News::where('status','active')->orderBy('sort','ASC');
+        $news = $news->paginate(10);
+    	return view('frontend.pages.tintuc',['news'=>$news]);
     }
     public function getDetail($slug)
     {

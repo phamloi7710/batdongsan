@@ -16,8 +16,8 @@
                                 </div>
                                 <div class="partner-block">
                                     <div class="partner-item" ng-repeat="item in Partners">
-                                        <a href="@{{item.Link}}" target="_blank" title="@{{item.Name}}">
-                                            <img ng-src="@{{item.Logo}}" alt="@{{item.Name}}" class="img-responsive" />
+                                        <a href="@{{item.Url}}" target="_blank" title="@{{item.Title}}">
+                                            <img ng-src="@{{item.Image}}" alt="@{{item.Title}}" class="img-responsive" />
                                         </a>
                                     </div>
                                 </div>
@@ -47,39 +47,15 @@
                             </script>
                             <!--End-->
                             <script type="text/javascript">
-                                window.Partners = [{
-    "Id": 41,
-    "ShopId": 108,
-    "Name": "ssd",
-    "Link": "#",
-    "Logo": "http://runecom12.runtime.vn/Uploads/shop107/images/partner/logo-4.png",
-    "Index": 1,
-    "Inactive": false
-}, {
-    "Id": 42,
-    "ShopId": 108,
-    "Name": "22",
-    "Link": "#",
-    "Logo": "http://runecom12.runtime.vn/Uploads/shop107/images/partner/logo-4.png",
-    "Index": 2,
-    "Inactive": false
-}, {
-    "Id": 43,
-    "ShopId": 108,
-    "Name": "edg",
-    "Link": "#",
-    "Logo": "http://runecom12.runtime.vn/Uploads/shop107/images/partner/logo-4.png",
-    "Index": 3,
-    "Inactive": false
-}, {
-    "Id": 44,
-    "ShopId": 108,
-    "Name": "Ff",
-    "Link": "#",
-    "Logo": "http://runecom12.runtime.vn/Uploads/shop107/images/partner/logo-4.png",
-    "Index": 4,
-    "Inactive": false
-}];
+                                window.Partners = [
+                                @foreach($doitac as $value)
+                                        {
+                                            "Title": "{{$value->title}}",
+                                            "Url": "{{$value->url}}",
+                                            "Image": "{{url('')}}/uploads/doi-tac/{{$value->image}}"
+                                        },
+                                @endforeach
+                                    ];
                             </script>                        
                         </div>
                     </div>
@@ -115,10 +91,10 @@
                                     </h3>
                                     <div class="social-icon">
                                         <ul>
-                                            <li><a href="" target="_blank"><i class="fab fa-google-plus-square"></i></a></li>
-                                            <li><a href="" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-                                            <li><a href="" target="_blank"><i class="fab fa-youtube"></i></a></li>
-                                            <li><a href="" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                                            <li><a href="@if($mangxahoi){{$mangxahoi->google}}@endif" target="_blank"><i class="fab fa-google-plus-square"></i></a></li>
+                                            <li><a href="@if($mangxahoi){{$mangxahoi->facebook}}@endif" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                                            <li><a href="@if($mangxahoi){{$mangxahoi->youtube}}@endif" target="_blank"><i class="fab fa-youtube"></i></a></li>
+                                            <li><a href="@if($mangxahoi){{$mangxahoi->twitter}}@endif" target="_blank"><i class="fab fa-twitter"></i></a></li>
                                         </ul>
                                     </div>
                                 </div>

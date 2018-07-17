@@ -46,6 +46,15 @@
         
         
     </head>
+    <script>
+        $(function() {
+    $('marquee').mouseover(function() {
+        $(this).attr('scrollamount',0);
+    }).mouseout(function() {
+         $(this).attr('scrollamount',5);
+    });
+});
+    </script>
     <body ng-app="appMain" style="">
         <div class="wrapper page-home">
             <div class="header">
@@ -56,6 +65,10 @@
                                 <ul class="nav navbar-nav topmenu-contact pull-left">
                                     <li><i class="fa fa-phone"></i> <span>Hotline: @if($config) {{$config->hotline}} @endif</span></li>
                                 </ul>
+                                <marquee class="pull-right" behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();" style="line-height: 40px; font-size: 13px;" width="50%">@foreach($duan as $value)
+                                        <a style="color: #fff;" href="{{route('getDuAnDetail',['slug'=>$value->slug])}}">{{$value->title}}</a>&emsp;&emsp;&emsp;&emsp;&emsp;
+                                    @endforeach
+                                        </marquee>
                             </div>
                         </div>
                     </div>
@@ -85,7 +98,6 @@
                                                 <li class="level0"><a href="{{route('getIndexFrontend')}}"><span>Trang chủ</span></a></li>
                                                 <li class="level0"><a href="{{route('getDuAn')}}"><span>Dự án</span></a></li>
                                                 <li class="level0"><a href="{{route('getNewsFrontend')}}"><span>Tin tức</span></a></li>
-                                                <li class="level0"><a href="ẻb "><span>Giới thiệu</span></a></li>
                                                 <li class="level0"><a href="{{route('getLienHe')}} "><span>Liên hệ</span></a></li>
                                                <!--  <li class="level0"><a href="{{route('getSanGiaoDich')}}"><span>Sàn giao dịch</span></a></li> -->
                                             </ul class='menu nav navbar-nav'>

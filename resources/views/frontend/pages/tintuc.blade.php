@@ -85,6 +85,7 @@ Tin Tức Bất Động Sản Tecco @stop
                         @endforeach
                     </div>
                 </div>
+                <div class="center" style="margin-bottom: 20px;">{{$news->links()}}</div>
             </div>
         </div>
     </div>
